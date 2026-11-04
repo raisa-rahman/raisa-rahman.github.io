@@ -1,0 +1,441 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Raisa Rahman Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Raisa Rahman: UX researcher and designer. Case studies in user research, interaction design and Human-AI Interaction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a research notebook. Dotted canvas like a FigJam board, one narrow reading column,
+   with marker-highlight used sparingly for the words that carry each finding. */
+:root{
+  --bg:#F6F7F4;          /* paper with a faint green-grey bias */
+  --surface:#FFFFFF;
+  --ink:#1C232B;
+  --muted:#5B6570;
+  --line:#DCE0DA;
+  --dot:#D3D8D0;
+  --accent:#1F6F68;      /* deep teal: links, markers */
+  --mark:#FCE38A;        /* sticky-note yellow, used as highlighter */
+  --note-pink:#F9C9DC; --note-lilac:#DCCDF6; --note-blue:#C6DDF7; --note-mint:#C4EBDD;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#13171B; --surface:#1B2026; --ink:#E7EAE6; --muted:#9AA4AC; --line:#2C333A; --dot:#2A3138;
+    --accent:#6FCFC3; --mark:#6B5A12;
+    --note-pink:#5A2E40; --note-lilac:#40355E; --note-blue:#2B4562; --note-mint:#24503F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#13171B; --surface:#1B2026; --ink:#E7EAE6; --muted:#9AA4AC; --line:#2C333A; --dot:#2A3138;
+  --accent:#6FCFC3; --mark:#6B5A12;
+  --note-pink:#5A2E40; --note-lilac:#40355E; --note-blue:#2B4562; --note-mint:#24503F;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+body{
+  background-color:var(--bg);
+  background-image:radial-gradient(var(--dot) 1px, transparent 1.4px);
+  background-size:22px 22px;
+  color:var(--ink); font-family:var(--body); font-size:1.0625rem; line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+}
+a{color:var(--accent); text-underline-offset:3px}
+a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+.wrap{max-width:46rem; margin:0 auto; padding-block:3.5rem 4rem}
+.wide{max-width:64rem; margin-inline:auto}
+h1,h2,h3{font-family:var(--display); text-wrap:balance; line-height:1.12; margin:0}
+h1{font-size:clamp(2.4rem, 7vw, 3.8rem); font-weight:700; letter-spacing:-0.02em}
+h2{font-size:clamp(1.6rem, 4vw, 2.1rem); font-weight:700; letter-spacing:-0.01em}
+h3{font-size:1.2rem; font-weight:700}
+p{margin:0}
+.label{font-family:var(--mono); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+mark{background:linear-gradient(transparent 38%, var(--mark) 38%, var(--mark) 92%, transparent 92%); color:inherit; padding:0 .1em}
+.stack{display:flex; flex-direction:column; gap:1rem}
+.section{display:flex; flex-direction:column; gap:1.1rem; padding-top:3.5rem}
+
+/* top bar */
+.top{display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; max-width:64rem; margin:0 auto; padding-top:1.25rem}
+.top .name{font-family:var(--display); font-weight:700; font-size:1.05rem; text-decoration:none; color:var(--ink)}
+.top nav{display:flex; gap:1.25rem; font-size:.95rem}
+.top nav a{color:var(--muted); text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+
+/* home hero */
+.hero{display:flex; flex-direction:column; gap:1.4rem; padding-top:2.5rem}
+.hero .lede{font-size:1.25rem; max-width:38rem}
+.facts{display:flex; flex-wrap:wrap; gap:.5rem}
+.chip{font-family:var(--mono); font-size:.78rem; padding:.3rem .65rem; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--ink)}
+
+/* project card */
+.project{display:grid; grid-template-columns:1.1fr 1fr; gap:0; background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; text-decoration:none; color:inherit; transition:transform .2s ease, box-shadow .2s ease}
+.project:hover{transform:translateY(-2px); box-shadow:0 10px 30px -18px rgba(0,0,0,.35)}
+.project .shot{background:var(--note-blue); display:flex; align-items:flex-end; justify-content:center; padding:1.25rem 1rem 0; min-height:15rem; overflow:hidden}
+.project .shot img{width:100%; max-width:26rem; display:block; border-radius:6px 6px 0 0}
+.project .info{padding:1.6rem; display:flex; flex-direction:column; gap:.8rem; min-width:0}
+.project .go{font-weight:600; color:var(--accent); margin-top:auto}
+.soon{color:var(--muted); font-size:.95rem}
+
+/* case study */
+.back{font-size:.95rem; text-decoration:none}
+.meta{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:1rem; padding:1.1rem 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.meta div{display:flex; flex-direction:column; gap:.2rem; min-width:0}
+.meta span:last-child{font-size:.95rem}
+figure{margin:0; display:flex; flex-direction:column; gap:.6rem}
+figure img{display:block; width:100%; border-radius:8px; border:1px solid var(--line); background:#fff}
+figcaption{font-size:.9rem; color:var(--muted)}
+.zoom{cursor:zoom-in}
+
+.steps{list-style:none; margin:0; padding:0; display:grid; gap:.75rem; counter-reset:s}
+.steps li{display:grid; grid-template-columns:2rem 1fr; gap:.5rem; counter-increment:s}
+.steps li::before{content:counter(s); font-family:var(--mono); font-size:.85rem; width:1.6rem; height:1.6rem; display:grid; place-items:center; border-radius:50%; background:var(--ink); color:var(--bg); margin-top:.15rem}
+
+/* findings as sticky notes */
+.notes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem}
+.note{padding:1.1rem 1.15rem 1.2rem; border-radius:4px; display:flex; flex-direction:column; gap:.5rem; box-shadow:0 1px 0 rgba(0,0,0,.06), 0 6px 14px -10px rgba(0,0,0,.4); min-width:0}
+.note:nth-child(1){background:var(--note-pink); transform:rotate(-.6deg)}
+.note:nth-child(2){background:var(--note-lilac); transform:rotate(.5deg)}
+.note:nth-child(3){background:var(--note-blue); transform:rotate(.4deg)}
+.note:nth-child(4){background:var(--note-mint); transform:rotate(-.4deg)}
+.note h3{font-size:1.05rem}
+.note p{font-size:.95rem}
+.note q{font-style:italic}
+
+/* requirements traced to participants */
+.reqs{display:flex; flex-direction:column; border-top:1px solid var(--line)}
+.req{display:grid; grid-template-columns:1fr auto; gap:.4rem 1rem; padding:.85rem 0; border-bottom:1px solid var(--line); align-items:baseline}
+.req strong{font-weight:600}
+.req p{grid-column:1 / -1; font-size:.95rem; color:var(--muted)}
+.src{display:flex; gap:.3rem; flex-wrap:wrap; justify-content:flex-end}
+.pid{font-family:var(--mono); font-size:.72rem; padding:.1rem .4rem; border-radius:4px; background:var(--ink); color:var(--bg)}
+
+.pair{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:1.25rem; align-items:start}
+
+/* wireframe viewer */
+.viewer{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1rem; display:flex; flex-direction:column; gap:1rem}
+.tabs{display:flex; gap:.4rem; flex-wrap:wrap}
+.tabs button{font:500 .85rem var(--mono); padding:.45rem .7rem; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.viewer img{border:none}
+.viewer .cap{display:flex; flex-direction:column; gap:.3rem}
+.viewer .cap p{font-size:.95rem}
+
+.tasks{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem}
+.task{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem; display:flex; flex-direction:column; gap:.45rem; min-width:0}
+.task p{font-size:.93rem}
+.task .label{color:var(--accent)}
+
+.callout{border-left:3px solid var(--accent); padding:.2rem 0 .2rem 1rem; color:var(--ink)}
+.tags{display:flex; flex-wrap:wrap; gap:.4rem}
+
+footer{max-width:64rem; margin:0 auto; padding-block:2.5rem 3rem; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; font-size:.95rem; color:var(--muted)}
+.contact{display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center}
+.email{font-family:var(--mono); font-size:.9rem; color:var(--ink); user-select:all}
+.copy{font:500 .8rem var(--mono); padding:.3rem .6rem; border-radius:6px; border:1px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer}
+
+/* lightbox */
+.lb{position:fixed; inset:0; background:rgba(10,12,14,.88); display:flex; align-items:center; justify-content:center; padding:calc(1rem + env(safe-area-inset-top,0px)) max(1rem, env(safe-area-inset-right,0px)) calc(1rem + env(safe-area-inset-bottom,0px)) max(1rem, env(safe-area-inset-left,0px)); z-index:20; overflow:auto}
+.lb img{max-width:100%; max-height:100%; border-radius:6px; background:#fff}
+.lb button{position:fixed; top:calc(1rem + env(safe-area-inset-top,0px)); right:max(1rem, env(safe-area-inset-right,0px)); font:500 .85rem var(--mono); padding:.5rem .8rem; border-radius:6px; border:0; background:#fff; color:#111; cursor:pointer}
+
+@media (max-width: 760px){
+  .project{grid-template-columns:1fr}
+  .meta{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .notes, .tasks, .pair{grid-template-columns:1fr}
+  .note{transform:none !important}
+}
+@media (prefers-reduced-motion: reduce){ .project{transition:none} .project:hover{transform:none} }
+</style>
+
+<header class="top">
+  <a class="name" href="#">Raisa Rahman</a>
+  <nav aria-label="Main">
+    <a href="#">Work</a>
+    <a href="#about" data-scroll="about">About</a>
+    <a href="#contact" data-scroll="contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<main id="view-home" class="wrap wide">
+  <section class="hero">
+    <span class="label">UX research · Interaction design · Human-AI Interaction</span>
+    <h1>I design technology around how people <mark>actually work</mark>.</h1>
+    <p class="lede">I'm a UX researcher and designer with a First Class Computer Science degree, now studying for an MSc in Human-Computer Interaction at UCL. For three years I've worked alongside NHS trusts at a healthcare technology consultancy, so I've seen what happens when systems don't fit the people using them.</p>
+    <div class="facts">
+      <span class="chip">MSc HCI, UCL</span>
+      <span class="chip">BSc Computer Science, First Class</span>
+      <span class="chip">3 years with NHS trusts</span>
+      <span class="chip">London</span>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="work-h">
+    <span class="label" id="work-h">Selected work</span>
+    <a class="project" href="#studybuddy">
+      <div class="shot"><img src="img/w1-dashboard.jpg" alt="StudyBuddy dashboard wireframe on a phone, with annotations"></div>
+      <div class="info">
+        <span class="label">Mobile app · User research and design</span>
+        <h2>StudyBuddy</h2>
+        <p>Students told me the hardest part of studying is starting. I interviewed seven of them, mapped where their sessions break down, and designed an app that takes them from a daunting deadline to a focused session.</p>
+        <div class="tags">
+          <span class="chip">Interviews</span><span class="chip">Thematic analysis</span><span class="chip">Persona</span><span class="chip">Journey map</span><span class="chip">Figma</span>
+        </div>
+        <span class="go">Read the case study →</span>
+      </div>
+    </a>
+    <p class="soon">More case studies are on the way.</p>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-h">
+    <span class="label" id="about-h">About</span>
+    <h2>Research-led, technical enough to build it</h2>
+    <div class="stack">
+      <p>I'm most interested in how people trust and rely on technology, especially AI, in settings where getting it wrong matters, like healthcare. My MSc covers interaction design, research methods and Human-AI Interaction.</p>
+      <p>At work, I support NHS hospital systems and the data that moves between them. That's taught me to trace problems to their root cause, listen carefully to frustrated users, and explain technical issues in plain language. It's also why I can prototype in code and talk comfortably with engineers.</p>
+      <p>Outside work, I've led charity fundraising teams, taught children as a teaching assistant, and taught myself guitar and ukulele.</p>
+    </div>
+  </section>
+</main>
+
+<!-- CASE STUDY: STUDYBUDDY -->
+<main id="view-studybuddy" class="wrap" hidden>
+  <a class="back" href="#">← All work</a>
+
+  <section class="hero">
+    <span class="label">Case study · Mobile app · 2026</span>
+    <h1>StudyBuddy</h1>
+    <p class="lede">An app that helps university students get from <mark>planning to actually studying</mark>, built on interviews with seven students.</p>
+    <div class="meta">
+      <div><span class="label">My role</span><span>Sole researcher and designer</span></div>
+      <div><span class="label">Context</span><span>BSc module, User-Centred System Design</span></div>
+      <div><span class="label">Methods</span><span>Interviews, walkthroughs, thematic analysis</span></div>
+      <div><span class="label">Tools</span><span>MS Teams, FigJam, Figma</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="label">The problem</span>
+    <h2>Students plan well and still don't start</h2>
+    <p>Students juggle deadlines, crowded campuses and constant digital distraction. Plenty of tools help them plan, but few help with the moment that matters: sitting down and starting. I wanted to understand where study sessions really break down, then design for those moments.</p>
+  </section>
+
+  <section class="section">
+    <span class="label">Research</span>
+    <h2>Seven interviews, each with a walkthrough</h2>
+    <p>I ran semi-structured interviews over MS Teams with seven undergraduates from different subjects, including physics, economics, radiography, psychology and law. In each session, participants also walked me through a recent study session and the tools they used, thinking aloud as they went. That gave me evidence of what they actually do, not just what they say they do.</p>
+    <ol class="steps">
+      <li><span><strong>Transcribe and familiarise.</strong> I reviewed transcripts alongside the recordings to catch gestures and screen-sharing.</span></li>
+      <li><span><strong>Code line by line.</strong> I tagged recurring pain points and motivations.</span></li>
+      <li><span><strong>Build an affinity diagram.</strong> In FigJam, I grouped the codes into themes that cut across participants.</span></li>
+      <li><span><strong>Turn themes into requirements.</strong> Every requirement traces back to the participants who raised it.</span></li>
+    </ol>
+    <figure>
+      <img class="zoom" src="img/affinity-diagram.jpg" alt="FigJam affinity diagram with sticky notes grouped into five columns: planning and task prioritisation, environmental and physical comfort, focus and distraction management, evaluation of success and closure, and desired app features" loading="lazy">
+      <figcaption>Affinity diagram from the interview codes, grouped into five themes. Tap to enlarge.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <span class="label">What I found</span>
+    <h2>Four things get in the way</h2>
+    <div class="notes">
+      <div class="note">
+        <span class="label">Theme 1</span>
+        <h3>Big tasks trigger avoidance</h3>
+        <p>A task like "10 topics" felt so daunting that students avoided it, sometimes for an hour. Long, unbroken study blocks caused instant fatigue.</p>
+      </div>
+      <div class="note">
+        <span class="label">Theme 2</span>
+        <h3>"Space anxiety"</h3>
+        <p>Students couldn't rely on finding a quiet desk or a working socket on campus. One described the <q>faffing around</q> that kills momentum and pushes them to study at home.</p>
+      </div>
+      <div class="note">
+        <span class="label">Theme 3</span>
+        <h3>One missed session ripples</h3>
+        <p>When plans slipped, current tools made rescheduling so hard that one missed session snowballed into an overwhelming backlog.</p>
+      </div>
+      <div class="note">
+        <span class="label">Theme 4</span>
+        <h3>Pretty plans take effort</h3>
+        <p>Students found attractive plans motivating, but one spent ages drawing timetables by hand. Others went back to paper because apps were slow to fill in.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="label">Requirements</span>
+    <h2>Every feature traces back to a participant</h2>
+    <div class="reqs">
+      <div class="req"><strong>Break big tasks into 20–30 minute goals</strong><span class="src"><span class="pid">P3</span><span class="pid">P6</span><span class="pid">P7</span></span><p>Lowers the barrier to starting.</p></div>
+      <div class="req"><strong>Live campus space status</strong><span class="src"><span class="pid">P1</span><span class="pid">P3</span><span class="pid">P5</span><span class="pid">P6</span></span><p>Filter study spaces by noise level and working sockets before leaving home.</p></div>
+      <div class="req"><strong>Automatic rescheduling</strong><span class="src"><span class="pid">P3</span><span class="pid">P7</span></span><p>Recalculates the plan when a session is missed, so guilt doesn't build into a backlog.</p></div>
+      <div class="req"><strong>Low-effort visual themes</strong><span class="src"><span class="pid">P1</span><span class="pid">P6</span></span><p>Keeps the motivation of a beautiful plan without the drawing time.</p></div>
+      <div class="req"><strong>Opt-in focus mode that blocks apps</strong><span class="src"><span class="pid">P2</span><span class="pid">P3</span><span class="pid">P5</span></span><p>Locks distracting social media during a session.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="label">Synthesis</span>
+    <h2>Meet Zainab, the last-minute power user</h2>
+    <div class="pair">
+      <figure>
+        <img class="zoom" src="img/persona.jpg" alt="Persona poster for Zainab Malik, a 22-year-old final-year undergraduate who commutes to London and studies 12 to 30 hours a week" loading="lazy">
+        <figcaption>Persona built from the themes, not from demographics. Tap to enlarge.</figcaption>
+      </figure>
+      <div class="stack">
+        <p>Zainab is a composite of the behaviour patterns I found: she works best when a deadline creates urgency, needs the right environment to focus, and finds complex apps clunky.</p>
+        <p>I left out demographic details that didn't affect her needs, so the persona stays a tool for design decisions rather than a stereotype.</p>
+        <p class="callout">"I just need a quiet organised space with natural light where I can lock in."</p>
+      </div>
+    </div>
+    <figure>
+      <img class="zoom" src="img/journey-map.jpg" alt="Current user journey map across five stages: planning, choosing a place to study, getting started, focused study, and finishing, with actions, decision points, pain points, emotions and opportunities" loading="lazy">
+      <figcaption>Zainab's current journey through a study session, from overwhelmed to exhausted. The biggest emotional drops are at getting started and finishing. Tap to enlarge.</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <span class="label">Design</span>
+    <h2>One journey, six screens</h2>
+    <p>I mapped a single journey, from seeing a deadline to finishing a session and recovering the week's plan, then designed six annotated wireframes along it. Each annotation links a design choice to a research finding or a usability principle.</p>
+    <figure>
+      <img class="zoom" src="img/user-flow.jpg" alt="User flow diagram in four phases: planning and breaking down tasks, choosing a study space, starting a focused session, and finishing with adaptive rescheduling" loading="lazy">
+      <figcaption>User flow across four phases, including what happens when a building is full or a task isn't finished. Tap to enlarge.</figcaption>
+    </figure>
+
+    <div class="viewer" id="viewer">
+      <div class="tabs" role="tablist" aria-label="Wireframes"></div>
+      <figure>
+        <img class="zoom" id="wf-img" src="img/w1-dashboard.jpg" alt="">
+      </figure>
+      <div class="cap">
+        <h3 id="wf-title"></h3>
+        <p id="wf-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="label">Evaluation plan</span>
+    <h2>How I'd test it</h2>
+    <p>I planned a moderated usability test with five students who match Zainab's profile, run in a usability lab with screen and gesture recording. I'd measure task completion, time on task and errors, alongside think-aloud comments and a System Usability Scale questionnaire.</p>
+    <div class="tasks">
+      <div class="task"><span class="label">Task 1</span><h3>Plan</h3><p>Break a 30% essay into 20-minute chunks for a low-energy day.</p><p><strong>Success:</strong> a plan within 60 seconds.</p></div>
+      <div class="task"><span class="label">Task 2</span><h3>Find a space</h3><p>Find a silent library desk with a working socket.</p><p><strong>Success:</strong> correct filters and a building with free seats.</p></div>
+      <div class="task"><span class="label">Task 3</span><h3>Recover</h3><p>Fit yesterday's missed task into the coming week.</p><p><strong>Success:</strong> confirms the new schedule without hesitating.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="label">Using AI responsibly</span>
+    <h2>Where AI helped, and where I checked it</h2>
+    <p>I used Google Gemini to draft anonymised interview summaries, then checked each one against the original transcript and corrected it. I used Figma AI to generate the background images for the theme and audio options on two screens. Everything else, including the analysis, I did by hand.</p>
+  </section>
+
+  <section class="section">
+    <span class="label">Next step</span>
+    <h2>What I'd do next</h2>
+    <p>The usability test above is planned but not yet run. The next step is to build a clickable high-fidelity prototype, run it with five students, and use the results to refine the task breakdown and rescheduling screens, which carry the riskiest assumptions.</p>
+    <p><a href="#">← Back to all work</a></p>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="contact">
+    <span class="email" id="email">raisa2003raisa@hotmail.com</span>
+    <button class="copy" type="button" id="copy-email">Copy email</button>
+    <a href="https://www.linkedin.com/in/raisa-r-274692229" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/raisa-rahman" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <span>© 2026 Raisa Rahman</span>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button type="button" id="lb-close">Close</button>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+const wireframes = [
+  {id:"W1", file:"w1-dashboard.jpg", title:"W1 · Dashboard and task entry",
+   text:"The next deadline sits at the top with its grade weighting, so students can prioritise without remembering it. The Start Session button stays disabled until a task is chosen, which prevents empty sessions.",
+   alt:"Annotated wireframe of the motivation dashboard showing the next deadline, task entry, environment choice and a start session button"},
+  {id:"W2", file:"w2-decomposition.jpg", title:"W2 · Breaking down the task",
+   text:"AI splits a daunting assignment into small chunks. An energy slider changes how many chunks there are and how long they last. Students can rename or resize any chunk, so they stay in control of the AI's plan.",
+   alt:"Annotated wireframe of an assignment broken into sub-tasks, with an energy slider, syllabus import and task editing"},
+  {id:"W3", file:"w3-facility-map.jpg", title:"W3 · Finding a study space",
+   text:"A campus map with filters for silent zones and working sockets, and live seat counts on each building. Details appear in a bottom sheet only when needed, keeping the map clear.",
+   alt:"Annotated wireframe of a campus map with filter chips, live desk counts per floor and a building detail card"},
+  {id:"W4", file:"w4-focus-setup.jpg", title:"W4 · Setting up focus",
+   text:"Students choose a visual theme and a focus level, and pick which apps to block. When hard-block is on, a warning makes the commitment clear before they start.",
+   alt:"Annotated wireframe for choosing a study theme, a focus level and which apps to block"},
+  {id:"W5", file:"w5-study-monitor.jpg", title:"W5 · During the session",
+   text:"A depleting timer ring shows time left at a glance. Pause needs a long press, so it can't happen by accident, and navigation is hidden to stop wandering off into other parts of the app.",
+   alt:"Annotated wireframe of a Pomodoro timer ring with a long-press pause button and ambient audio choices"},
+  {id:"W6", file:"w6-progress-summary.jpg", title:"W6 · Finishing and recovering",
+   text:"A clear summary of what got done gives a definite end point. Unfinished chunks move into tomorrow's free time automatically, and one tap confirms the new plan.",
+   alt:"Annotated wireframe of a session summary with completed tasks, a rearranged schedule for tomorrow and a confirm button"}
+];
+const tabs = document.querySelector("#viewer .tabs");
+const img = document.getElementById("wf-img");
+function showWf(i){
+  const w = wireframes[i];
+  img.src = "img/" + w.file; img.alt = w.alt;
+  document.getElementById("wf-title").textContent = w.title;
+  document.getElementById("wf-text").textContent = w.text;
+  tabs.querySelectorAll("button").forEach((b,j)=>{ b.setAttribute("aria-selected", j===i ? "true" : "false"); b.tabIndex = j===i ? 0 : -1; });
+}
+wireframes.forEach((w,i)=>{
+  const b = document.createElement("button");
+  b.type = "button"; b.role = "tab"; b.id = "wf-tab-" + w.id; b.textContent = w.id;
+  b.addEventListener("click", ()=>showWf(i));
+  b.addEventListener("keydown", e=>{
+    if(e.key==="ArrowRight"||e.key==="ArrowLeft"){
+      const n = (i + (e.key==="ArrowRight"?1:-1) + wireframes.length) % wireframes.length;
+      showWf(n); tabs.children[n].focus();
+    }
+  });
+  tabs.appendChild(b);
+});
+showWf(0);
+
+// simple hash routing: "" = home, #studybuddy = case study; #about / #contact scroll on home
+const views = {home: document.getElementById("view-home"), studybuddy: document.getElementById("view-studybuddy")};
+function route(){
+  const h = location.hash.replace("#","");
+  const isCase = h === "studybuddy";
+  views.home.hidden = isCase; views.studybuddy.hidden = !isCase;
+  if(isCase){ window.scrollTo(0,0); }
+  else if(h === "about" || h === "contact"){ document.getElementById(h).scrollIntoView(); }
+  else { window.scrollTo(0,0); }
+}
+window.addEventListener("hashchange", route); route();
+
+// lightbox
+const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img");
+document.addEventListener("click", e=>{
+  const t = e.target;
+  if(t.classList && t.classList.contains("zoom")){ lbImg.src = t.src; lbImg.alt = t.alt; lb.hidden = false; document.getElementById("lb-close").focus(); }
+});
+function closeLb(){ lb.hidden = true; lbImg.src = ""; }
+document.getElementById("lb-close").addEventListener("click", closeLb);
+lb.addEventListener("click", e=>{ if(e.target === lb) closeLb(); });
+document.addEventListener("keydown", e=>{ if(e.key === "Escape" && !lb.hidden) closeLb(); });
+
+// copy email
+document.getElementById("copy-email").addEventListener("click", ev=>{
+  const btn = ev.currentTarget, text = document.getElementById("email").textContent;
+  const done = ()=>{ btn.textContent = "Copied"; setTimeout(()=>btn.textContent = "Copy email", 1800); };
+  const fallback = ()=>{ const r = document.createRange(); r.selectNodeContents(document.getElementById("email")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, press copy"; };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch(_) { fallback(); }
+});
+</script>
+
+</body></html>
