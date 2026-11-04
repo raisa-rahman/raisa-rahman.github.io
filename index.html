@@ -1,235 +1,399 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raisa Rahman Portfolio</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Raisa Rahman: UX researcher and designer. Case studies in user research, interaction design and Human-AI Interaction.">
+<meta name="description" content="Raisa Rahman: UX researcher and designer with a Computer Science degree and three years supporting NHS trusts. Case studies in user research, product, data and healthcare.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=Special+Elite&display=swap">
 <style>
-/* Layout: a research notebook. Dotted canvas like a FigJam board, one narrow reading column,
-   with marker-highlight used sparingly for the words that carry each finding. */
+body{margin:0}
+img{max-width:100%}
+/* Layout: a soft-grunge research zine. Pale sage paper with grain, masking-tape labels,
+   typewriter stamps and torn-edge panels; one reading column, a wider work grid. */
 :root{
-  --bg:#F6F7F4;          /* paper with a faint green-grey bias */
-  --surface:#FFFFFF;
-  --ink:#1C232B;
-  --muted:#5B6570;
-  --line:#DCE0DA;
-  --dot:#D3D8D0;
-  --accent:#1F6F68;      /* deep teal: links, markers */
-  --mark:#FCE38A;        /* sticky-note yellow, used as highlighter */
-  --note-pink:#F9C9DC; --note-lilac:#DCCDF6; --note-blue:#C6DDF7; --note-mint:#C4EBDD;
-  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#13171B; --surface:#1B2026; --ink:#E7EAE6; --muted:#9AA4AC; --line:#2C333A; --dot:#2A3138;
-    --accent:#6FCFC3; --mark:#6B5A12;
-    --note-pink:#5A2E40; --note-lilac:#40355E; --note-blue:#2B4562; --note-mint:#24503F;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#13171B; --surface:#1B2026; --ink:#E7EAE6; --muted:#9AA4AC; --line:#2C333A; --dot:#2A3138;
-  --accent:#6FCFC3; --mark:#6B5A12;
-  --note-pink:#5A2E40; --note-lilac:#40355E; --note-blue:#2B4562; --note-mint:#24503F;
-  color-scheme:dark;
+  color-scheme:light;
+  --parchment:#EBF0E6;   /* page */
+  --dewdrop:#E4EFE7;     /* soft card fills, tags */
+  --mist:#E2ECE9;        /* neutral panels */
+  --alabaster:#DFE7DC;   /* secondary containers */
+  --matcha:#DDE6D5;      /* active tab, highlight */
+  --lichen:#D4DEC9;      /* secondary buttons, hovered rows */
+  --silver:#CFDAD1;      /* borders, table headers */
+  --mineral:#C7D7CD;     /* card hover */
+  --agave:#C2D3C4;       /* progress, toggles */
+  --sprout:#BACDB8;      /* primary buttons */
+  --laurel:#B7C7B0;      /* selected items */
+  --eucalyptus:#B0C2BC;  /* subtle borders, icons */
+  --reed:#B5BEA7;        /* badges, dividers */
+  --pine:#A8BCB1;        /* anchor green */
+  --ink:#232D28;         /* text, deep moss-black */
+  --ink-soft:#4B5852;
+  --tape:rgba(213,222,201,.86);
+  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body:"Karla", "Segoe UI", system-ui, sans-serif;
+  --type:"Special Elite", "Courier New", ui-monospace, monospace;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .14  0 0 0 0 .18  0 0 0 0 .16  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 *{box-sizing:border-box}
 [hidden]{display:none !important}
 body{
-  background-color:var(--bg);
-  background-image:radial-gradient(var(--dot) 1px, transparent 1.4px);
-  background-size:22px 22px;
+  background-color:var(--parchment); background-image:var(--grain);
   color:var(--ink); font-family:var(--body); font-size:1.0625rem; line-height:1.65;
   padding-left:max(16px, env(safe-area-inset-left, 0px));
   padding-right:max(16px, env(safe-area-inset-right, 0px));
 }
-a{color:var(--accent); text-underline-offset:3px}
-a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
-.wrap{max-width:46rem; margin:0 auto; padding-block:3.5rem 4rem}
-.wide{max-width:64rem; margin-inline:auto}
-h1,h2,h3{font-family:var(--display); text-wrap:balance; line-height:1.12; margin:0}
-h1{font-size:clamp(2.4rem, 7vw, 3.8rem); font-weight:700; letter-spacing:-0.02em}
-h2{font-size:clamp(1.6rem, 4vw, 2.1rem); font-weight:700; letter-spacing:-0.01em}
-h3{font-size:1.2rem; font-weight:700}
+a{color:var(--ink); text-decoration-color:var(--pine); text-decoration-thickness:2px; text-underline-offset:3px}
+a:hover{text-decoration-color:var(--ink)}
+a:focus-visible, button:focus-visible{outline:2px dashed var(--ink); outline-offset:3px}
 p{margin:0}
-.label{font-family:var(--mono); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
-mark{background:linear-gradient(transparent 38%, var(--mark) 38%, var(--mark) 92%, transparent 92%); color:inherit; padding:0 .1em}
+h1,h2,h3{font-family:var(--display); text-transform:uppercase; text-wrap:balance; line-height:.98; margin:0; letter-spacing:.01em}
+h1{font-size:clamp(3rem, 10vw, 5.6rem); font-weight:900}
+h2{font-size:clamp(2rem, 5vw, 2.8rem); font-weight:800}
+h3{font-size:1.45rem; font-weight:800}
+.wrap{max-width:68rem; margin:0 auto; padding-block:2rem 4rem}
+.read{max-width:44rem}
 .stack{display:flex; flex-direction:column; gap:1rem}
-.section{display:flex; flex-direction:column; gap:1.1rem; padding-top:3.5rem}
+.section{display:flex; flex-direction:column; gap:1.2rem; padding-top:4rem}
+.stamp{font-family:var(--type); font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft)}
+.tape{display:inline-block; align-self:flex-start; font-family:var(--type); font-size:.82rem; letter-spacing:.05em; text-transform:uppercase; padding:.25rem .8rem; background:var(--tape); color:var(--ink); transform:rotate(-1.5deg); box-shadow:0 1px 2px rgba(35,45,40,.18); clip-path:polygon(2% 0,98% 4%,100% 50%,97% 100%,3% 96%,0 48%)}
+.scribble{background:linear-gradient(transparent 55%, var(--sprout) 55%, var(--sprout) 90%, transparent 90%); padding:0 .1em}
+.muted{color:var(--ink-soft)}
 
-/* top bar */
-.top{display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; max-width:64rem; margin:0 auto; padding-top:1.25rem}
-.top .name{font-family:var(--display); font-weight:700; font-size:1.05rem; text-decoration:none; color:var(--ink)}
-.top nav{display:flex; gap:1.25rem; font-size:.95rem}
-.top nav a{color:var(--muted); text-decoration:none}
-.top nav a:hover{color:var(--ink)}
+/* top */
+.top{display:flex; justify-content:space-between; align-items:center; gap:.75rem 1.25rem; flex-wrap:wrap; max-width:68rem; margin:0 auto; padding-top:1.1rem}
+.top .name{font-family:var(--display); font-weight:900; font-size:1.5rem; text-transform:uppercase; text-decoration:none; letter-spacing:.02em}
+.top nav{display:flex; gap:1rem; flex-wrap:wrap; font-family:var(--type); font-size:.9rem}
+.top nav a{text-decoration:none; color:var(--ink-soft)}
+.top nav a:hover, .top nav a[aria-current="page"]{color:var(--ink); text-decoration:underline; text-decoration-color:var(--pine)}
 
-/* home hero */
-.hero{display:flex; flex-direction:column; gap:1.4rem; padding-top:2.5rem}
-.hero .lede{font-size:1.25rem; max-width:38rem}
-.facts{display:flex; flex-wrap:wrap; gap:.5rem}
-.chip{font-family:var(--mono); font-size:.78rem; padding:.3rem .65rem; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--ink)}
+/* hero */
+.hero{display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:2rem; align-items:end; padding-top:2.5rem}
+.hero .lede{font-size:1.2rem; max-width:40rem}
+.hero-card{background:var(--dewdrop); padding:1.4rem 1.4rem 1.5rem; position:relative; display:flex; flex-direction:column; gap:.7rem; clip-path:polygon(0 2%,6% 0,20% 1.5%,38% 0,57% 1.8%,76% .3%,92% 1.6%,100% 0,99% 30%,100% 62%,99% 100%,80% 98.5%,58% 100%,36% 98.4%,15% 100%,0 98.8%,1% 64%,0 33%)}
+.hero-card dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:.45rem 1rem; font-size:.97rem}
+.hero-card dt{font-family:var(--type); font-size:.8rem; text-transform:uppercase; color:var(--ink-soft); padding-top:.15rem}
+.hero-card dd{margin:0}
+.btns{display:flex; flex-wrap:wrap; gap:.6rem}
+.btn{font-family:var(--type); font-size:.9rem; text-decoration:none; padding:.55rem 1rem; background:var(--sprout); color:var(--ink); border:2px solid var(--ink); box-shadow:3px 3px 0 var(--ink); transition:transform .12s ease, box-shadow .12s ease}
+.btn:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
+.btn.alt{background:var(--lichen)}
 
-/* project card */
-.project{display:grid; grid-template-columns:1.1fr 1fr; gap:0; background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; text-decoration:none; color:inherit; transition:transform .2s ease, box-shadow .2s ease}
-.project:hover{transform:translateY(-2px); box-shadow:0 10px 30px -18px rgba(0,0,0,.35)}
-.project .shot{background:var(--note-blue); display:flex; align-items:flex-end; justify-content:center; padding:1.25rem 1rem 0; min-height:15rem; overflow:hidden}
-.project .shot img{width:100%; max-width:26rem; display:block; border-radius:6px 6px 0 0}
-.project .info{padding:1.6rem; display:flex; flex-direction:column; gap:.8rem; min-width:0}
-.project .go{font-weight:600; color:var(--accent); margin-top:auto}
-.soon{color:var(--muted); font-size:.95rem}
+/* lens */
+.lens{background:var(--mist); border:2px solid var(--ink); padding:1.3rem; display:flex; flex-direction:column; gap:1rem; box-shadow:5px 5px 0 var(--eucalyptus)}
+.chips{display:flex; flex-wrap:wrap; gap:.5rem}
+.chips button{font-family:var(--type); font-size:.88rem; padding:.45rem .8rem; border:1.5px solid var(--ink); background:var(--alabaster); color:var(--ink); cursor:pointer}
+.chips button:hover{background:var(--mineral)}
+.chips button[aria-pressed="true"]{background:var(--ink); color:var(--parchment)}
+.pitch{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:1.25rem}
+.pitch ul{margin:0; padding-left:1.1rem; display:flex; flex-direction:column; gap:.35rem}
+
+/* work grid */
+.grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1.4rem}
+.card{background:var(--dewdrop); border:1.5px solid var(--eucalyptus); display:flex; flex-direction:column; text-decoration:none; color:inherit; position:relative; transition:background .15s ease, transform .15s ease, opacity .2s ease; min-width:0}
+.card:hover{background:var(--mineral); transform:rotate(-.4deg)}
+.card .pic{aspect-ratio:16/10; max-width:100%; background:var(--agave); overflow:hidden; display:grid; place-items:center; border-bottom:1.5px solid var(--eucalyptus)}
+.card .pic img{width:100%; height:100%; object-fit:cover; object-position:center top; display:block; filter:saturate(.75) contrast(1.02)}
+.card .pic .glyph{font-family:var(--display); font-weight:900; font-size:clamp(1.9rem, 3.4vw, 2.7rem); text-transform:uppercase; color:var(--ink); opacity:.85; text-align:center; line-height:.92; padding:1rem; overflow-wrap:anywhere}
+.card .body{padding:1rem 1.1rem 1.2rem; display:flex; flex-direction:column; gap:.55rem; flex:1}
+.card .body p{font-size:.96rem}
+.card .go{margin-top:auto; font-family:var(--type); font-size:.86rem}
+.card .tape{position:absolute; top:-.7rem; left:.9rem; z-index:2}
+.card.dim{opacity:.32}
+.card.dim:hover{opacity:.6}
+.tags{display:flex; flex-wrap:wrap; gap:.35rem}
+.tag{font-family:var(--type); font-size:.74rem; padding:.12rem .45rem; background:var(--matcha); border:1px solid var(--reed)}
+
+/* work stories */
+.stories{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.2rem}
+.story{background:var(--alabaster); padding:1.2rem 1.25rem 1.3rem; border-left:6px solid var(--pine); display:flex; flex-direction:column; gap:.5rem; min-width:0; transition:opacity .2s ease}
+.story.dim{opacity:.32}
+.story p{font-size:.97rem}
+
+/* marks */
+.marks{display:flex; flex-direction:column; border-top:2px solid var(--ink)}
+.mark{display:grid; grid-template-columns:minmax(0,1fr) 9rem 3.2rem; gap:.75rem; align-items:center; padding:.55rem 0; border-bottom:1px dashed var(--reed)}
+.mark .bar{height:.7rem; background:var(--lichen); position:relative}
+.mark .bar span{position:absolute; inset:0 auto 0 0; background:var(--pine); border-right:2px solid var(--ink)}
+.mark b{font-family:var(--type); font-weight:400; text-align:right; font-variant-numeric:tabular-nums}
 
 /* case study */
-.back{font-size:.95rem; text-decoration:none}
-.meta{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:1rem; padding:1.1rem 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
-.meta div{display:flex; flex-direction:column; gap:.2rem; min-width:0}
+.meta{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:1rem; padding:1rem 0; border-top:2px solid var(--ink); border-bottom:2px solid var(--ink)}
+.meta div{display:flex; flex-direction:column; gap:.15rem; min-width:0}
 .meta span:last-child{font-size:.95rem}
-figure{margin:0; display:flex; flex-direction:column; gap:.6rem}
-figure img{display:block; width:100%; border-radius:8px; border:1px solid var(--line); background:#fff}
-figcaption{font-size:.9rem; color:var(--muted)}
+figure{margin:0; display:flex; flex-direction:column; gap:.55rem}
+figure img{display:block; width:100%; border:1.5px solid var(--eucalyptus); background:#fff}
+figcaption{font-size:.9rem; color:var(--ink-soft)}
 .zoom{cursor:zoom-in}
-
-.steps{list-style:none; margin:0; padding:0; display:grid; gap:.75rem; counter-reset:s}
-.steps li{display:grid; grid-template-columns:2rem 1fr; gap:.5rem; counter-increment:s}
-.steps li::before{content:counter(s); font-family:var(--mono); font-size:.85rem; width:1.6rem; height:1.6rem; display:grid; place-items:center; border-radius:50%; background:var(--ink); color:var(--bg); margin-top:.15rem}
-
-/* findings as sticky notes */
-.notes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem}
-.note{padding:1.1rem 1.15rem 1.2rem; border-radius:4px; display:flex; flex-direction:column; gap:.5rem; box-shadow:0 1px 0 rgba(0,0,0,.06), 0 6px 14px -10px rgba(0,0,0,.4); min-width:0}
-.note:nth-child(1){background:var(--note-pink); transform:rotate(-.6deg)}
-.note:nth-child(2){background:var(--note-lilac); transform:rotate(.5deg)}
-.note:nth-child(3){background:var(--note-blue); transform:rotate(.4deg)}
-.note:nth-child(4){background:var(--note-mint); transform:rotate(-.4deg)}
-.note h3{font-size:1.05rem}
+.steps{list-style:none; margin:0; padding:0; display:grid; gap:.7rem; counter-reset:s}
+.steps li{display:grid; grid-template-columns:2.1rem 1fr; gap:.5rem; counter-increment:s}
+.steps li::before{content:counter(s); font-family:var(--display); font-weight:900; font-size:1.4rem; width:1.8rem; height:1.8rem; display:grid; place-items:center; background:var(--sprout); border:1.5px solid var(--ink)}
+.notes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem}
+.note{padding:1.1rem 1.15rem 1.2rem; display:flex; flex-direction:column; gap:.45rem; box-shadow:0 1px 0 rgba(35,45,40,.08), 0 8px 14px -12px rgba(35,45,40,.6); min-width:0}
+.note:nth-child(1){background:var(--matcha); transform:rotate(-.7deg)}
+.note:nth-child(2){background:var(--mineral); transform:rotate(.6deg)}
+.note:nth-child(3){background:var(--lichen); transform:rotate(.4deg)}
+.note:nth-child(4){background:var(--agave); transform:rotate(-.5deg)}
+.note h3{font-size:1.25rem}
 .note p{font-size:.95rem}
-.note q{font-style:italic}
-
-/* requirements traced to participants */
-.reqs{display:flex; flex-direction:column; border-top:1px solid var(--line)}
-.req{display:grid; grid-template-columns:1fr auto; gap:.4rem 1rem; padding:.85rem 0; border-bottom:1px solid var(--line); align-items:baseline}
-.req strong{font-weight:600}
-.req p{grid-column:1 / -1; font-size:.95rem; color:var(--muted)}
+.reqs{display:flex; flex-direction:column; border-top:2px solid var(--ink)}
+.req{display:grid; grid-template-columns:1fr auto; gap:.3rem 1rem; padding:.8rem 0; border-bottom:1px dashed var(--reed); align-items:baseline}
+.req strong{font-weight:700}
+.req p{grid-column:1 / -1; font-size:.95rem; color:var(--ink-soft)}
 .src{display:flex; gap:.3rem; flex-wrap:wrap; justify-content:flex-end}
-.pid{font-family:var(--mono); font-size:.72rem; padding:.1rem .4rem; border-radius:4px; background:var(--ink); color:var(--bg)}
-
+.pid{font-family:var(--type); font-size:.74rem; padding:.05rem .4rem; background:var(--ink); color:var(--parchment)}
 .pair{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:1.25rem; align-items:start}
-
-/* wireframe viewer */
-.viewer{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:1rem; display:flex; flex-direction:column; gap:1rem}
-.tabs{display:flex; gap:.4rem; flex-wrap:wrap}
-.tabs button{font:500 .85rem var(--mono); padding:.45rem .7rem; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); cursor:pointer}
-.tabs button[aria-selected="true"]{background:var(--ink); color:var(--bg); border-color:var(--ink)}
-.viewer img{border:none}
-.viewer .cap{display:flex; flex-direction:column; gap:.3rem}
-.viewer .cap p{font-size:.95rem}
-
+.callout{border-left:4px solid var(--pine); padding:.2rem 0 .2rem 1rem; font-family:var(--type)}
+.viewer{background:var(--dewdrop); border:2px solid var(--ink); padding:1rem; display:flex; flex-direction:column; gap:1rem}
+.viewer .chips button{font-size:.82rem}
 .tasks{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem}
-.task{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem; display:flex; flex-direction:column; gap:.45rem; min-width:0}
+.task{background:var(--alabaster); padding:1rem; display:flex; flex-direction:column; gap:.4rem; min-width:0; border-top:4px solid var(--pine)}
 .task p{font-size:.93rem}
-.task .label{color:var(--accent)}
+.back{font-family:var(--type); font-size:.9rem; text-decoration:none}
+.diagram{background:var(--dewdrop); border:1.5px solid var(--eucalyptus); padding:1rem; overflow-x:auto}
+.diagram svg{display:block; min-width:34rem; width:100%; height:auto}
 
-.callout{border-left:3px solid var(--accent); padding:.2rem 0 .2rem 1rem; color:var(--ink)}
-.tags{display:flex; flex-wrap:wrap; gap:.4rem}
+/* cv page */
+.cv{display:grid; grid-template-columns:minmax(0,15rem) minmax(0,1fr); gap:2.5rem; padding-top:2rem}
+.cv aside{display:flex; flex-direction:column; gap:1.5rem}
+.cv aside h3{font-size:1.15rem; margin-bottom:.4rem}
+.cv aside ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.3rem; font-size:.95rem}
+.cv main{display:flex; flex-direction:column; gap:2.4rem; min-width:0}
+.cv section{display:flex; flex-direction:column; gap:1.1rem}
+.job{display:flex; flex-direction:column; gap:.4rem; padding-bottom:1.1rem; border-bottom:1px dashed var(--reed)}
+.job:last-child{border-bottom:0}
+.job header{display:flex; justify-content:space-between; gap:.25rem 1rem; flex-wrap:wrap; align-items:baseline}
+.job h3{font-size:1.3rem}
+.job ul{margin:0; padding-left:1.1rem; display:flex; flex-direction:column; gap:.3rem; font-size:.97rem}
+.timeline{display:flex; flex-direction:column; gap:.6rem}
+.timeline div{display:grid; grid-template-columns:4rem 1fr; gap:.8rem; font-size:.96rem}
+.timeline b{font-family:var(--type); font-weight:400}
 
-footer{max-width:64rem; margin:0 auto; padding-block:2.5rem 3rem; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; font-size:.95rem; color:var(--muted)}
-.contact{display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center}
-.email{font-family:var(--mono); font-size:.9rem; color:var(--ink); user-select:all}
-.copy{font:500 .8rem var(--mono); padding:.3rem .6rem; border-radius:6px; border:1px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer}
+footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px solid var(--ink); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; font-size:.95rem}
+.contact{display:flex; flex-wrap:wrap; gap:1rem; align-items:center}
+.email{font-family:var(--type); user-select:all}
+.copy{font-family:var(--type); font-size:.82rem; padding:.3rem .6rem; border:1.5px solid var(--ink); background:var(--lichen); color:var(--ink); cursor:pointer}
 
-/* lightbox */
-.lb{position:fixed; inset:0; background:rgba(10,12,14,.88); display:flex; align-items:center; justify-content:center; padding:calc(1rem + env(safe-area-inset-top,0px)) max(1rem, env(safe-area-inset-right,0px)) calc(1rem + env(safe-area-inset-bottom,0px)) max(1rem, env(safe-area-inset-left,0px)); z-index:20; overflow:auto}
-.lb img{max-width:100%; max-height:100%; border-radius:6px; background:#fff}
-.lb button{position:fixed; top:calc(1rem + env(safe-area-inset-top,0px)); right:max(1rem, env(safe-area-inset-right,0px)); font:500 .85rem var(--mono); padding:.5rem .8rem; border-radius:6px; border:0; background:#fff; color:#111; cursor:pointer}
+.lb{position:fixed; inset:0; background:rgba(35,45,40,.9); display:flex; align-items:center; justify-content:center; padding:calc(1rem + env(safe-area-inset-top,0px)) max(1rem, env(safe-area-inset-right,0px)) calc(1rem + env(safe-area-inset-bottom,0px)) max(1rem, env(safe-area-inset-left,0px)); z-index:20; overflow:auto}
+.lb img{max-width:100%; max-height:100%; background:#fff}
+.lb button{position:fixed; top:calc(1rem + env(safe-area-inset-top,0px)); right:max(1rem, env(safe-area-inset-right,0px)); font-family:var(--type); padding:.5rem .8rem; border:2px solid var(--ink); background:var(--parchment); color:var(--ink); cursor:pointer}
 
-@media (max-width: 760px){
-  .project{grid-template-columns:1fr}
+@media (max-width: 860px){
+  .hero, .pitch, .pair, .cv{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .tasks{grid-template-columns:1fr}
+}
+@media (max-width: 600px){
+  .grid, .stories, .notes{grid-template-columns:1fr}
   .meta{grid-template-columns:repeat(2, minmax(0,1fr))}
-  .notes, .tasks, .pair{grid-template-columns:1fr}
+  .mark{grid-template-columns:minmax(0,1fr) 5rem 3rem}
   .note{transform:none !important}
 }
-@media (prefers-reduced-motion: reduce){ .project{transition:none} .project:hover{transform:none} }
+@media (prefers-reduced-motion: reduce){ .card, .btn, .story{transition:none} .card:hover{transform:none} }
 </style>
+</head>
+<body>
 
 <header class="top">
   <a class="name" href="#">Raisa Rahman</a>
   <nav aria-label="Main">
-    <a href="#">Work</a>
-    <a href="#about" data-scroll="about">About</a>
-    <a href="#contact" data-scroll="contact">Contact</a>
+    <a href="#" data-nav="home">Work</a>
+    <a href="#experience" data-nav="experience">Experience</a>
+    <a href="#cv" data-nav="cv">CV</a>
+    <a href="#contact" data-nav="contact">Contact</a>
   </nav>
 </header>
 
-<!-- HOME -->
-<main id="view-home" class="wrap wide">
+<!-- ============ HOME ============ -->
+<div id="view-home" class="wrap">
   <section class="hero">
-    <span class="label">UX research · Interaction design · Human-AI Interaction</span>
-    <h1>I design technology around how people <mark>actually work</mark>.</h1>
-    <p class="lede">I'm a UX researcher and designer with a First Class Computer Science degree, now studying for an MSc in Human-Computer Interaction at UCL. For three years I've worked alongside NHS trusts at a healthcare technology consultancy, so I've seen what happens when systems don't fit the people using them.</p>
-    <div class="facts">
-      <span class="chip">MSc HCI, UCL</span>
-      <span class="chip">BSc Computer Science, First Class</span>
-      <span class="chip">3 years with NHS trusts</span>
-      <span class="chip">London</span>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="work-h">
-    <span class="label" id="work-h">Selected work</span>
-    <a class="project" href="#studybuddy">
-      <div class="shot"><img src="img/w1-dashboard.jpg" alt="StudyBuddy dashboard wireframe on a phone, with annotations"></div>
-      <div class="info">
-        <span class="label">Mobile app · User research and design</span>
-        <h2>StudyBuddy</h2>
-        <p>Students told me the hardest part of studying is starting. I interviewed seven of them, mapped where their sessions break down, and designed an app that takes them from a daunting deadline to a focused session.</p>
-        <div class="tags">
-          <span class="chip">Interviews</span><span class="chip">Thematic analysis</span><span class="chip">Persona</span><span class="chip">Journey map</span><span class="chip">Figma</span>
-        </div>
-        <span class="go">Read the case study →</span>
-      </div>
-    </a>
-    <p class="soon">More case studies are on the way.</p>
-  </section>
-
-  <section class="section" id="about" aria-labelledby="about-h">
-    <span class="label" id="about-h">About</span>
-    <h2>Research-led, technical enough to build it</h2>
     <div class="stack">
-      <p>I'm most interested in how people trust and rely on technology, especially AI, in settings where getting it wrong matters, like healthcare. My MSc covers interaction design, research methods and Human-AI Interaction.</p>
-      <p>At work, I support NHS hospital systems and the data that moves between them. That's taught me to trace problems to their root cause, listen carefully to frustrated users, and explain technical issues in plain language. It's also why I can prototype in code and talk comfortably with engineers.</p>
-      <p>Outside work, I've led charity fundraising teams, taught children as a teaching assistant, and taught myself guitar and ukulele.</p>
+      <span class="tape">UX research · Product · Data · Healthcare</span>
+      <h1>I make technology fit the people <span class="scribble">who use it</span></h1>
+      <p class="lede">I'm a researcher and designer with a First Class Computer Science degree, now studying for an MSc in Human-Computer Interaction at UCL. For three years I've supported NHS trusts at a healthcare technology consultancy, so I know what happens when systems don't fit the people relying on them.</p>
+      <div class="btns">
+        <a class="btn" href="#studybuddy">See a case study</a>
+        <a class="btn alt" href="#cv">Read my CV</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <span class="stamp">At a glance</span>
+      <dl>
+        <dt>Now</dt><dd>MSc Human-Computer Interaction, UCL (2026–27)</dd>
+        <dt>Degree</dt><dd>BSc Computer Science, First Class (72%)</dd>
+        <dt>Work</dt><dd>Support Engineer, Integrella, since 2023</dd>
+        <dt>Sectors</dt><dd>NHS, local government, education</dd>
+        <dt>Based</dt><dd>Romford, London</dd>
+      </dl>
     </div>
   </section>
-</main>
 
-<!-- CASE STUDY: STUDYBUDDY -->
-<main id="view-studybuddy" class="wrap" hidden>
+  <section class="section" aria-labelledby="lens-h">
+    <div class="lens">
+      <div class="stack" style="gap:.4rem">
+        <span class="stamp" id="lens-h">Hiring for…</span>
+        <div class="chips" id="lens" role="group" aria-label="Choose the role you're hiring for">
+          <button type="button" data-lens="all" aria-pressed="true">Everything</button>
+          <button type="button" data-lens="ux" aria-pressed="false">UX research &amp; design</button>
+          <button type="button" data-lens="product" aria-pressed="false">Product</button>
+          <button type="button" data-lens="data" aria-pressed="false">Data &amp; analysis</button>
+          <button type="button" data-lens="health" aria-pressed="false">Healthcare &amp; NHS</button>
+          <button type="button" data-lens="public" aria-pressed="false">Councils &amp; public sector</button>
+        </div>
+      </div>
+      <div class="pitch">
+        <div class="stack" style="gap:.5rem">
+          <h3 id="pitch-title">Research, design and technical delivery</h3>
+          <p id="pitch-text"></p>
+        </div>
+        <ul id="pitch-points"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work" aria-labelledby="work-h">
+    <span class="tape" id="work-h">Selected work</span>
+    <div class="grid">
+      <a class="card" href="#studybuddy" data-tags="ux product">
+        <div class="pic"><img src="img/w1-dashboard.jpg" alt="Annotated StudyBuddy dashboard wireframe on a phone"></div>
+        <div class="body">
+          <span class="stamp">Case study · 2026</span>
+          <h3>StudyBuddy</h3>
+          <p>Seven student interviews, a persona, a journey map and six annotated mobile wireframes for an app that helps students actually start studying.</p>
+          <div class="tags"><span class="tag">Interviews</span><span class="tag">Thematic analysis</span><span class="tag">Figma</span></div>
+          <span class="go">Read the case study →</span>
+        </div>
+      </a>
+      <a class="card" href="#counsellor-app" data-tags="health ux product data">
+        <div class="pic"><span class="glyph">Counsellor<br>Match</span></div>
+        <div class="body">
+          <span class="stamp">Case study · 2021 · Gold CREST</span>
+          <h3>Counsellor Matching App</h3>
+          <p>A concept, developed on a Nuffield placement with systems engineering firm Synoptix, for matching patients to counsellors who understand their background.</p>
+          <div class="tags"><span class="tag">Requirements</span><span class="tag">Use cases</span><span class="tag">Machine learning</span></div>
+          <span class="go">Read the case study →</span>
+        </div>
+      </a>
+      <div class="card" data-tags="data health">
+        <div class="pic"><span class="glyph">GP<br>Attendance</span></div>
+        <div class="body">
+          <span class="stamp">BSc project · 2025</span>
+          <h3>GP Attendance Dashboard</h3>
+          <p>An interactive dashboard built in Elm with Vega-Lite to explore attendance patterns at a mock GP practice. Part of my Data Visualisation module (79%).</p>
+          <div class="tags"><span class="tag">Elm</span><span class="tag">Vega-Lite</span><span class="tag">Data visualisation</span></div>
+        </div>
+      </div>
+      <div class="card" data-tags="product ux">
+        <div class="pic"><span class="glyph">Peer<br>Mentoring</span></div>
+        <div class="body">
+          <span class="stamp">Team project · 2025–26</span>
+          <h3>Student Circus Mentoring Platform</h3>
+          <p>A peer-to-peer mentoring web platform built in a team for Student Circus, using Vue.js, Laravel and SQLite. Full case study coming soon.</p>
+          <div class="tags"><span class="tag">Vue.js</span><span class="tag">Laravel</span><span class="tag">SQLite</span></div>
+        </div>
+      </div>
+      <a class="card" href="https://www.youtube.com/watch?v=aoaTDzyGemo" target="_blank" rel="noopener" data-tags="product">
+        <div class="pic"><span class="glyph">▶ Java<br>Game</span></div>
+        <div class="body">
+          <span class="stamp">First year CS · 2023</span>
+          <h3>Java 2D Platform Game</h3>
+          <p>A simple 2D platform game I built in Java in my first year of Computer Science (Programming in Java: 88%).</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">Game logic</span></div>
+          <span class="go">Watch the run-through on YouTube ↗</span>
+        </div>
+      </a>
+      <div class="card" data-tags="data product public">
+        <div class="pic"><span class="glyph">SQL &amp;<br>PHP</span></div>
+        <div class="body">
+          <span class="stamp">Smaller builds · 2023–24</span>
+          <h3>Desk Booking App and Shopping Centre Database</h3>
+          <p>A desk reservation web app in PHP, HTML and CSS, and a SQL database modelling a shopping centre's customers and purchases.</p>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">Databases (74%)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="exp-h">
+    <span class="tape" id="exp-h">From the day job</span>
+    <h2>Problems I've solved at work</h2>
+    <p class="read muted">I'm a Support Engineer at Integrella, a healthcare integration consultancy serving NHS trusts including UCLH, South Tees, Frimley, Northumbria, HSCNI and East of England Ambulance Service.</p>
+    <div class="stories">
+      <div class="story" data-tags="product ux health public">
+        <span class="stamp">Discovery to decision</span>
+        <h3>Unblocking a failed Entra ID migration</h3>
+        <p>Converting staff laptops to Microsoft Entra ID accounts kept failing. I worked with the vendor's support team and found the cause: local account names didn't match the format the system expected. I proved a fix by renaming my own account, then set out the options and trade-offs. Leadership chose a route and we moved on to migrating each device.</p>
+      </div>
+      <div class="story" data-tags="health data public">
+        <span class="stamp">Live NHS systems</span>
+        <h3>Keeping clinical data flowing</h3>
+        <p>I support HL7 integration engines (InterSystems HealthConnect and Rhapsody) that move patient data between hospital systems. I write SQL to investigate and fix data issues, adapted a purge script to a specific environment, and keep average response and resolution SLAs at 98%, including on an out-of-hours rota.</p>
+      </div>
+      <div class="story" data-tags="product public data">
+        <span class="stamp">Designing for colleagues</span>
+        <h3>A company-wide starters and leavers tracker</h3>
+        <p>Onboarding and offboarding relied on memory. Working with HR, I built a checklist tracker organised by system, so every account is opened and closed properly. I'm also automating our monthly support rota, which is currently filled in by hand.</p>
+      </div>
+      <div class="story" data-tags="health public data">
+        <span class="stamp">Security and compliance</span>
+        <h3>Rolling out Qualys and supporting Cyber Essentials</h3>
+        <p>I led the company-wide Qualys rollout and helped us through Cyber Essentials, checking devices for vulnerabilities across Sophos, Holm Security and JumpCloud and coordinating fixes with colleagues.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="edu-h">
+    <span class="tape" id="edu-h">Education</span>
+    <h2>First Class Computer Science, now HCI at UCL</h2>
+    <div class="pair">
+      <div class="stack">
+        <p><strong>MSc Human-Computer Interaction, UCL</strong> (2026–27). Interaction Design, Interaction Science (qualitative and quantitative methods, statistics, cognition, human error), Human-AI Interaction, HCI for Health and Wellbeing, User-Centred Data Visualisation, The Digital Workplace, and an industry challenge with Checkout.com.</p>
+        <p><strong>BSc (Hons) Computer Science with Professional Pathway, City St George's, University of London</strong> (2022–26). First Class, overall mark 72.05%.</p>
+        <p class="muted">A-levels: Mathematics (B), Economics (B), Psychology (C).</p>
+      </div>
+      <div class="stack" style="gap:.6rem">
+        <span class="stamp">Selected BSc module marks</span>
+        <div class="marks" id="marks"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="about-h">
+    <span class="tape" id="about-h">About</span>
+    <div class="read stack">
+      <h2>Psychology and technology in one place</h2>
+      <p>I've always been fascinated by how people think, and HCI lets me bring psychology and technology together. I'm most interested in how people trust and rely on technology, especially AI, in settings like healthcare where getting it wrong matters.</p>
+      <p>Before the NHS work, I spent two years at Camden Council's Summer University, managing records for over 1,000 young people and supporting young people with autism and dyslexia. That's where I learned that the best service is one that adapts to the person.</p>
+      <p>Outside work, I've led charity fundraising teams (including a Gaza Winter Walk team that raised over £1,000), chaired my sixth form committee, and taught myself guitar and ukulele. I speak English and Bengali.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ STUDYBUDDY ============ -->
+<div id="view-studybuddy" class="wrap read" hidden>
   <a class="back" href="#">← All work</a>
-
-  <section class="hero">
-    <span class="label">Case study · Mobile app · 2026</span>
+  <section class="section" style="padding-top:2rem">
+    <span class="tape">Case study · Mobile app · 2026</span>
     <h1>StudyBuddy</h1>
-    <p class="lede">An app that helps university students get from <mark>planning to actually studying</mark>, built on interviews with seven students.</p>
+    <p class="lede" style="font-size:1.2rem">An app that helps university students get from <span class="scribble">planning to actually studying</span>, built on interviews with seven students.</p>
     <div class="meta">
-      <div><span class="label">My role</span><span>Sole researcher and designer</span></div>
-      <div><span class="label">Context</span><span>BSc module, User-Centred System Design</span></div>
-      <div><span class="label">Methods</span><span>Interviews, walkthroughs, thematic analysis</span></div>
-      <div><span class="label">Tools</span><span>MS Teams, FigJam, Figma</span></div>
+      <div><span class="stamp">My role</span><span>Sole researcher and designer</span></div>
+      <div><span class="stamp">Context</span><span>BSc module, User-Centred System Design</span></div>
+      <div><span class="stamp">Methods</span><span>Interviews, walkthroughs, thematic analysis</span></div>
+      <div><span class="stamp">Tools</span><span>MS Teams, FigJam, Figma</span></div>
     </div>
   </section>
-
   <section class="section">
-    <span class="label">The problem</span>
+    <span class="stamp">The problem</span>
     <h2>Students plan well and still don't start</h2>
     <p>Students juggle deadlines, crowded campuses and constant digital distraction. Plenty of tools help them plan, but few help with the moment that matters: sitting down and starting. I wanted to understand where study sessions really break down, then design for those moments.</p>
   </section>
-
   <section class="section">
-    <span class="label">Research</span>
+    <span class="stamp">Research</span>
     <h2>Seven interviews, each with a walkthrough</h2>
-    <p>I ran semi-structured interviews over MS Teams with seven undergraduates from different subjects, including physics, economics, radiography, psychology and law. In each session, participants also walked me through a recent study session and the tools they used, thinking aloud as they went. That gave me evidence of what they actually do, not just what they say they do.</p>
+    <p>I ran semi-structured interviews over MS Teams with seven undergraduates studying subjects including physics, economics, radiography, psychology and law. Each participant also walked me through a recent study session and the tools they used, thinking aloud as they went. That showed me what they actually do, not just what they say they do.</p>
     <ol class="steps">
       <li><span><strong>Transcribe and familiarise.</strong> I reviewed transcripts alongside the recordings to catch gestures and screen-sharing.</span></li>
       <li><span><strong>Code line by line.</strong> I tagged recurring pain points and motivations.</span></li>
@@ -237,40 +401,22 @@ footer{max-width:64rem; margin:0 auto; padding-block:2.5rem 3rem; border-top:1px
       <li><span><strong>Turn themes into requirements.</strong> Every requirement traces back to the participants who raised it.</span></li>
     </ol>
     <figure>
-      <img class="zoom" src="img/affinity-diagram.jpg" alt="FigJam affinity diagram with sticky notes grouped into five columns: planning and task prioritisation, environmental and physical comfort, focus and distraction management, evaluation of success and closure, and desired app features" loading="lazy">
+      <img class="zoom" src="img/affinity-diagram.jpg" alt="FigJam affinity diagram with sticky notes grouped into five themes" loading="lazy">
       <figcaption>Affinity diagram from the interview codes, grouped into five themes. Tap to enlarge.</figcaption>
     </figure>
   </section>
-
   <section class="section">
-    <span class="label">What I found</span>
+    <span class="stamp">What I found</span>
     <h2>Four things get in the way</h2>
     <div class="notes">
-      <div class="note">
-        <span class="label">Theme 1</span>
-        <h3>Big tasks trigger avoidance</h3>
-        <p>A task like "10 topics" felt so daunting that students avoided it, sometimes for an hour. Long, unbroken study blocks caused instant fatigue.</p>
-      </div>
-      <div class="note">
-        <span class="label">Theme 2</span>
-        <h3>"Space anxiety"</h3>
-        <p>Students couldn't rely on finding a quiet desk or a working socket on campus. One described the <q>faffing around</q> that kills momentum and pushes them to study at home.</p>
-      </div>
-      <div class="note">
-        <span class="label">Theme 3</span>
-        <h3>One missed session ripples</h3>
-        <p>When plans slipped, current tools made rescheduling so hard that one missed session snowballed into an overwhelming backlog.</p>
-      </div>
-      <div class="note">
-        <span class="label">Theme 4</span>
-        <h3>Pretty plans take effort</h3>
-        <p>Students found attractive plans motivating, but one spent ages drawing timetables by hand. Others went back to paper because apps were slow to fill in.</p>
-      </div>
+      <div class="note"><span class="stamp">Theme 1</span><h3>Big tasks trigger avoidance</h3><p>A task like "10 topics" felt so daunting that students avoided it, sometimes for an hour. Long, unbroken study blocks caused instant fatigue.</p></div>
+      <div class="note"><span class="stamp">Theme 2</span><h3>"Space anxiety"</h3><p>Students couldn't rely on finding a quiet desk or a working socket on campus. One described the "faffing around" that kills momentum and pushes them to study at home.</p></div>
+      <div class="note"><span class="stamp">Theme 3</span><h3>One missed session ripples</h3><p>When plans slipped, current tools made rescheduling so hard that one missed session snowballed into an overwhelming backlog.</p></div>
+      <div class="note"><span class="stamp">Theme 4</span><h3>Pretty plans take effort</h3><p>Attractive plans motivated students, but one spent ages drawing timetables by hand. Others went back to paper because apps were slow to fill in.</p></div>
     </div>
   </section>
-
   <section class="section">
-    <span class="label">Requirements</span>
+    <span class="stamp">Requirements</span>
     <h2>Every feature traces back to a participant</h2>
     <div class="reqs">
       <div class="req"><strong>Break big tasks into 20–30 minute goals</strong><span class="src"><span class="pid">P3</span><span class="pid">P6</span><span class="pid">P7</span></span><p>Lowers the barrier to starting.</p></div>
@@ -280,72 +426,229 @@ footer{max-width:64rem; margin:0 auto; padding-block:2.5rem 3rem; border-top:1px
       <div class="req"><strong>Opt-in focus mode that blocks apps</strong><span class="src"><span class="pid">P2</span><span class="pid">P3</span><span class="pid">P5</span></span><p>Locks distracting social media during a session.</p></div>
     </div>
   </section>
-
   <section class="section">
-    <span class="label">Synthesis</span>
+    <span class="stamp">Synthesis</span>
     <h2>Meet Zainab, the last-minute power user</h2>
     <div class="pair">
       <figure>
-        <img class="zoom" src="img/persona.jpg" alt="Persona poster for Zainab Malik, a 22-year-old final-year undergraduate who commutes to London and studies 12 to 30 hours a week" loading="lazy">
-        <figcaption>Persona built from the themes, not from demographics. Tap to enlarge.</figcaption>
+        <img class="zoom" src="img/persona.jpg" alt="Persona poster for Zainab Malik, a final-year undergraduate who commutes to London" loading="lazy">
+        <figcaption>Persona built from behaviour patterns, not demographics. Tap to enlarge.</figcaption>
       </figure>
       <div class="stack">
-        <p>Zainab is a composite of the behaviour patterns I found: she works best when a deadline creates urgency, needs the right environment to focus, and finds complex apps clunky.</p>
+        <p>Zainab is a composite of the patterns I found: she works best when a deadline creates urgency, needs the right environment to focus, and finds complex apps clunky.</p>
         <p>I left out demographic details that didn't affect her needs, so the persona stays a tool for design decisions rather than a stereotype.</p>
         <p class="callout">"I just need a quiet organised space with natural light where I can lock in."</p>
       </div>
     </div>
     <figure>
-      <img class="zoom" src="img/journey-map.jpg" alt="Current user journey map across five stages: planning, choosing a place to study, getting started, focused study, and finishing, with actions, decision points, pain points, emotions and opportunities" loading="lazy">
-      <figcaption>Zainab's current journey through a study session, from overwhelmed to exhausted. The biggest emotional drops are at getting started and finishing. Tap to enlarge.</figcaption>
+      <img class="zoom" src="img/journey-map.jpg" alt="Current user journey map across five stages of a study session" loading="lazy">
+      <figcaption>Zainab's current journey through a study session. The biggest emotional drops are at getting started and finishing. Tap to enlarge.</figcaption>
     </figure>
   </section>
-
   <section class="section">
-    <span class="label">Design</span>
+    <span class="stamp">Design</span>
     <h2>One journey, six screens</h2>
     <p>I mapped a single journey, from seeing a deadline to finishing a session and recovering the week's plan, then designed six annotated wireframes along it. Each annotation links a design choice to a research finding or a usability principle.</p>
     <figure>
-      <img class="zoom" src="img/user-flow.jpg" alt="User flow diagram in four phases: planning and breaking down tasks, choosing a study space, starting a focused session, and finishing with adaptive rescheduling" loading="lazy">
+      <img class="zoom" src="img/user-flow.jpg" alt="User flow diagram in four phases" loading="lazy">
       <figcaption>User flow across four phases, including what happens when a building is full or a task isn't finished. Tap to enlarge.</figcaption>
     </figure>
-
-    <div class="viewer" id="viewer">
-      <div class="tabs" role="tablist" aria-label="Wireframes"></div>
-      <figure>
-        <img class="zoom" id="wf-img" src="img/w1-dashboard.jpg" alt="">
-      </figure>
-      <div class="cap">
-        <h3 id="wf-title"></h3>
-        <p id="wf-text"></p>
-      </div>
+    <div class="viewer">
+      <div class="chips" id="wf-tabs" role="tablist" aria-label="Wireframes"></div>
+      <figure><img class="zoom" id="wf-img" src="img/w1-dashboard.jpg" alt=""></figure>
+      <div class="stack" style="gap:.3rem"><h3 id="wf-title"></h3><p id="wf-text"></p></div>
     </div>
   </section>
-
   <section class="section">
-    <span class="label">Evaluation plan</span>
+    <span class="stamp">Evaluation plan</span>
     <h2>How I'd test it</h2>
-    <p>I planned a moderated usability test with five students who match Zainab's profile, run in a usability lab with screen and gesture recording. I'd measure task completion, time on task and errors, alongside think-aloud comments and a System Usability Scale questionnaire.</p>
+    <p>I planned a moderated usability test with five students who match Zainab's profile, in a usability lab with screen and gesture recording. I'd measure task completion, time on task and errors, alongside think-aloud comments and a System Usability Scale questionnaire.</p>
     <div class="tasks">
-      <div class="task"><span class="label">Task 1</span><h3>Plan</h3><p>Break a 30% essay into 20-minute chunks for a low-energy day.</p><p><strong>Success:</strong> a plan within 60 seconds.</p></div>
-      <div class="task"><span class="label">Task 2</span><h3>Find a space</h3><p>Find a silent library desk with a working socket.</p><p><strong>Success:</strong> correct filters and a building with free seats.</p></div>
-      <div class="task"><span class="label">Task 3</span><h3>Recover</h3><p>Fit yesterday's missed task into the coming week.</p><p><strong>Success:</strong> confirms the new schedule without hesitating.</p></div>
+      <div class="task"><span class="stamp">Task 1</span><h3>Plan</h3><p>Break a 30% essay into 20-minute chunks for a low-energy day.</p><p><strong>Success:</strong> a plan within 60 seconds.</p></div>
+      <div class="task"><span class="stamp">Task 2</span><h3>Find a space</h3><p>Find a silent library desk with a working socket.</p><p><strong>Success:</strong> correct filters and a building with free seats.</p></div>
+      <div class="task"><span class="stamp">Task 3</span><h3>Recover</h3><p>Fit yesterday's missed task into the coming week.</p><p><strong>Success:</strong> confirms the new schedule without hesitating.</p></div>
     </div>
   </section>
-
   <section class="section">
-    <span class="label">Using AI responsibly</span>
+    <span class="stamp">Using AI responsibly</span>
     <h2>Where AI helped, and where I checked it</h2>
-    <p>I used Google Gemini to draft anonymised interview summaries, then checked each one against the original transcript and corrected it. I used Figma AI to generate the background images for the theme and audio options on two screens. Everything else, including the analysis, I did by hand.</p>
+    <p>I used Google Gemini to draft anonymised interview summaries, then checked each one against the original transcript and corrected it. I used Figma AI to generate background images for the theme and audio options on two screens. The analysis and design were my own.</p>
   </section>
-
   <section class="section">
-    <span class="label">Next step</span>
+    <span class="stamp">Next step</span>
     <h2>What I'd do next</h2>
-    <p>The usability test above is planned but not yet run. The next step is to build a clickable high-fidelity prototype, run it with five students, and use the results to refine the task breakdown and rescheduling screens, which carry the riskiest assumptions.</p>
-    <p><a href="#">← Back to all work</a></p>
+    <p>The usability test is planned but not yet run. Next, I'd build a clickable high-fidelity prototype, test it with five students, and use the results to refine the task breakdown and rescheduling screens, which carry the riskiest assumptions.</p>
+    <p><a class="back" href="#">← Back to all work</a></p>
   </section>
-</main>
+</div>
+
+<!-- ============ COUNSELLOR APP ============ -->
+<div id="view-counsellor-app" class="wrap read" hidden>
+  <a class="back" href="#">← All work</a>
+  <section class="section" style="padding-top:2rem">
+    <span class="tape">Case study · Nuffield Research Placement · 2021</span>
+    <h1>Patient-Counsellor Matching App</h1>
+    <p class="lede" style="font-size:1.2rem">How could AI make society safer? My answer: help people find a counsellor who <span class="scribble">understands their background</span>.</p>
+    <div class="meta">
+      <div><span class="stamp">My role</span><span>Sole author of the report</span></div>
+      <div><span class="stamp">Host</span><span>Synoptix, a systems engineering consultancy</span></div>
+      <div><span class="stamp">Reviewed by</span><span>A project engineer and a systems engineer</span></div>
+      <div><span class="stamp">Outcome</span><span>Gold CREST Award</span></div>
+    </div>
+  </section>
+  <section class="section">
+    <span class="stamp">The problem</span>
+    <h2>Long waits, and feeling misunderstood</h2>
+    <p>On my Nuffield Research Placement, Synoptix set the question "How could AI be used to increase safety in our society?" I chose mental health. My research pointed to two problems: long waiting lists for NHS talking therapies, and patients, particularly people of colour, people from low-income backgrounds and LGBTQ+ people, feeling that their counsellor didn't understand their background. When advice doesn't fit someone's culture or circumstances, it may not help, and misunderstanding can even contribute to misdiagnosis.</p>
+  </section>
+  <section class="section">
+    <span class="stamp">The concept</span>
+    <h2>Match patients to counsellors they can relate to</h2>
+    <p>Patients answer a questionnaire about their needs and their preferences for a counsellor, such as gender, ethnicity or availability. Verified counsellors list their experience and specialisms. The app then suggests several ranked matches, so a patient still has options if their best match is busy. The patient always makes first contact and books a taster session before committing.</p>
+    <ul class="stack" style="gap:.4rem; padding-left:1.1rem; margin:0">
+      <li><strong>Privacy by design:</strong> patients' data is visible only to them and the counsellor they choose to share it with, and the system must comply with GDPR and encrypt all data.</li>
+      <li><strong>Safety:</strong> a human moderator checks every counsellor's qualifications before they can join.</li>
+      <li><strong>Accessibility:</strong> options such as text-to-speech for users who struggle to see the screen.</li>
+    </ul>
+  </section>
+  <section class="section">
+    <span class="stamp">Systems engineering approach</span>
+    <h2>From use cases to requirements</h2>
+    <p>I followed a systems engineering process: use case diagrams for both patients and counsellors, then functional and non-functional requirements written to be SMART (specific, measurable, achievable, realistic and timely), for example "The system shall provide at least five potential counsellors" and "The system shall notify a counsellor when a patient has matched with them." I also reviewed similar services, including Kooth, the Samaritans and Childline, to find the gap my concept would fill.</p>
+    <div class="diagram" aria-label="Simplified matching flow">
+      <svg viewBox="0 0 720 150" role="img" aria-labelledby="flow-t">
+        <title id="flow-t">Simplified matching flow: patient preferences and counsellor profiles feed a matching model, which returns ranked matches; the patient books a taster session and their feedback improves future matches.</title>
+        <g font-family="Karla, sans-serif" font-size="14" fill="#232D28">
+          <rect x="6" y="14" width="150" height="48" fill="#DDE6D5" stroke="#232D28" stroke-width="1.5"/>
+          <text x="81" y="43" text-anchor="middle">Patient preferences</text>
+          <rect x="6" y="86" width="150" height="48" fill="#DDE6D5" stroke="#232D28" stroke-width="1.5"/>
+          <text x="81" y="115" text-anchor="middle">Verified counsellors</text>
+          <rect x="210" y="50" width="150" height="48" fill="#BACDB8" stroke="#232D28" stroke-width="1.5"/>
+          <text x="285" y="79" text-anchor="middle">Matching model</text>
+          <rect x="414" y="50" width="130" height="48" fill="#DDE6D5" stroke="#232D28" stroke-width="1.5"/>
+          <text x="479" y="79" text-anchor="middle">Ranked matches</text>
+          <rect x="590" y="50" width="124" height="48" fill="#DDE6D5" stroke="#232D28" stroke-width="1.5"/>
+          <text x="652" y="79" text-anchor="middle">Taster session</text>
+          <text x="440" y="140" text-anchor="middle" font-size="13" fill="#4B5852">feedback improves future matches</text>
+        </g>
+        <g stroke="#232D28" stroke-width="1.5" fill="none">
+          <path d="M156 38 L190 38 L190 66 L204 66"/><path d="M156 110 L190 110 L190 82 L204 82"/>
+          <path d="M360 74 L408 74"/><path d="M544 74 L584 74"/>
+          <path d="M652 98 L652 124 L285 124 L285 104" stroke-dasharray="5 4"/>
+        </g>
+        <g fill="#232D28"><path d="M204 62 L211 66 L204 70Z"/><path d="M204 78 L211 82 L204 86Z"/><path d="M408 70 L415 74 L408 78Z"/><path d="M584 70 L591 74 L584 78Z"/><path d="M281 104 L285 97 L289 104Z"/></g>
+      </svg>
+    </div>
+    <p>For the matching itself, I designed a machine learning flow: split the data into training and test sets, use classification for categories like ethnicity and regression for continuous values like session length, use natural language processing to pick out keywords from free text (such as "trauma"), and evaluate the model with a confusion matrix or RMSE. Patient feedback would then reinforce good matches over time.</p>
+  </section>
+  <section class="section">
+    <span class="stamp">Risks</span>
+    <h2>What could go wrong</h2>
+    <ul class="stack" style="gap:.4rem; padding-left:1.1rem; margin:0">
+      <li>Too few counsellors to meet some preferences, which ranked matches help with.</li>
+      <li>Integrating with NHS infrastructure would be a long process involving consent and data sharing.</li>
+      <li>People without a smartphone, or who struggle with technology, could be excluded.</li>
+    </ul>
+  </section>
+  <section class="section">
+    <span class="stamp">Looking back</span>
+    <h2>Where this led</h2>
+    <p>I wrote this at 17, and it's where my interest in safe, trustworthy AI in healthcare started. Today I'd begin with research rather than a solution: interviewing patients and counsellors before writing requirements. That's exactly the approach I now use, and it's why I'm studying Human-AI Interaction and HCI for Health at UCL.</p>
+    <p><a class="back" href="#">← Back to all work</a></p>
+  </section>
+</div>
+
+<!-- ============ CV ============ -->
+<div id="view-cv" class="wrap" hidden>
+  <a class="back" href="#">← Back to portfolio</a>
+  <section class="section" style="padding-top:1.5rem">
+    <span class="tape">Curriculum vitae</span>
+    <h1>Raisa Rahman</h1>
+    <p class="lede read" style="font-size:1.15rem">Researcher and designer bringing together technology and psychology. First Class Computer Science graduate, UCL MSc HCI student, and three years supporting NHS trusts.</p>
+  </section>
+  <div class="cv">
+    <aside>
+      <div><h3>Contact</h3><ul><li class="email">raisa2003raisa@hotmail.com</li><li><a href="https://www.linkedin.com/in/raisa-r-274692229" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://github.com/raisa-rahman" target="_blank" rel="noopener">GitHub</a></li><li>Romford, London</li></ul></div>
+      <div><h3>Research</h3><ul><li>Interviews and focus groups</li><li>Think-aloud usability testing</li><li>Reflexive thematic analysis</li><li>Surveys and experiments</li><li>Inferential statistics</li><li>Ethics, consent and GDPR</li></ul></div>
+      <div><h3>Design</h3><ul><li>Personas and journey maps</li><li>User flows and wireframes</li><li>Figma prototyping</li><li>Heuristic evaluation</li><li>Accessibility (WCAG)</li></ul></div>
+      <div><h3>Technical</h3><ul><li>SQL, Python, Java, C++</li><li>HTML, CSS, PHP, Vue.js, Laravel</li><li>Elm and Vega-Lite</li><li>Git, Linux, cloud basics</li><li>HL7 (HealthConnect, Rhapsody)</li><li>Microsoft 365, Entra ID</li><li>Jira, Confluence, Salesforce, HubSpot</li></ul></div>
+      <div><h3>Other</h3><ul><li>English (native), Bengali (fluent)</li><li>Full UK driving licence</li><li>Eligible for SC clearance</li><li>Level 2 Food Safety</li></ul></div>
+    </aside>
+    <main>
+      <section>
+        <h2>Experience</h2>
+        <div class="job">
+          <header><h3>Support Engineer, Integrella</h3><span class="stamp">Sep 2023 – present</span></header>
+          <p class="muted">Healthcare integration consultancy serving NHS trusts including UCLH, South Tees, Frimley, Northumbria, HSCNI, King's College London, LPCH and East of England Ambulance Service.</p>
+          <ul>
+            <li>First line of support for NHS clients, maintaining average response and resolution SLAs of 98%, including an out-of-hours on-call rota.</li>
+            <li>Support HL7 integrations on InterSystems HealthConnect and Rhapsody; write SQL scripts to investigate and fix data issues; adapted a purge script to a specific environment, namespace and databases.</li>
+            <li>Found why a Microsoft Entra ID account migration was failing, proved a fix, and set out options for leadership.</li>
+            <li>Led the company-wide Qualys rollout and supported Cyber Essentials certification (Sophos, Holm Security, JumpCloud).</li>
+            <li>Took part in two CRM migrations (Redmine to Salesforce, then HubSpot) and shadowed a project manager on the Hywel Dda integration.</li>
+            <li>Built a company-wide onboarding and offboarding tracker with HR; automating the monthly support rota.</li>
+            <li>Trained new staff through written guides, videos and knowledge transfer sessions.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <header><h3>Operations Assistant, Institute for Arts in Therapy and Education</h3><span class="stamp">Nov 2026 – present</span></header>
+          <ul><li>Prepare training rooms and audio-visual equipment for art-based therapy training sessions, and give technical support to staff and students.</li></ul>
+        </div>
+        <div class="job">
+          <header><h3>Senior Administrative Assistant, Camden Summer University (Camden Council)</h3><span class="stamp">Jun 2021 – Aug 2023</span></header>
+          <ul>
+            <li>Enrolled and managed the personal information of over 1,000 young people under GDPR.</li>
+            <li>Turned enrolment data into reports for senior management, and built an Excel tracker showing which courses were most popular.</li>
+            <li>Supported young people with disabilities including autism and dyslexia, and engaged young people from disadvantaged backgrounds.</li>
+            <li>Helped coordinate a borough-wide project, liaised with vendors, delivered presentations in schools, and ran social media.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <header><h3>Teaching Assistant, Bengali Education Centre</h3><span class="stamp">Jun – Jul 2024</span></header>
+          <ul><li>Helped children aged 4–16 with Maths and English homework, keeping sessions engaging.</li></ul>
+        </div>
+        <div class="job">
+          <header><h3>Student roles, City, University of London (via Unitemps)</h3><span class="stamp">2023</span></header>
+          <ul>
+            <li><strong>Student Digital Community scoping project:</strong> held informal research conversations with students across campus about Student Digital Assistants, recording feedback and new ideas.</li>
+            <li><strong>Co-Pilot:</strong> checked AV in teaching spaces, set up hybrid classes and ran Zoom sessions.</li>
+            <li><strong>Election Assistant:</strong> promoted Students' Union elections across campuses.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <header><h3>Food Connector, The Food Connection</h3><span class="stamp">Sep 2022 – present · freelance</span></header>
+          <ul><li>Run brand sampling stands and gather customer opinions on products.</li></ul>
+        </div>
+      </section>
+      <section>
+        <h2>Education</h2>
+        <div class="job">
+          <header><h3>MSc Human-Computer Interaction, UCL</h3><span class="stamp">Sep 2026 – Aug 2027</span></header>
+          <p>Interaction Design; Interaction Science; Human-AI Interaction; HCI for Health and Wellbeing; User-Centred Data Visualisation; The Digital Workplace; MSc project.</p>
+        </div>
+        <div class="job">
+          <header><h3>BSc (Hons) Computer Science with Professional Pathway, City St George's, University of London</h3><span class="stamp">2022 – 2026 · First Class</span></header>
+          <p>Overall mark 72.05%. Highlights: Computer Science, Ethics and Society (95), Theory of Computation (90.8), Programming in Java (88.2), Continuing Professional Development in IT (83), Work Based Project (79.9), Data Visualisation (79), Programming in C++ (76.8), Individual Project (71.5).</p>
+        </div>
+        <div class="job">
+          <header><h3>A-levels, St Marylebone CE School</h3><span class="stamp">2020 – 2022</span></header>
+          <p>Mathematics (B), Economics (B), Psychology (C).</p>
+        </div>
+      </section>
+      <section>
+        <h2>Achievements</h2>
+        <div class="timeline">
+          <div><b>2025</b><span>Student fundraiser: charity BBQ for 300+ students (£800+); Glory to Guidance appeal for orphans in Gaza (£16,000+).</span></div>
+          <div><b>2024</b><span>Activision Blizzard Coding Kickstarter (Python); student panel encouraging placements.</span></div>
+          <div><b>2023</b><span>Computer Science Society committee.</span></div>
+          <div><b>2022</b><span>Marylebone Rotary Prize; Chair of the Sixth Form Committee; editor of the Marylebone Messenger.</span></div>
+          <div><b>2021</b><span>Nuffield Research Placement with Synoptix and Gold CREST Award; In2Science cohort; team leader for a Gaza Winter Walk team that raised over £1,000.</span></div>
+        </div>
+      </section>
+      <p class="muted">References available on request.</p>
+    </main>
+  </div>
+</div>
 
 <footer id="contact">
   <div class="contact">
@@ -354,7 +657,7 @@ footer{max-width:64rem; margin:0 auto; padding-block:2.5rem 3rem; border-top:1px
     <a href="https://www.linkedin.com/in/raisa-r-274692229" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://github.com/raisa-rahman" target="_blank" rel="noopener">GitHub</a>
   </div>
-  <span>© 2026 Raisa Rahman</span>
+  <span class="stamp">© 2026 Raisa Rahman</span>
 </footer>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Enlarged image">
@@ -363,79 +666,105 @@ footer{max-width:64rem; margin:0 auto; padding-block:2.5rem 3rem; border-top:1px
 </div>
 
 <script>
+/* ---- hiring lens ---- */
+const lenses = {
+  all: {t:"Research, design and technical delivery",
+    p:"I combine user research and design training with a Computer Science degree and three years of hands-on work with NHS trusts. Pick a role above to see the most relevant work.",
+    pts:["MSc Human-Computer Interaction at UCL","First Class BSc Computer Science (72%)","Three years supporting NHS trusts","Two years at Camden Council"]},
+  ux: {t:"UX research and design",
+    p:"I plan and run research, analyse it rigorously, and turn it into designs people can test. My MSc covers qualitative and quantitative methods, cognition and Human-AI Interaction.",
+    pts:["Interview study with 7 students, coded and themed","Persona, journey map, user flow and 6 annotated wireframes","Think-aloud, heuristic evaluation and usability test planning","Ethics, consent and GDPR-compliant data handling"]},
+  product: {t:"Product",
+    p:"I turn user problems into clear, prioritised requirements, and I can talk to engineers in their own language. At work I take problems from investigation through to a decision.",
+    pts:["Requirements traced back to research evidence","Set out options and trade-offs on a stalled Entra ID migration","Two CRM migrations and a company-wide security rollout","Shadowed a project manager on an NHS integration"]},
+  data: {t:"Data and analysis",
+    p:"I write SQL against live healthcare data, build dashboards, and I'm trained in experimental design and inferential statistics.",
+    pts:["SQL scripts to investigate and fix NHS data issues","GP attendance dashboard in Elm and Vega-Lite (Data Visualisation: 79%)","Managed and reported on 1,000+ records at Camden Council","Statistics and quantitative analysis in my MSc"]},
+  health: {t:"Healthcare and the NHS",
+    p:"For three years I've supported live clinical systems for NHS trusts. I understand how patient data moves between systems, why reliability matters, and how clinical staff work.",
+    pts:["NHS clients including UCLH, Frimley, South Tees and EEAST","HL7 integration on InterSystems HealthConnect and Rhapsody","98% SLAs, including out-of-hours on-call","HCI for Health and Wellbeing at UCL; counsellor-matching concept"]},
+  public: {t:"Councils and the public sector",
+    p:"I've worked for Camden Council and with NHS trusts, so I know what serving the public well involves: careful data handling, clear communication and services that work for everyone.",
+    pts:["Two years at Camden Council's Summer University","Supported young people with autism and dyslexia","GDPR, confidentiality and information governance","British citizen, eligible for SC clearance"]}
+};
+const lensBtns = document.querySelectorAll("#lens button");
+function setLens(k){
+  const L = lenses[k];
+  document.getElementById("pitch-title").textContent = L.t;
+  document.getElementById("pitch-text").textContent = L.p;
+  const ul = document.getElementById("pitch-points"); ul.innerHTML = "";
+  L.pts.forEach(s=>{ const li=document.createElement("li"); li.textContent=s; ul.appendChild(li); });
+  lensBtns.forEach(b=>b.setAttribute("aria-pressed", b.dataset.lens===k ? "true":"false"));
+  document.querySelectorAll("[data-tags]").forEach(el=>{
+    el.classList.toggle("dim", k!=="all" && !el.dataset.tags.split(" ").includes(k));
+  });
+  try{ localStorage.setItem("lens", k); }catch(_){}
+}
+lensBtns.forEach(b=>b.addEventListener("click", ()=>setLens(b.dataset.lens)));
+let startLens = "all"; try{ const s = localStorage.getItem("lens"); if(s && lenses[s]) startLens = s; }catch(_){}
+setLens(startLens);
+
+/* ---- module marks ---- */
+[["Computer Science, Ethics and Society",95],["Theory of Computation",90.8],["Programming in Java",88.2],["Work Based Project",79.9],["Data Visualisation",79],["Databases",74.4],["Individual Project",71.5],["User-Centred System Design",69]].forEach(([n,m])=>{
+  const row=document.createElement("div"); row.className="mark";
+  row.innerHTML='<span></span><div class="bar" aria-hidden="true"><span></span></div><b></b>';
+  row.children[0].textContent=n; row.querySelector(".bar span").style.width=m+"%"; row.children[2].textContent=m;
+  document.getElementById("marks").appendChild(row);
+});
+
+/* ---- wireframe viewer ---- */
 const wireframes = [
-  {id:"W1", file:"w1-dashboard.jpg", title:"W1 · Dashboard and task entry",
-   text:"The next deadline sits at the top with its grade weighting, so students can prioritise without remembering it. The Start Session button stays disabled until a task is chosen, which prevents empty sessions.",
-   alt:"Annotated wireframe of the motivation dashboard showing the next deadline, task entry, environment choice and a start session button"},
-  {id:"W2", file:"w2-decomposition.jpg", title:"W2 · Breaking down the task",
-   text:"AI splits a daunting assignment into small chunks. An energy slider changes how many chunks there are and how long they last. Students can rename or resize any chunk, so they stay in control of the AI's plan.",
-   alt:"Annotated wireframe of an assignment broken into sub-tasks, with an energy slider, syllabus import and task editing"},
-  {id:"W3", file:"w3-facility-map.jpg", title:"W3 · Finding a study space",
-   text:"A campus map with filters for silent zones and working sockets, and live seat counts on each building. Details appear in a bottom sheet only when needed, keeping the map clear.",
-   alt:"Annotated wireframe of a campus map with filter chips, live desk counts per floor and a building detail card"},
-  {id:"W4", file:"w4-focus-setup.jpg", title:"W4 · Setting up focus",
-   text:"Students choose a visual theme and a focus level, and pick which apps to block. When hard-block is on, a warning makes the commitment clear before they start.",
-   alt:"Annotated wireframe for choosing a study theme, a focus level and which apps to block"},
-  {id:"W5", file:"w5-study-monitor.jpg", title:"W5 · During the session",
-   text:"A depleting timer ring shows time left at a glance. Pause needs a long press, so it can't happen by accident, and navigation is hidden to stop wandering off into other parts of the app.",
-   alt:"Annotated wireframe of a Pomodoro timer ring with a long-press pause button and ambient audio choices"},
-  {id:"W6", file:"w6-progress-summary.jpg", title:"W6 · Finishing and recovering",
-   text:"A clear summary of what got done gives a definite end point. Unfinished chunks move into tomorrow's free time automatically, and one tap confirms the new plan.",
-   alt:"Annotated wireframe of a session summary with completed tasks, a rearranged schedule for tomorrow and a confirm button"}
+  {id:"W1", file:"w1-dashboard.jpg", title:"W1 · Dashboard and task entry", text:"The next deadline sits at the top with its grade weighting, so students can prioritise without remembering it. Start Session stays disabled until a task is chosen, which prevents empty sessions.", alt:"Annotated dashboard wireframe"},
+  {id:"W2", file:"w2-decomposition.jpg", title:"W2 · Breaking down the task", text:"AI splits a daunting assignment into small chunks. An energy slider changes how many chunks there are and how long they last. Students can rename or resize any chunk, so they stay in control of the AI's plan.", alt:"Annotated task breakdown wireframe"},
+  {id:"W3", file:"w3-facility-map.jpg", title:"W3 · Finding a study space", text:"A campus map with filters for silent zones and working sockets, and live seat counts per building. Details appear in a bottom sheet only when needed.", alt:"Annotated campus map wireframe"},
+  {id:"W4", file:"w4-focus-setup.jpg", title:"W4 · Setting up focus", text:"Students choose a visual theme, a focus level and which apps to block. When hard-block is on, a warning makes the commitment clear before they start.", alt:"Annotated focus setup wireframe"},
+  {id:"W5", file:"w5-study-monitor.jpg", title:"W5 · During the session", text:"A depleting timer ring shows time left at a glance. Pause needs a long press so it can't happen by accident, and navigation is hidden to stop wandering into other parts of the app.", alt:"Annotated timer wireframe"},
+  {id:"W6", file:"w6-progress-summary.jpg", title:"W6 · Finishing and recovering", text:"A summary of what got done gives a clear end point. Unfinished chunks move into tomorrow's free time automatically, and one tap confirms the new plan.", alt:"Annotated session summary wireframe"}
 ];
-const tabs = document.querySelector("#viewer .tabs");
-const img = document.getElementById("wf-img");
+const wfTabs = document.getElementById("wf-tabs"), wfImg = document.getElementById("wf-img");
 function showWf(i){
-  const w = wireframes[i];
-  img.src = "img/" + w.file; img.alt = w.alt;
-  document.getElementById("wf-title").textContent = w.title;
-  document.getElementById("wf-text").textContent = w.text;
-  tabs.querySelectorAll("button").forEach((b,j)=>{ b.setAttribute("aria-selected", j===i ? "true" : "false"); b.tabIndex = j===i ? 0 : -1; });
+  const w = wireframes[i]; wfImg.src = "img/"+w.file; wfImg.alt = w.alt;
+  document.getElementById("wf-title").textContent = w.title; document.getElementById("wf-text").textContent = w.text;
+  [...wfTabs.children].forEach((b,j)=>{ b.setAttribute("aria-selected", j===i?"true":"false"); b.setAttribute("aria-pressed", j===i?"true":"false"); b.tabIndex = j===i?0:-1; });
 }
 wireframes.forEach((w,i)=>{
-  const b = document.createElement("button");
-  b.type = "button"; b.role = "tab"; b.id = "wf-tab-" + w.id; b.textContent = w.id;
+  const b=document.createElement("button"); b.type="button"; b.setAttribute("role","tab"); b.id="wf-tab-"+w.id; b.textContent=w.id;
   b.addEventListener("click", ()=>showWf(i));
-  b.addEventListener("keydown", e=>{
-    if(e.key==="ArrowRight"||e.key==="ArrowLeft"){
-      const n = (i + (e.key==="ArrowRight"?1:-1) + wireframes.length) % wireframes.length;
-      showWf(n); tabs.children[n].focus();
-    }
-  });
-  tabs.appendChild(b);
+  b.addEventListener("keydown", e=>{ if(e.key==="ArrowRight"||e.key==="ArrowLeft"){ const n=(i+(e.key==="ArrowRight"?1:-1)+wireframes.length)%wireframes.length; showWf(n); wfTabs.children[n].focus(); }});
+  wfTabs.appendChild(b);
 });
 showWf(0);
 
-// simple hash routing: "" = home, #studybuddy = case study; #about / #contact scroll on home
-const views = {home: document.getElementById("view-home"), studybuddy: document.getElementById("view-studybuddy")};
+/* ---- routing ---- */
+const views = {home:"view-home", studybuddy:"view-studybuddy", "counsellor-app":"view-counsellor-app", cv:"view-cv"};
 function route(){
   const h = location.hash.replace("#","");
-  const isCase = h === "studybuddy";
-  views.home.hidden = isCase; views.studybuddy.hidden = !isCase;
-  if(isCase){ window.scrollTo(0,0); }
-  else if(h === "about" || h === "contact"){ document.getElementById(h).scrollIntoView(); }
-  else { window.scrollTo(0,0); }
+  const view = views[h] ? h : "home";
+  Object.entries(views).forEach(([k,id])=>{ document.getElementById(id).hidden = k!==view; });
+  document.querySelectorAll(".top nav a").forEach(a=>a.removeAttribute("aria-current"));
+  const cur = document.querySelector('.top nav a[data-nav="'+(view==="home" && (h==="experience"||h==="contact") ? h : view)+'"]');
+  if(cur) cur.setAttribute("aria-current","page");
+  if(view==="home" && (h==="experience" || h==="contact" || h==="work")){ document.getElementById(h).scrollIntoView(); }
+  else if(h==="contact"){ document.getElementById("contact").scrollIntoView(); }
+  else window.scrollTo(0,0);
 }
 window.addEventListener("hashchange", route); route();
 
-// lightbox
-const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img");
-document.addEventListener("click", e=>{
-  const t = e.target;
-  if(t.classList && t.classList.contains("zoom")){ lbImg.src = t.src; lbImg.alt = t.alt; lb.hidden = false; document.getElementById("lb-close").focus(); }
-});
-function closeLb(){ lb.hidden = true; lbImg.src = ""; }
+/* ---- lightbox ---- */
+const lb=document.getElementById("lb"), lbImg=document.getElementById("lb-img");
+document.addEventListener("click", e=>{ const t=e.target; if(t.classList && t.classList.contains("zoom")){ lbImg.src=t.src; lbImg.alt=t.alt; lb.hidden=false; document.getElementById("lb-close").focus(); }});
+function closeLb(){ lb.hidden=true; lbImg.src=""; }
 document.getElementById("lb-close").addEventListener("click", closeLb);
-lb.addEventListener("click", e=>{ if(e.target === lb) closeLb(); });
-document.addEventListener("keydown", e=>{ if(e.key === "Escape" && !lb.hidden) closeLb(); });
+lb.addEventListener("click", e=>{ if(e.target===lb) closeLb(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape" && !lb.hidden) closeLb(); });
 
-// copy email
+/* ---- copy email ---- */
 document.getElementById("copy-email").addEventListener("click", ev=>{
-  const btn = ev.currentTarget, text = document.getElementById("email").textContent;
-  const done = ()=>{ btn.textContent = "Copied"; setTimeout(()=>btn.textContent = "Copy email", 1800); };
-  const fallback = ()=>{ const r = document.createRange(); r.selectNodeContents(document.getElementById("email")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Selected, press copy"; };
-  try { navigator.clipboard.writeText(text).then(done, fallback); } catch(_) { fallback(); }
+  const btn=ev.currentTarget, el=document.getElementById("email");
+  const done=()=>{ btn.textContent="Copied"; setTimeout(()=>btn.textContent="Copy email",1800); };
+  const fallback=()=>{ const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent="Selected, press copy"; };
+  try{ navigator.clipboard.writeText(el.textContent).then(done, fallback); }catch(_){ fallback(); }
 });
 </script>
-
-</body></html>
+</body>
+</html>
