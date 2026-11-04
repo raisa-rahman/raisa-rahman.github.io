@@ -7,116 +7,129 @@
 <meta name="description" content="Raisa Rahman: UX researcher and designer with a Computer Science degree and three years supporting NHS trusts. Case studies in user research, product, data and healthcare.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Karla:ital,wght@0,400;0,500;0,700;1,400&family=Special+Elite&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&family=Permanent+Marker&display=swap">
 <style>
 body{margin:0}
 img{max-width:100%}
-/* Layout: a soft-grunge research zine. Pale sage paper with grain, masking-tape labels,
-   typewriter stamps and torn-edge panels; one reading column, a wider work grid. */
+/* Layout: a 90s grunge zine. Unbleached paper with photocopy grain, mis-registered print on
+   headings, masking tape, torn edges and marker scribbles; washed denim, sage, rust, plum and
+   faded mustard as accents, one per project. */
 :root{
   color-scheme:light;
-  --parchment:#EBF0E6;   /* page */
-  --dewdrop:#E4EFE7;     /* soft card fills, tags */
-  --mist:#E2ECE9;        /* neutral panels */
-  --alabaster:#DFE7DC;   /* secondary containers */
-  --matcha:#DDE6D5;      /* active tab, highlight */
-  --lichen:#D4DEC9;      /* secondary buttons, hovered rows */
-  --silver:#CFDAD1;      /* borders, table headers */
-  --mineral:#C7D7CD;     /* card hover */
-  --agave:#C2D3C4;       /* progress, toggles */
-  --sprout:#BACDB8;      /* primary buttons */
-  --laurel:#B7C7B0;      /* selected items */
-  --eucalyptus:#B0C2BC;  /* subtle borders, icons */
-  --reed:#B5BEA7;        /* badges, dividers */
-  --pine:#A8BCB1;        /* anchor green */
-  --ink:#232D28;         /* text, deep moss-black */
-  --ink-soft:#4B5852;
-  --tape:rgba(213,222,201,.86);
-  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
-  --body:"Karla", "Segoe UI", system-ui, sans-serif;
+  --paper:#EDE6D6;        /* Distressed Linen: page */
+  --bleach:#EBE8DF;       /* Washed Bleach: cards */
+  --khaki:#E0D8C3;        /* Bleached Khaki: panels */
+  --canvas:#E1DACB;       /* Raw Canvas: secondary panels */
+  --cement:#D4D6CE;       /* Aged Cement: neutral blocks */
+  --moss:#B7C4B4;         /* Pale Moss: sage accent */
+  --olive:#C5CBB7;        /* Faded Thrift Olive */
+  --chambray:#A3B5C0;     /* Faded Chambray: denim fill */
+  --denim:#6E808E;        /* Faded Thrift Denim */
+  --rust:#C88E72;         /* Bleached Terracotta Clay */
+  --rose:#D9C3C3;         /* Washed Rose */
+  --plum:#917B85;         /* Distressed Slate Plum */
+  --mustard:#E6D8AD;      /* Faded Mustard: highlighter */
+  --ochre:#B8995C;        /* Distressed Warm Ochre */
+  --teal:#6B8B82;         /* Washed Teal Rust */
+  --ink:#2F353B;          /* deep weathered slate: text */
+  --ink-soft:#56606A;     /* Weathered Slate, lifted */
+  --tape:rgba(230,216,173,.88);
+  --display:"Syne", "Arial Black", "Helvetica Neue", sans-serif;
+  --body:"Work Sans", "Segoe UI", system-ui, sans-serif;
   --type:"Special Elite", "Courier New", ui-monospace, monospace;
-  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .14  0 0 0 0 .18  0 0 0 0 .16  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --marker:"Permanent Marker", "Comic Sans MS", cursive;
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .18  0 0 0 0 .2  0 0 0 0 .22  0 0 0 .13 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --stain:radial-gradient(ellipse 38rem 22rem at 92% 6%, rgba(200,142,114,.10), transparent 70%), radial-gradient(ellipse 30rem 26rem at 4% 46%, rgba(110,128,142,.09), transparent 70%), radial-gradient(ellipse 34rem 20rem at 80% 88%, rgba(145,123,133,.08), transparent 70%);
 }
 *{box-sizing:border-box}
 [hidden]{display:none !important}
 body{
-  background-color:var(--parchment); background-image:var(--grain);
+  background-color:var(--paper); background-image:var(--grain), var(--stain);
   color:var(--ink); font-family:var(--body); font-size:1.0625rem; line-height:1.65;
   padding-left:max(16px, env(safe-area-inset-left, 0px));
   padding-right:max(16px, env(safe-area-inset-right, 0px));
 }
-a{color:var(--ink); text-decoration-color:var(--pine); text-decoration-thickness:2px; text-underline-offset:3px}
+a{color:var(--ink); text-decoration-color:var(--rust); text-decoration-thickness:2px; text-underline-offset:3px}
 a:hover{text-decoration-color:var(--ink)}
 a:focus-visible, button:focus-visible{outline:2px dashed var(--ink); outline-offset:3px}
 p{margin:0}
-h1,h2,h3{font-family:var(--display); text-transform:uppercase; text-wrap:balance; line-height:.98; margin:0; letter-spacing:.01em}
-h1{font-size:clamp(3rem, 10vw, 5.6rem); font-weight:900}
-h2{font-size:clamp(2rem, 5vw, 2.8rem); font-weight:800}
-h3{font-size:1.45rem; font-weight:800}
+h1,h2,h3{font-family:var(--display); text-wrap:balance; line-height:1.02; margin:0; letter-spacing:-.01em}
+h1{font-size:clamp(2.6rem, 8vw, 5rem); font-weight:800; text-transform:uppercase; text-shadow:3px 2px 0 rgba(200,142,114,.55), -2px -1px 0 rgba(110,128,142,.45)}
+h2{font-size:clamp(1.8rem, 4.4vw, 2.6rem); font-weight:800; text-transform:uppercase; text-shadow:2px 1px 0 rgba(200,142,114,.45)}
+h3{font-size:1.2rem; font-weight:700}
 .wrap{max-width:68rem; margin:0 auto; padding-block:2rem 4rem}
 .read{max-width:44rem}
 .stack{display:flex; flex-direction:column; gap:1rem}
 .section{display:flex; flex-direction:column; gap:1.2rem; padding-top:4rem}
 .stamp{font-family:var(--type); font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft)}
-.tape{display:inline-block; align-self:flex-start; font-family:var(--type); font-size:.82rem; letter-spacing:.05em; text-transform:uppercase; padding:.25rem .8rem; background:var(--tape); color:var(--ink); transform:rotate(-1.5deg); box-shadow:0 1px 2px rgba(35,45,40,.18); clip-path:polygon(2% 0,98% 4%,100% 50%,97% 100%,3% 96%,0 48%)}
-.scribble{background:linear-gradient(transparent 55%, var(--sprout) 55%, var(--sprout) 90%, transparent 90%); padding:0 .1em}
+.tape{display:inline-block; align-self:flex-start; font-family:var(--type); font-size:.82rem; letter-spacing:.05em; text-transform:uppercase; padding:.28rem .85rem; background:var(--tape); color:var(--ink); transform:rotate(-2deg); box-shadow:0 1px 2px rgba(47,53,59,.2); clip-path:polygon(2% 0,98% 5%,100% 50%,97% 100%,3% 95%,0 50%)}
+.tape.denim{background:rgba(163,181,192,.9)} .tape.rose{background:rgba(217,195,195,.92)} .tape.moss{background:rgba(183,196,180,.92)}
+.scribble{background:linear-gradient(-1deg, transparent 50%, var(--mustard) 50%, var(--mustard) 88%, transparent 88%); padding:0 .12em; text-shadow:none}
+.marker{font-family:var(--marker); font-weight:400; color:var(--rust); text-transform:none; letter-spacing:0; text-shadow:none; display:inline-block; transform:rotate(-3deg)}
 .muted{color:var(--ink-soft)}
+.rip{height:14px; background:var(--khaki); clip-path:polygon(0 40%,4% 70%,9% 35%,15% 75%,21% 40%,27% 80%,33% 45%,40% 70%,46% 30%,53% 75%,60% 40%,66% 80%,73% 35%,79% 70%,86% 40%,92% 78%,100% 45%,100% 100%,0 100%); margin-top:3rem}
 
 /* top */
 .top{display:flex; justify-content:space-between; align-items:center; gap:.75rem 1.25rem; flex-wrap:wrap; max-width:68rem; margin:0 auto; padding-top:1.1rem}
-.top .name{font-family:var(--display); font-weight:900; font-size:1.5rem; text-transform:uppercase; text-decoration:none; letter-spacing:.02em}
+.top .name{font-family:var(--display); font-weight:800; font-size:1.25rem; text-transform:uppercase; text-decoration:none; letter-spacing:.02em}
 .top nav{display:flex; gap:1rem; flex-wrap:wrap; font-family:var(--type); font-size:.9rem}
 .top nav a{text-decoration:none; color:var(--ink-soft)}
-.top nav a:hover, .top nav a[aria-current="page"]{color:var(--ink); text-decoration:underline; text-decoration-color:var(--pine)}
+.top nav a:hover, .top nav a[aria-current="page"]{color:var(--ink); text-decoration:underline; text-decoration-color:var(--rust)}
 
 /* hero */
 .hero{display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:2rem; align-items:end; padding-top:2.5rem}
-.hero .lede{font-size:1.2rem; max-width:40rem}
-.hero-card{background:var(--dewdrop); padding:1.4rem 1.4rem 1.5rem; position:relative; display:flex; flex-direction:column; gap:.7rem; clip-path:polygon(0 2%,6% 0,20% 1.5%,38% 0,57% 1.8%,76% .3%,92% 1.6%,100% 0,99% 30%,100% 62%,99% 100%,80% 98.5%,58% 100%,36% 98.4%,15% 100%,0 98.8%,1% 64%,0 33%)}
-.hero-card dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:.45rem 1rem; font-size:.97rem}
+.hero .lede{font-size:1.15rem; max-width:40rem}
+.hero-card{background:var(--bleach); padding:1.5rem 1.4rem 1.5rem; position:relative; display:flex; flex-direction:column; gap:.7rem; transform:rotate(1deg); box-shadow:4px 6px 0 rgba(47,53,59,.12); clip-path:polygon(0 2%,6% 0,20% 1.5%,38% 0,57% 1.8%,76% .3%,92% 1.6%,100% 0,99% 30%,100% 62%,99% 100%,80% 98.5%,58% 100%,36% 98.4%,15% 100%,0 98.8%,1% 64%,0 33%)}
+.hero-card::before{content:""; position:absolute; top:-2px; left:38%; width:6.5rem; height:1.5rem; background:var(--tape); transform:rotate(-4deg)}
+.hero-card dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:.45rem 1rem; font-size:.95rem}
 .hero-card dt{font-family:var(--type); font-size:.8rem; text-transform:uppercase; color:var(--ink-soft); padding-top:.15rem}
 .hero-card dd{margin:0}
-.btns{display:flex; flex-wrap:wrap; gap:.6rem}
-.btn{font-family:var(--type); font-size:.9rem; text-decoration:none; padding:.55rem 1rem; background:var(--sprout); color:var(--ink); border:2px solid var(--ink); box-shadow:3px 3px 0 var(--ink); transition:transform .12s ease, box-shadow .12s ease}
-.btn:hover{transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--ink)}
-.btn.alt{background:var(--lichen)}
+.btns{display:flex; flex-wrap:wrap; gap:.7rem}
+.btn{font-family:var(--type); font-size:.92rem; text-decoration:none; padding:.6rem 1.05rem; background:var(--rust); color:var(--ink); border:2px solid var(--ink); box-shadow:3px 3px 0 var(--ink); transition:transform .12s ease, box-shadow .12s ease}
+.btn:hover{transform:translate(-1px,-1px) rotate(-1deg); box-shadow:4px 4px 0 var(--ink)}
+.btn.alt{background:var(--chambray)}
 
 /* lens */
-.lens{background:var(--mist); border:2px solid var(--ink); padding:1.3rem; display:flex; flex-direction:column; gap:1rem; box-shadow:5px 5px 0 var(--eucalyptus)}
+.lens{background:var(--khaki); border:2px solid var(--ink); padding:1.3rem; display:flex; flex-direction:column; gap:1rem; box-shadow:6px 6px 0 var(--denim)}
 .chips{display:flex; flex-wrap:wrap; gap:.5rem}
-.chips button{font-family:var(--type); font-size:.88rem; padding:.45rem .8rem; border:1.5px solid var(--ink); background:var(--alabaster); color:var(--ink); cursor:pointer}
-.chips button:hover{background:var(--mineral)}
-.chips button[aria-pressed="true"]{background:var(--ink); color:var(--parchment)}
+.chips button{font-family:var(--type); font-size:.88rem; padding:.45rem .8rem; border:1.5px solid var(--ink); background:var(--bleach); color:var(--ink); cursor:pointer}
+.chips button:hover{background:var(--mustard)}
+.chips button[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
 .pitch{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:1.25rem}
 .pitch ul{margin:0; padding-left:1.1rem; display:flex; flex-direction:column; gap:.35rem}
 
 /* work grid */
-.grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1.4rem}
-.card{background:var(--dewdrop); border:1.5px solid var(--eucalyptus); display:flex; flex-direction:column; text-decoration:none; color:inherit; position:relative; transition:background .15s ease, transform .15s ease, opacity .2s ease; min-width:0}
-.card:hover{background:var(--mineral); transform:rotate(-.4deg)}
-.card .pic{aspect-ratio:16/10; max-width:100%; background:var(--agave); overflow:hidden; display:grid; place-items:center; border-bottom:1.5px solid var(--eucalyptus)}
-.card .pic img{width:100%; height:100%; object-fit:cover; object-position:center top; display:block; filter:saturate(.75) contrast(1.02)}
-.card .pic .glyph{font-family:var(--display); font-weight:900; font-size:clamp(1.9rem, 3.4vw, 2.7rem); text-transform:uppercase; color:var(--ink); opacity:.85; text-align:center; line-height:.92; padding:1rem; overflow-wrap:anywhere}
+.grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1.8rem 1.5rem}
+.card{--acc:var(--moss); background:var(--bleach); border:1.5px solid var(--ink); display:flex; flex-direction:column; text-decoration:none; color:inherit; position:relative; transition:transform .15s ease, opacity .2s ease, box-shadow .15s ease; min-width:0; box-shadow:5px 5px 0 var(--acc)}
+.card.wide{grid-column:span 2}
+.card:nth-child(odd){transform:rotate(-.5deg)} .card:nth-child(even){transform:rotate(.45deg)}
+.card:hover{transform:rotate(0) translate(-2px,-2px); box-shadow:7px 7px 0 var(--acc)}
+.card .pic{aspect-ratio:16/10; max-width:100%; background:var(--acc); overflow:hidden; display:grid; place-items:center; border-bottom:1.5px solid var(--ink); position:relative}
+.card.wide .pic{aspect-ratio:21/9}
+.card .pic img{width:100%; height:100%; object-fit:cover; object-position:center top; display:block; filter:sepia(.18) saturate(.8) contrast(1.03)}
+.card .pic .glyph{font-family:var(--marker); font-size:clamp(1.7rem, 3vw, 2.4rem); color:var(--ink); text-align:center; line-height:1.05; padding:1rem; transform:rotate(-4deg); overflow-wrap:anywhere}
 .card .body{padding:1rem 1.1rem 1.2rem; display:flex; flex-direction:column; gap:.55rem; flex:1}
-.card .body p{font-size:.96rem}
-.card .go{margin-top:auto; font-family:var(--type); font-size:.86rem}
-.card .tape{position:absolute; top:-.7rem; left:.9rem; z-index:2}
-.card.dim{opacity:.32}
+.card .body p{font-size:.95rem}
+.card .links{margin-top:auto; display:flex; flex-wrap:wrap; gap:.4rem 1rem; font-family:var(--type); font-size:.86rem}
+.card .tape{position:absolute; top:-.75rem; left:.9rem; z-index:2}
+.card.dim{opacity:.3}
 .card.dim:hover{opacity:.6}
+.c-sb{--acc:var(--moss)} .c-sc{--acc:var(--chambray)} .c-cm{--acc:var(--rose)} .c-gp{--acc:var(--olive)} .c-desk{--acc:var(--mustard)} .c-db{--acc:var(--cement)} .c-game{--acc:var(--rust)}
 .tags{display:flex; flex-wrap:wrap; gap:.35rem}
-.tag{font-family:var(--type); font-size:.74rem; padding:.12rem .45rem; background:var(--matcha); border:1px solid var(--reed)}
+.tag{font-family:var(--type); font-size:.74rem; padding:.12rem .45rem; background:var(--canvas); border:1px dashed var(--ink-soft)}
 
 /* work stories */
 .stories{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.2rem}
-.story{background:var(--alabaster); padding:1.2rem 1.25rem 1.3rem; border-left:6px solid var(--pine); display:flex; flex-direction:column; gap:.5rem; min-width:0; transition:opacity .2s ease}
-.story.dim{opacity:.32}
-.story p{font-size:.97rem}
+.story{background:var(--bleach); padding:1.2rem 1.25rem 1.3rem; border:1.5px solid var(--ink); border-left:8px solid var(--teal); display:flex; flex-direction:column; gap:.5rem; min-width:0; transition:opacity .2s ease}
+.story:nth-child(2){border-left-color:var(--rust)} .story:nth-child(3){border-left-color:var(--ochre)} .story:nth-child(4){border-left-color:var(--plum)}
+.story.dim{opacity:.3}
+.story p{font-size:.96rem}
 
 /* marks */
 .marks{display:flex; flex-direction:column; border-top:2px solid var(--ink)}
-.mark{display:grid; grid-template-columns:minmax(0,1fr) 9rem 3.2rem; gap:.75rem; align-items:center; padding:.55rem 0; border-bottom:1px dashed var(--reed)}
-.mark .bar{height:.7rem; background:var(--lichen); position:relative}
-.mark .bar span{position:absolute; inset:0 auto 0 0; background:var(--pine); border-right:2px solid var(--ink)}
+.mark{display:grid; grid-template-columns:minmax(0,1fr) 9rem 3.2rem; gap:.75rem; align-items:center; padding:.55rem 0; border-bottom:1px dashed var(--ink-soft)}
+.mark .bar{height:.7rem; background:var(--canvas); position:relative; border:1px solid var(--ink-soft)}
+.mark .bar span{position:absolute; inset:0 auto 0 0; background:repeating-linear-gradient(-45deg, var(--denim) 0 4px, var(--chambray) 4px 8px)}
 .mark b{font-family:var(--type); font-weight:400; text-align:right; font-variant-numeric:tabular-nums}
 
 /* case study */
@@ -124,49 +137,52 @@ h3{font-size:1.45rem; font-weight:800}
 .meta div{display:flex; flex-direction:column; gap:.15rem; min-width:0}
 .meta span:last-child{font-size:.95rem}
 figure{margin:0; display:flex; flex-direction:column; gap:.55rem}
-figure img{display:block; width:100%; border:1.5px solid var(--eucalyptus); background:#fff}
-figcaption{font-size:.9rem; color:var(--ink-soft)}
+figure img{display:block; width:100%; border:1.5px solid var(--ink); background:#fff}
+figcaption{font-size:.9rem; color:var(--ink-soft); font-style:italic}
 .zoom{cursor:zoom-in}
+.sketches{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem}
+.sketches figure:nth-child(1){transform:rotate(-1.5deg)} .sketches figure:nth-child(2){transform:rotate(1deg)} .sketches figure:nth-child(3){transform:rotate(-.6deg)}
 .steps{list-style:none; margin:0; padding:0; display:grid; gap:.7rem; counter-reset:s}
 .steps li{display:grid; grid-template-columns:2.1rem 1fr; gap:.5rem; counter-increment:s}
-.steps li::before{content:counter(s); font-family:var(--display); font-weight:900; font-size:1.4rem; width:1.8rem; height:1.8rem; display:grid; place-items:center; background:var(--sprout); border:1.5px solid var(--ink)}
+.steps li::before{content:counter(s); font-family:var(--marker); font-size:1.3rem; width:1.8rem; height:1.8rem; display:grid; place-items:center; background:var(--mustard); border:1.5px solid var(--ink); transform:rotate(-4deg)}
 .notes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem}
-.note{padding:1.1rem 1.15rem 1.2rem; display:flex; flex-direction:column; gap:.45rem; box-shadow:0 1px 0 rgba(35,45,40,.08), 0 8px 14px -12px rgba(35,45,40,.6); min-width:0}
-.note:nth-child(1){background:var(--matcha); transform:rotate(-.7deg)}
-.note:nth-child(2){background:var(--mineral); transform:rotate(.6deg)}
-.note:nth-child(3){background:var(--lichen); transform:rotate(.4deg)}
-.note:nth-child(4){background:var(--agave); transform:rotate(-.5deg)}
-.note h3{font-size:1.25rem}
+.note{padding:1.1rem 1.15rem 1.2rem; display:flex; flex-direction:column; gap:.45rem; box-shadow:0 1px 0 rgba(47,53,59,.08), 0 10px 16px -12px rgba(47,53,59,.6); min-width:0}
+.note:nth-child(1){background:var(--mustard); transform:rotate(-.8deg)}
+.note:nth-child(2){background:var(--chambray); transform:rotate(.7deg)}
+.note:nth-child(3){background:var(--rose); transform:rotate(.4deg)}
+.note:nth-child(4){background:var(--moss); transform:rotate(-.5deg)}
 .note p{font-size:.95rem}
 .reqs{display:flex; flex-direction:column; border-top:2px solid var(--ink)}
-.req{display:grid; grid-template-columns:1fr auto; gap:.3rem 1rem; padding:.8rem 0; border-bottom:1px dashed var(--reed); align-items:baseline}
-.req strong{font-weight:700}
+.req{display:grid; grid-template-columns:1fr auto; gap:.3rem 1rem; padding:.8rem 0; border-bottom:1px dashed var(--ink-soft); align-items:baseline}
+.req strong{font-weight:600}
 .req p{grid-column:1 / -1; font-size:.95rem; color:var(--ink-soft)}
 .src{display:flex; gap:.3rem; flex-wrap:wrap; justify-content:flex-end}
-.pid{font-family:var(--type); font-size:.74rem; padding:.05rem .4rem; background:var(--ink); color:var(--parchment)}
+.pid{font-family:var(--type); font-size:.74rem; padding:.05rem .4rem; background:var(--ink); color:var(--paper)}
 .pair{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:1.25rem; align-items:start}
-.callout{border-left:4px solid var(--pine); padding:.2rem 0 .2rem 1rem; font-family:var(--type)}
-.viewer{background:var(--dewdrop); border:2px solid var(--ink); padding:1rem; display:flex; flex-direction:column; gap:1rem}
+.callout{border-left:4px solid var(--rust); padding:.2rem 0 .2rem 1rem; font-family:var(--type)}
+.viewer{background:var(--khaki); border:2px solid var(--ink); padding:1rem; display:flex; flex-direction:column; gap:1rem}
 .viewer .chips button{font-size:.82rem}
 .tasks{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem}
-.task{background:var(--alabaster); padding:1rem; display:flex; flex-direction:column; gap:.4rem; min-width:0; border-top:4px solid var(--pine)}
+.task{background:var(--bleach); padding:1rem; display:flex; flex-direction:column; gap:.4rem; min-width:0; border:1.5px solid var(--ink); border-top:6px solid var(--teal)}
 .task p{font-size:.93rem}
 .back{font-family:var(--type); font-size:.9rem; text-decoration:none}
-.diagram{background:var(--dewdrop); border:1.5px solid var(--eucalyptus); padding:1rem; overflow-x:auto}
+.diagram{background:var(--bleach); border:1.5px solid var(--ink); padding:1rem; overflow-x:auto}
 .diagram svg{display:block; min-width:34rem; width:100%; height:auto}
+.feature-list{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem}
+.feature{background:var(--bleach); border:1.5px solid var(--ink); padding:1rem 1.1rem; display:flex; flex-direction:column; gap:.35rem; min-width:0}
+.feature p{font-size:.95rem}
 
 /* cv page */
 .cv{display:grid; grid-template-columns:minmax(0,15rem) minmax(0,1fr); gap:2.5rem; padding-top:2rem}
 .cv aside{display:flex; flex-direction:column; gap:1.5rem}
-.cv aside h3{font-size:1.15rem; margin-bottom:.4rem}
-.cv aside ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.3rem; font-size:.95rem}
+.cv aside h3{font-size:1.05rem; text-transform:uppercase; margin-bottom:.4rem}
+.cv aside ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.3rem; font-size:.94rem}
 .cv main{display:flex; flex-direction:column; gap:2.4rem; min-width:0}
 .cv section{display:flex; flex-direction:column; gap:1.1rem}
-.job{display:flex; flex-direction:column; gap:.4rem; padding-bottom:1.1rem; border-bottom:1px dashed var(--reed)}
+.job{display:flex; flex-direction:column; gap:.4rem; padding-bottom:1.1rem; border-bottom:1px dashed var(--ink-soft)}
 .job:last-child{border-bottom:0}
 .job header{display:flex; justify-content:space-between; gap:.25rem 1rem; flex-wrap:wrap; align-items:baseline}
-.job h3{font-size:1.3rem}
-.job ul{margin:0; padding-left:1.1rem; display:flex; flex-direction:column; gap:.3rem; font-size:.97rem}
+.job ul{margin:0; padding-left:1.1rem; display:flex; flex-direction:column; gap:.3rem; font-size:.96rem}
 .timeline{display:flex; flex-direction:column; gap:.6rem}
 .timeline div{display:grid; grid-template-columns:4rem 1fr; gap:.8rem; font-size:.96rem}
 .timeline b{font-family:var(--type); font-weight:400}
@@ -174,24 +190,27 @@ figcaption{font-size:.9rem; color:var(--ink-soft)}
 footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px solid var(--ink); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem; font-size:.95rem}
 .contact{display:flex; flex-wrap:wrap; gap:1rem; align-items:center}
 .email{font-family:var(--type); user-select:all}
-.copy{font-family:var(--type); font-size:.82rem; padding:.3rem .6rem; border:1.5px solid var(--ink); background:var(--lichen); color:var(--ink); cursor:pointer}
+.copy{font-family:var(--type); font-size:.82rem; padding:.3rem .6rem; border:1.5px solid var(--ink); background:var(--mustard); color:var(--ink); cursor:pointer}
 
-.lb{position:fixed; inset:0; background:rgba(35,45,40,.9); display:flex; align-items:center; justify-content:center; padding:calc(1rem + env(safe-area-inset-top,0px)) max(1rem, env(safe-area-inset-right,0px)) calc(1rem + env(safe-area-inset-bottom,0px)) max(1rem, env(safe-area-inset-left,0px)); z-index:20; overflow:auto}
+.lb{position:fixed; inset:0; background:rgba(47,53,59,.92); display:flex; align-items:center; justify-content:center; padding:calc(1rem + env(safe-area-inset-top,0px)) max(1rem, env(safe-area-inset-right,0px)) calc(1rem + env(safe-area-inset-bottom,0px)) max(1rem, env(safe-area-inset-left,0px)); z-index:20; overflow:auto}
 .lb img{max-width:100%; max-height:100%; background:#fff}
-.lb button{position:fixed; top:calc(1rem + env(safe-area-inset-top,0px)); right:max(1rem, env(safe-area-inset-right,0px)); font-family:var(--type); padding:.5rem .8rem; border:2px solid var(--ink); background:var(--parchment); color:var(--ink); cursor:pointer}
+.lb button{position:fixed; top:calc(1rem + env(safe-area-inset-top,0px)); right:max(1rem, env(safe-area-inset-right,0px)); font-family:var(--type); padding:.5rem .8rem; border:2px solid var(--ink); background:var(--paper); color:var(--ink); cursor:pointer}
 
 @media (max-width: 860px){
   .hero, .pitch, .pair, .cv{grid-template-columns:1fr}
   .grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .card.wide{grid-column:span 2}
   .tasks{grid-template-columns:1fr}
 }
 @media (max-width: 600px){
-  .grid, .stories, .notes{grid-template-columns:1fr}
+  .grid, .stories, .notes, .feature-list, .sketches{grid-template-columns:1fr}
+  .card.wide{grid-column:auto}
+  .card.wide .pic{aspect-ratio:16/10}
   .meta{grid-template-columns:repeat(2, minmax(0,1fr))}
   .mark{grid-template-columns:minmax(0,1fr) 5rem 3rem}
-  .note{transform:none !important}
+  .note, .card, .sketches figure, .hero-card{transform:none !important}
 }
-@media (prefers-reduced-motion: reduce){ .card, .btn, .story{transition:none} .card:hover{transform:none} }
+@media (prefers-reduced-motion: reduce){ .card, .btn, .story{transition:none} }
 </style>
 </head>
 <body>
@@ -211,7 +230,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
   <section class="hero">
     <div class="stack">
       <span class="tape">UX research · Product · Data · Healthcare</span>
-      <h1>I make technology fit the people <span class="scribble">who use it</span></h1>
+      <h1>I make tech fit the <span class="scribble">people</span> who <span class="marker">actually</span> use it</h1>
       <p class="lede">I'm a researcher and designer with a First Class Computer Science degree, now studying for an MSc in Human-Computer Interaction at UCL. For three years I've supported NHS trusts at a healthcare technology consultancy, so I know what happens when systems don't fit the people relying on them.</p>
       <div class="btns">
         <a class="btn" href="#studybuddy">See a case study</a>
@@ -256,68 +275,84 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
   <section class="section" id="work" aria-labelledby="work-h">
     <span class="tape" id="work-h">Selected work</span>
     <div class="grid">
-      <a class="card" href="#studybuddy" data-tags="ux product">
-        <div class="pic"><img src="img/w1-dashboard.jpg" alt="Annotated StudyBuddy dashboard wireframe on a phone"></div>
+      <a class="card c-sb wide" href="#studybuddy" data-tags="ux product">
+        <span class="tape moss">Case study</span>
+        <div class="pic"><img src="img/journey-map.jpg" alt="StudyBuddy journey map across five stages of a study session"></div>
         <div class="body">
-          <span class="stamp">Case study · 2026</span>
+          <span class="stamp">UX research and design · 2026</span>
           <h3>StudyBuddy</h3>
           <p>Seven student interviews, a persona, a journey map and six annotated mobile wireframes for an app that helps students actually start studying.</p>
-          <div class="tags"><span class="tag">Interviews</span><span class="tag">Thematic analysis</span><span class="tag">Figma</span></div>
-          <span class="go">Read the case study →</span>
+          <div class="tags"><span class="tag">Interviews</span><span class="tag">Thematic analysis</span><span class="tag">Journey map</span><span class="tag">Figma</span></div>
+          <div class="links"><span>Read the case study and open the Figma file →</span></div>
         </div>
       </a>
-      <a class="card" href="#counsellor-app" data-tags="health ux product data">
-        <div class="pic"><span class="glyph">Counsellor<br>Match</span></div>
+      <a class="card c-cm" href="#counsellor-app" data-tags="health ux product data">
+        <span class="tape rose">Gold CREST</span>
+        <div class="pic"><span class="glyph">patient ↔<br>counsellor</span></div>
         <div class="body">
-          <span class="stamp">Case study · 2021 · Gold CREST</span>
+          <span class="stamp">Research report · 2021</span>
           <h3>Counsellor Matching App</h3>
-          <p>A concept, developed on a Nuffield placement with systems engineering firm Synoptix, for matching patients to counsellors who understand their background.</p>
-          <div class="tags"><span class="tag">Requirements</span><span class="tag">Use cases</span><span class="tag">Machine learning</span></div>
-          <span class="go">Read the case study →</span>
+          <p>A concept from my Nuffield placement with Synoptix for matching patients to counsellors who understand their background.</p>
+          <div class="tags"><span class="tag">Requirements</span><span class="tag">Use cases</span><span class="tag">ML</span></div>
+          <div class="links"><span>Read the case study →</span></div>
         </div>
       </a>
-      <div class="card" data-tags="data health">
-        <div class="pic"><span class="glyph">GP<br>Attendance</span></div>
+      <div class="card c-gp" data-tags="data health">
+        <div class="pic"><span class="glyph">GP<br>attendance</span></div>
         <div class="body">
-          <span class="stamp">BSc project · 2025</span>
+          <span class="stamp">Data Visualisation · 2025</span>
           <h3>GP Attendance Dashboard</h3>
-          <p>An interactive dashboard built in Elm with Vega-Lite to explore attendance patterns at a mock GP practice. Part of my Data Visualisation module (79%).</p>
-          <div class="tags"><span class="tag">Elm</span><span class="tag">Vega-Lite</span><span class="tag">Data visualisation</span></div>
+          <p>An interactive Elm and Vega-Lite dashboard exploring a mock GP practice's data: over 110,000 appointments for about 36,000 patients, including who didn't attend. Module mark: 79.</p>
+          <div class="tags"><span class="tag">Elm</span><span class="tag">Vega-Lite</span><span class="tag">CSV</span></div>
+          <div class="links"><a href="https://github.com/raisa-rahman/data" target="_blank" rel="noopener">Dataset on GitHub ↗</a></div>
         </div>
       </div>
-      <div class="card" data-tags="product ux">
-        <div class="pic"><span class="glyph">Peer<br>Mentoring</span></div>
+      <div class="card c-desk" data-tags="product data public">
+        <div class="pic"><img src="img/desk-floorplan.jpg" alt="Office floor plan with desks, used in the desk booking app"></div>
         <div class="body">
-          <span class="stamp">Team project · 2025–26</span>
+          <span class="stamp">Work Based Project · 2024</span>
+          <h3>Desk Booking Web App</h3>
+          <p>A desk reservation app with a clickable floor plan, booking and cancelling, weekly and calendar views, an "in the office" list, admin tools and downloadable reports. Module mark: 79.9.</p>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">HTML/CSS</span></div>
+          <div class="links"><a href="https://github.com/raisa-rahman/workBasedProject" target="_blank" rel="noopener">Code on GitHub ↗</a></div>
+        </div>
+      </div>
+      <div class="card c-db" data-tags="data">
+        <div class="pic"><span class="glyph">SELECT *<br>FROM shops</span></div>
+        <div class="body">
+          <span class="stamp">Databases · 2023</span>
+          <h3>Shopping Centre Database</h3>
+          <p>A relational SQL database modelling a shopping centre's customers, stores, transactions, items and feedback forms, with queries over it. Module mark: 74.4.</p>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">Data modelling</span></div>
+          <div class="links"><a href="https://github.com/raisa-rahman/shoppingcentredatabase" target="_blank" rel="noopener">Code on GitHub ↗</a></div>
+        </div>
+      </div>
+      <a class="card c-sc wide" href="#student-circus" data-tags="product ux">
+        <span class="tape denim">Final year project</span>
+        <div class="pic"><img src="img/sc-wireframes.jpg" alt="Digital wireframes for the Student Circus mentoring platform" style="object-position:center 12%"></div>
+        <div class="body">
+          <span class="stamp">Individual Project · 2025–26</span>
           <h3>Student Circus Mentoring Platform</h3>
-          <p>A peer-to-peer mentoring web platform built in a team for Student Circus, using Vue.js, Laravel and SQLite. Full case study coming soon.</p>
-          <div class="tags"><span class="tag">Vue.js</span><span class="tag">Laravel</span><span class="tag">SQLite</span></div>
-        </div>
-      </div>
-      <a class="card" href="https://www.youtube.com/watch?v=aoaTDzyGemo" target="_blank" rel="noopener" data-tags="product">
-        <div class="pic"><span class="glyph">▶ Java<br>Game</span></div>
-        <div class="body">
-          <span class="stamp">First year CS · 2023</span>
-          <h3>Java 2D Platform Game</h3>
-          <p>A simple 2D platform game I built in Java in my first year of Computer Science (Programming in Java: 88%).</p>
-          <div class="tags"><span class="tag">Java</span><span class="tag">Game logic</span></div>
-          <span class="go">Watch the run-through on YouTube ↗</span>
+          <p>A full-stack platform connecting international students with verified alumni mentors, built for a real client. I took it from notebook sketches to a working Vue.js and Laravel product with Google Calendar booking.</p>
+          <div class="tags"><span class="tag">Vue.js 3</span><span class="tag">Laravel 11</span><span class="tag">SQLite</span><span class="tag">Google Calendar API</span></div>
+          <div class="links"><span>Read the case study →</span></div>
         </div>
       </a>
-      <div class="card" data-tags="data product public">
-        <div class="pic"><span class="glyph">SQL &amp;<br>PHP</span></div>
+      <a class="card c-game" href="https://www.youtube.com/watch?v=aoaTDzyGemo" target="_blank" rel="noopener" data-tags="product">
+        <div class="pic"><span class="glyph">▶ press<br>start</span></div>
         <div class="body">
-          <span class="stamp">Smaller builds · 2023–24</span>
-          <h3>Desk Booking App and Shopping Centre Database</h3>
-          <p>A desk reservation web app in PHP, HTML and CSS, and a SQL database modelling a shopping centre's customers and purchases.</p>
-          <div class="tags"><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">Databases (74%)</span></div>
+          <span class="stamp">First year · 2023</span>
+          <h3>Java 2D Platform Game</h3>
+          <p>A simple 2D platformer I built in Java in my first year of Computer Science. Programming in Java: 88.2.</p>
+          <div class="tags"><span class="tag">Java</span><span class="tag">Game loop</span></div>
+          <div class="links"><span>Watch on YouTube ↗</span></div>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
   <section class="section" id="experience" aria-labelledby="exp-h">
-    <span class="tape" id="exp-h">From the day job</span>
+    <span class="tape denim" id="exp-h">From the day job</span>
     <h2>Problems I've solved at work</h2>
     <p class="read muted">I'm a Support Engineer at Integrella, a healthcare integration consultancy serving NHS trusts including UCLH, South Tees, Frimley, Northumbria, HSCNI and East of England Ambulance Service.</p>
     <div class="stories">
@@ -345,7 +380,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
   </section>
 
   <section class="section" aria-labelledby="edu-h">
-    <span class="tape" id="edu-h">Education</span>
+    <span class="tape rose" id="edu-h">Education</span>
     <h2>First Class Computer Science, now HCI at UCL</h2>
     <div class="pair">
       <div class="stack">
@@ -361,7 +396,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
   </section>
 
   <section class="section" aria-labelledby="about-h">
-    <span class="tape" id="about-h">About</span>
+    <span class="tape moss" id="about-h">About</span>
     <div class="read stack">
       <h2>Psychology and technology in one place</h2>
       <p>I've always been fascinated by how people think, and HCI lets me bring psychology and technology together. I'm most interested in how people trust and rely on technology, especially AI, in settings like healthcare where getting it wrong matters.</p>
@@ -384,6 +419,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
       <div><span class="stamp">Methods</span><span>Interviews, walkthroughs, thematic analysis</span></div>
       <div><span class="stamp">Tools</span><span>MS Teams, FigJam, Figma</span></div>
     </div>
+    <div class="btns"><a class="btn alt" href="https://www.figma.com/design/YbBC2MKIArjza7W2Pzp4uV/UCSD-CW2?node-id=0-1" target="_blank" rel="noopener">Open the Figma file ↗</a></div>
   </section>
   <section class="section">
     <span class="stamp">The problem</span>
@@ -477,6 +513,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
   <section class="section">
     <span class="stamp">Next step</span>
     <h2>What I'd do next</h2>
+    <p>You can explore the persona, journey map, user flow and all six wireframes in the <a href="https://www.figma.com/design/YbBC2MKIArjza7W2Pzp4uV/UCSD-CW2?node-id=0-1" target="_blank" rel="noopener">original Figma file</a>.</p>
     <p>The usability test is planned but not yet run. Next, I'd build a clickable high-fidelity prototype, test it with five students, and use the results to refine the task breakdown and rescheduling screens, which carry the riskiest assumptions.</p>
     <p><a class="back" href="#">← Back to all work</a></p>
   </section>
@@ -518,25 +555,25 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
     <div class="diagram" aria-label="Simplified matching flow">
       <svg viewBox="0 0 720 150" role="img" aria-labelledby="flow-t">
         <title id="flow-t">Simplified matching flow: patient preferences and counsellor profiles feed a matching model, which returns ranked matches; the patient books a taster session and their feedback improves future matches.</title>
-        <g font-family="Karla, sans-serif" font-size="14" fill="#232D28">
-          <rect x="6" y="14" width="150" height="48" fill="#DDE6D5" stroke="#232D28" stroke-width="1.5"/>
+        <g font-family="Work Sans, sans-serif" font-size="14" fill="#2F353B">
+          <rect x="6" y="14" width="150" height="48" fill="#E0D8C3" stroke="#2F353B" stroke-width="1.5"/>
           <text x="81" y="43" text-anchor="middle">Patient preferences</text>
-          <rect x="6" y="86" width="150" height="48" fill="#DDE6D5" stroke="#232D28" stroke-width="1.5"/>
+          <rect x="6" y="86" width="150" height="48" fill="#E0D8C3" stroke="#2F353B" stroke-width="1.5"/>
           <text x="81" y="115" text-anchor="middle">Verified counsellors</text>
-          <rect x="210" y="50" width="150" height="48" fill="#BACDB8" stroke="#232D28" stroke-width="1.5"/>
+          <rect x="210" y="50" width="150" height="48" fill="#D9C3C3" stroke="#2F353B" stroke-width="1.5"/>
           <text x="285" y="79" text-anchor="middle">Matching model</text>
-          <rect x="414" y="50" width="130" height="48" fill="#DDE6D5" stroke="#232D28" stroke-width="1.5"/>
+          <rect x="414" y="50" width="130" height="48" fill="#E0D8C3" stroke="#2F353B" stroke-width="1.5"/>
           <text x="479" y="79" text-anchor="middle">Ranked matches</text>
-          <rect x="590" y="50" width="124" height="48" fill="#DDE6D5" stroke="#232D28" stroke-width="1.5"/>
+          <rect x="590" y="50" width="124" height="48" fill="#E0D8C3" stroke="#2F353B" stroke-width="1.5"/>
           <text x="652" y="79" text-anchor="middle">Taster session</text>
-          <text x="440" y="140" text-anchor="middle" font-size="13" fill="#4B5852">feedback improves future matches</text>
+          <text x="440" y="140" text-anchor="middle" font-size="13" fill="#56606A">feedback improves future matches</text>
         </g>
-        <g stroke="#232D28" stroke-width="1.5" fill="none">
+        <g stroke="#2F353B" stroke-width="1.5" fill="none">
           <path d="M156 38 L190 38 L190 66 L204 66"/><path d="M156 110 L190 110 L190 82 L204 82"/>
           <path d="M360 74 L408 74"/><path d="M544 74 L584 74"/>
           <path d="M652 98 L652 124 L285 124 L285 104" stroke-dasharray="5 4"/>
         </g>
-        <g fill="#232D28"><path d="M204 62 L211 66 L204 70Z"/><path d="M204 78 L211 82 L204 86Z"/><path d="M408 70 L415 74 L408 78Z"/><path d="M584 70 L591 74 L584 78Z"/><path d="M281 104 L285 97 L289 104Z"/></g>
+        <g fill="#2F353B"><path d="M204 62 L211 66 L204 70Z"/><path d="M204 78 L211 82 L204 86Z"/><path d="M408 70 L415 74 L408 78Z"/><path d="M584 70 L591 74 L584 78Z"/><path d="M281 104 L285 97 L289 104Z"/></g>
       </svg>
     </div>
     <p>For the matching itself, I designed a machine learning flow: split the data into training and test sets, use classification for categories like ethnicity and regression for continuous values like session length, use natural language processing to pick out keywords from free text (such as "trauma"), and evaluate the model with a confusion matrix or RMSE. Patient feedback would then reinforce good matches over time.</p>
@@ -558,6 +595,59 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
   </section>
 </div>
 
+<!-- ============ STUDENT CIRCUS ============ -->
+<div id="view-student-circus" class="wrap read" hidden>
+  <a class="back" href="#">← All work</a>
+  <section class="section" style="padding-top:2rem">
+    <span class="tape denim">Case study · Final year project · 2025–26</span>
+    <h1>Student Circus</h1>
+    <p class="lede" style="font-size:1.15rem">A peer-to-peer mentoring platform that connects international students with <span class="scribble">verified alumni</span> for honest career and university advice.</p>
+    <div class="meta">
+      <div><span class="stamp">My role</span><span>Sole designer and full-stack developer</span></div>
+      <div><span class="stamp">Client</span><span>Student Circus</span></div>
+      <div><span class="stamp">Stack</span><span>Vue.js 3, Laravel 11, SQLite</span></div>
+      <div><span class="stamp">Module</span><span>Individual Project (71.5)</span></div>
+    </div>
+  </section>
+  <section class="section">
+    <span class="stamp">The problem</span>
+    <h2>An information gap</h2>
+    <p>International students often don't know anyone who has studied their course or worked in their target industry in the UK. Student Circus wanted a way to connect them with alumni mentors who could give career guidance and an honest view of university life, while making sure every mentor was who they said they were.</p>
+  </section>
+  <section class="section">
+    <span class="stamp">Sketching first</span>
+    <h2>From notebook to wireframes</h2>
+    <p>I started on paper, sketching the global navigation, a student home page, the mentor search, mentor profiles, booking checkout, mentor sign-up and the mentor dashboard. Then I turned the sketches into digital wireframes, adding a verification flow for mentors and an admin dashboard.</p>
+    <div class="sketches">
+      <figure><img class="zoom" src="img/sc-sketch-1.jpg" alt="Notebook sketch of global navigation and the student home page" loading="lazy"><figcaption>Navigation and student home page</figcaption></figure>
+      <figure><img class="zoom" src="img/sc-sketch-2.jpg" alt="Notebook sketch of mentor search with filters, and a mentor profile page" loading="lazy"><figcaption>Mentor search and profile</figcaption></figure>
+      <figure><img class="zoom" src="img/sc-sketch-3.jpg" alt="Notebook sketch of booking checkout, mentor sign-up and mentor dashboard" loading="lazy"><figcaption>Booking, mentor sign-up and dashboard</figcaption></figure>
+    </div>
+    <figure>
+      <img class="zoom" src="img/sc-wireframes.jpg" alt="Digital wireframes: home page, mentor directory, mentor profile, feedback and ratings, mentor onboarding and verification, and admin dashboard" loading="lazy">
+      <figcaption>Digital wireframes, including the mentor verification flow and admin dashboard. Tap to enlarge.</figcaption>
+    </figure>
+  </section>
+  <section class="section">
+    <span class="stamp">What I built</span>
+    <h2>A working product</h2>
+    <div class="feature-list">
+      <div class="feature"><h3>Mentor directory</h3><p>Students search and filter mentors by expertise or university, and can save favourites.</p></div>
+      <div class="feature"><h3>Booking that fits real life</h3><p>Sessions book in 15-minute steps within professional hours (8am to 6pm), and confirmed meetings sync to the mentor's Google Calendar.</p></div>
+      <div class="feature"><h3>Verified mentors</h3><p>Mentors upload ID during onboarding, and an admin approves or rejects them before they appear to students.</p></div>
+      <div class="feature"><h3>Feedback and ratings</h3><p>After a session, students leave a review, and the mentor's average rating updates straight away.</p></div>
+    </div>
+    <p>Behind it is a Laravel 11 REST API with a relational SQLite database (users, universities, mentor and student profiles, availability, meetings, reviews and favourites) and a Vue.js 3 front end, with separate dashboards for students, mentors and admins.</p>
+  </section>
+  <section class="section">
+    <span class="stamp">What it shows</span>
+    <h2>Why it matters for the work I want to do</h2>
+    <p>This project was about trust as much as code: making sure students could trust who they were talking to, and making booking simple for busy mentors. It's the same thinking I bring to healthcare and AI, where people need to know they can rely on a system.</p>
+    <div class="btns"><a class="btn alt" href="https://github.com/raisa-rahman/final_project" target="_blank" rel="noopener">See the code on GitHub ↗</a></div>
+    <p><a class="back" href="#">← Back to all work</a></p>
+  </section>
+</div>
+
 <!-- ============ CV ============ -->
 <div id="view-cv" class="wrap" hidden>
   <a class="back" href="#">← Back to portfolio</a>
@@ -571,7 +661,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
       <div><h3>Contact</h3><ul><li class="email">raisa2003raisa@hotmail.com</li><li><a href="https://www.linkedin.com/in/raisa-r-274692229" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://github.com/raisa-rahman" target="_blank" rel="noopener">GitHub</a></li><li>Romford, London</li></ul></div>
       <div><h3>Research</h3><ul><li>Interviews and focus groups</li><li>Think-aloud usability testing</li><li>Reflexive thematic analysis</li><li>Surveys and experiments</li><li>Inferential statistics</li><li>Ethics, consent and GDPR</li></ul></div>
       <div><h3>Design</h3><ul><li>Personas and journey maps</li><li>User flows and wireframes</li><li>Figma prototyping</li><li>Heuristic evaluation</li><li>Accessibility (WCAG)</li></ul></div>
-      <div><h3>Technical</h3><ul><li>SQL, Python, Java, C++</li><li>HTML, CSS, PHP, Vue.js, Laravel</li><li>Elm and Vega-Lite</li><li>Git, Linux, cloud basics</li><li>HL7 (HealthConnect, Rhapsody)</li><li>Microsoft 365, Entra ID</li><li>Jira, Confluence, Salesforce, HubSpot</li></ul></div>
+      <div><h3>Technical</h3><ul><li>SQL, Python, Java, C++</li><li>HTML, CSS, PHP, Vue.js, Laravel</li><li>Elm and Vega-Lite</li><li>Vue.js 3, Laravel 11, SQLite</li><li>Git, Linux, cloud basics</li><li>HL7 (HealthConnect, Rhapsody)</li><li>Microsoft 365, Entra ID</li><li>Jira, Confluence, Salesforce, HubSpot</li></ul></div>
       <div><h3>Other</h3><ul><li>English (native), Bengali (fluent)</li><li>Full UK driving licence</li><li>Eligible for SC clearance</li><li>Level 2 Food Safety</li></ul></div>
     </aside>
     <main>
@@ -628,7 +718,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
         </div>
         <div class="job">
           <header><h3>BSc (Hons) Computer Science with Professional Pathway, City St George's, University of London</h3><span class="stamp">2022 – 2026 · First Class</span></header>
-          <p>Overall mark 72.05%. Highlights: Computer Science, Ethics and Society (95), Theory of Computation (90.8), Programming in Java (88.2), Continuing Professional Development in IT (83), Work Based Project (79.9), Data Visualisation (79), Programming in C++ (76.8), Individual Project (71.5).</p>
+          <p>Overall mark 72.05%. Final year project: the Student Circus mentoring platform. Highlights: Computer Science, Ethics and Society (95), Theory of Computation (90.8), Programming in Java (88.2), Continuing Professional Development in IT (83), Work Based Project (79.9), Data Visualisation (79), Programming in C++ (76.8), Individual Project (71.5).</p>
         </div>
         <div class="job">
           <header><h3>A-levels, St Marylebone CE School</h3><span class="stamp">2020 – 2022</span></header>
@@ -676,7 +766,7 @@ const lenses = {
     pts:["Interview study with 7 students, coded and themed","Persona, journey map, user flow and 6 annotated wireframes","Think-aloud, heuristic evaluation and usability test planning","Ethics, consent and GDPR-compliant data handling"]},
   product: {t:"Product",
     p:"I turn user problems into clear, prioritised requirements, and I can talk to engineers in their own language. At work I take problems from investigation through to a decision.",
-    pts:["Requirements traced back to research evidence","Set out options and trade-offs on a stalled Entra ID migration","Two CRM migrations and a company-wide security rollout","Shadowed a project manager on an NHS integration"]},
+    pts:["Built a full-stack mentoring platform for a real client","Requirements traced back to research evidence","Set out options and trade-offs on a stalled Entra ID migration","Two CRM migrations and a company-wide security rollout","Shadowed a project manager on an NHS integration"]},
   data: {t:"Data and analysis",
     p:"I write SQL against live healthcare data, build dashboards, and I'm trained in experimental design and inferential statistics.",
     pts:["SQL scripts to investigate and fix NHS data issues","GP attendance dashboard in Elm and Vega-Lite (Data Visualisation: 79%)","Managed and reported on 1,000+ records at Camden Council","Statistics and quantitative analysis in my MSc"]},
@@ -736,7 +826,7 @@ wireframes.forEach((w,i)=>{
 showWf(0);
 
 /* ---- routing ---- */
-const views = {home:"view-home", studybuddy:"view-studybuddy", "counsellor-app":"view-counsellor-app", cv:"view-cv"};
+const views = {home:"view-home", studybuddy:"view-studybuddy", "counsellor-app":"view-counsellor-app", "student-circus":"view-student-circus", cv:"view-cv"};
 function route(){
   const h = location.hash.replace("#","");
   const view = views[h] ? h : "home";
