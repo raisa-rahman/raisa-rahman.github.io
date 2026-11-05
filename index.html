@@ -15,30 +15,30 @@ img{max-width:100%}
    handwritten notes over a clean reading column; one pastel accent per project. */
 :root{
   color-scheme:light;
-  --paper:#FBF6F1;        /* warm milk: page */
-  --bleach:#FFFDFA;       /* cards */
-  --khaki:#F6ECE3;        /* oat panels */
-  --canvas:#F3E8DE;       /* secondary panels, tags */
-  --cement:#ECE6F2;       /* lilac mist */
-  --moss:#D3E4CF;         /* sage */
-  --olive:#E5EDD3;        /* pistachio */
-  --chambray:#D5E3F4;     /* powder blue */
-  --denim:#B7A6DE;        /* lavender: shadows, bars */
-  --rust:#F2AFA6;         /* blush coral: buttons, underlines */
-  --rose:#F8D3D6;         /* soft pink */
-  --plum:#9C7BB5;         /* plum accent */
-  --mustard:#F8E5A6;      /* butter: highlighter */
-  --ochre:#E9C46F;        /* honey */
-  --teal:#93C4B3;         /* mint */
-  --ink:#2A2230;          /* plum-black text */
-  --ink-soft:#6B5F72;
-  --tape:rgba(248,211,214,.88);
+  --paper:#F7F4EE;        /* linen: page */
+  --bleach:#FFFEFA;       /* cards */
+  --khaki:#EFE8DC;        /* oat panels */
+  --canvas:#EAE2D3;       /* sand: tags, secondary panels */
+  --cement:#E3E5DC;       /* stone */
+  --moss:#C9DAB4;         /* fresh sage */
+  --olive:#E4E6C0;        /* straw-pistachio */
+  --chambray:#CDE0E2;     /* glacier */
+  --denim:#86A9AC;        /* teal stone: shadows, bars */
+  --rust:#E5A06F;         /* apricot clay: buttons */
+  --rose:#F2DCC4;         /* peach sand */
+  --plum:#647A35;         /* olive: handwritten accents */
+  --mustard:#F3D27C;      /* mustard: highlighter */
+  --ochre:#D7A23F;        /* ochre */
+  --teal:#6EA286;         /* fern */
+  --ink:#2B2A24;          /* warm charcoal text */
+  --ink-soft:#615D51;
+  --tape:rgba(243,210,124,.78);
   --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
   --body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
   --type:"DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --marker:"Caveat", "Segoe Print", "Comic Sans MS", cursive;
-  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .25  0 0 0 .08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  --stain:radial-gradient(ellipse 40rem 24rem at 95% 4%, rgba(248,211,214,.55), transparent 70%), radial-gradient(ellipse 32rem 26rem at 2% 42%, rgba(213,227,244,.5), transparent 70%), radial-gradient(ellipse 36rem 22rem at 85% 90%, rgba(248,229,166,.45), transparent 70%);
+  --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .25  0 0 0 0 .22  0 0 0 0 .15  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  --stain:radial-gradient(ellipse 40rem 24rem at 95% 4%, rgba(243,210,124,.35), transparent 70%), radial-gradient(ellipse 32rem 26rem at 2% 42%, rgba(201,218,180,.45), transparent 70%), radial-gradient(ellipse 36rem 22rem at 85% 90%, rgba(229,160,111,.22), transparent 70%);
 }
 *{box-sizing:border-box}
 [hidden]{display:none !important}
@@ -53,7 +53,7 @@ a:hover{text-decoration-color:var(--ink)}
 a:focus-visible, button:focus-visible{outline:2px dashed var(--ink); outline-offset:3px}
 p{margin:0}
 h1,h2,h3{font-family:var(--display); text-wrap:balance; line-height:1.02; margin:0; letter-spacing:-.01em}
-h1{font-size:clamp(2.6rem, 7.5vw, 4.8rem); font-weight:800; letter-spacing:-.03em; text-shadow:3px 3px 0 rgba(242,175,166,.55)}
+h1{font-size:clamp(2.6rem, 7.5vw, 4.8rem); font-weight:800; letter-spacing:-.03em; text-shadow:3px 3px 0 rgba(229,160,111,.38)}
 h2{font-size:clamp(1.7rem, 4vw, 2.4rem); font-weight:800; letter-spacing:-.025em}
 h3{font-size:1.2rem; font-weight:700}
 .wrap{max-width:68rem; margin:0 auto; padding-block:2rem 4rem}
@@ -62,8 +62,8 @@ h3{font-size:1.2rem; font-weight:700}
 .section{display:flex; flex-direction:column; gap:1.2rem; padding-top:4rem}
 .stamp{font-family:var(--type); font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft)}
 .tape{display:inline-block; align-self:flex-start; font-family:var(--type); font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .85rem; background:var(--tape); color:var(--ink); transform:rotate(-2deg); box-shadow:0 1px 2px rgba(47,53,59,.2); clip-path:polygon(2% 0,98% 5%,100% 50%,97% 100%,3% 95%,0 50%)}
-.tape.denim{background:rgba(213,227,244,.95)} .tape.rose{background:rgba(248,229,166,.95)} .tape.moss{background:rgba(211,228,207,.95)}
-.scribble{background:linear-gradient(-2deg, transparent 48%, var(--rose) 48%, var(--rose) 90%, transparent 90%); padding:0 .12em; text-shadow:none}
+.tape.denim{background:rgba(205,224,226,.95)} .tape.rose{background:rgba(242,220,196,.95)} .tape.moss{background:rgba(201,218,180,.95)}
+.scribble{background:linear-gradient(-2deg, transparent 48%, var(--mustard) 48%, var(--mustard) 90%, transparent 90%); padding:0 .12em; text-shadow:none}
 .marker{font-family:var(--marker); font-weight:700; font-size:1.15em; color:var(--plum); text-transform:none; letter-spacing:0; text-shadow:none; display:inline-block; transform:rotate(-3deg)}
 .muted{color:var(--ink-soft)}
 .status{display:inline-flex; align-items:center; gap:.45rem; font-family:var(--type); font-size:.76rem; padding:.3rem .75rem; border-radius:999px; background:var(--bleach); border:1.5px solid var(--ink)}
@@ -80,9 +80,9 @@ h3{font-size:1.2rem; font-weight:700}
 /* hero */
 .hero{display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:2rem; align-items:end; padding-top:2.5rem}
 .hero .lede{font-size:1.15rem; max-width:40rem}
-.hero-card{background:var(--bleach); padding:1.5rem 1.4rem 1.5rem; position:relative; display:flex; flex-direction:column; gap:.7rem; transform:rotate(1deg); box-shadow:4px 6px 0 rgba(156,123,181,.25); clip-path:polygon(0 2%,6% 0,20% 1.5%,38% 0,57% 1.8%,76% .3%,92% 1.6%,100% 0,99% 30%,100% 62%,99% 100%,80% 98.5%,58% 100%,36% 98.4%,15% 100%,0 98.8%,1% 64%,0 33%)}
+.hero-card{background:var(--bleach); padding:1.5rem 1.4rem 1.5rem; position:relative; display:flex; flex-direction:column; gap:.7rem; transform:rotate(1deg); box-shadow:4px 6px 0 rgba(134,169,172,.3); clip-path:polygon(0 2%,6% 0,20% 1.5%,38% 0,57% 1.8%,76% .3%,92% 1.6%,100% 0,99% 30%,100% 62%,99% 100%,80% 98.5%,58% 100%,36% 98.4%,15% 100%,0 98.8%,1% 64%,0 33%)}
 .hero-card::before{content:""; position:absolute; top:-2px; left:38%; width:6.5rem; height:1.5rem; background:var(--tape); transform:rotate(-4deg)}
-.polaroid{margin:0 0 .4rem; background:#fff; padding:.6rem .6rem .3rem; border:1px solid var(--canvas); box-shadow:0 10px 22px -14px rgba(42,34,48,.55); transform:rotate(-2.5deg); align-self:center; width:min(100%, 17rem); display:flex; flex-direction:column; gap:.2rem}
+.polaroid{margin:0 0 .4rem; background:#fff; padding:.6rem .6rem .3rem; border:1px solid var(--canvas); box-shadow:0 10px 22px -14px rgba(43,42,36,.55); transform:rotate(-2.5deg); align-self:center; width:min(100%, 17rem); display:flex; flex-direction:column; gap:.2rem}
 .polaroid img{display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border:0; background:var(--khaki)}
 .polaroid figcaption{font-family:var(--marker); font-weight:700; font-size:1.25rem; font-style:normal; color:var(--plum); text-align:center}
 .hero-card dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:.45rem 1rem; font-size:.95rem}
@@ -118,7 +118,7 @@ h3{font-size:1.2rem; font-weight:700}
 .card .tape{position:absolute; top:-.75rem; left:.9rem; z-index:2}
 .card.dim{opacity:.3}
 .card.dim:hover{opacity:.6}
-.c-sb{--acc:var(--moss)} .c-sc{--acc:var(--chambray)} .c-cm{--acc:var(--rose)} .c-gp{--acc:var(--olive)} .c-desk{--acc:var(--mustard)} .c-db{--acc:var(--cement)} .c-game{--acc:var(--rust)}
+.c-sb{--acc:var(--moss)} .c-sc{--acc:var(--chambray)} .c-cm{--acc:var(--rose)} .c-gp{--acc:var(--olive)} .c-desk{--acc:var(--mustard)} .c-db{--acc:var(--cement)} .c-game{--acc:var(--rust)} .c-cpp{--acc:var(--chambray)} .c-lp{--acc:var(--olive)} .c-hs{--acc:var(--rose)}
 .tags{display:flex; flex-wrap:wrap; gap:.35rem}
 .tag{font-family:var(--type); font-size:.72rem; padding:.14rem .55rem; border-radius:999px; background:var(--canvas); border:1px solid var(--ink-soft)}
 
@@ -176,6 +176,17 @@ figcaption{font-size:.9rem; color:var(--ink-soft); font-style:italic}
 .feature{background:var(--bleach); border:1.5px solid var(--ink); border-radius:14px; padding:1rem 1.1rem; display:flex; flex-direction:column; gap:.35rem; min-width:0}
 .feature p{font-size:.95rem}
 
+.mini-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1.4rem}
+.mini{--acc:var(--moss); background:var(--bleach); border:1.5px solid var(--ink); border-radius:16px; padding:1.1rem 1.15rem 1.2rem; display:flex; flex-direction:column; gap:.5rem; box-shadow:5px 5px 0 var(--acc); min-width:0; transition:opacity .2s ease}
+.mini.dim{opacity:.3}
+.mini p{font-size:.95rem}
+.mini pre{margin:.2rem 0 0; background:var(--khaki); border-radius:10px; padding:.7rem .8rem; font-family:var(--type); font-size:.74rem; line-height:1.5; overflow-x:auto; white-space:pre}
+.shots{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem}
+video{display:block; width:100%; max-width:100%; border:1.5px solid var(--ink); border-radius:12px; background:#000}
+.stats{display:flex; flex-wrap:wrap; gap:.8rem}
+.stat{background:var(--bleach); border:1.5px solid var(--ink); border-radius:14px; padding:.7rem 1rem; display:flex; flex-direction:column; min-width:8.5rem}
+.stat b{font-family:var(--display); font-size:1.8rem; line-height:1; font-variant-numeric:tabular-nums}
+.stat span{font-size:.85rem; color:var(--ink-soft)}
 /* cv page */
 .cv{display:grid; grid-template-columns:minmax(0,15rem) minmax(0,1fr); gap:2.5rem; padding-top:2rem}
 .cv aside{display:flex; flex-direction:column; gap:1.5rem}
@@ -196,7 +207,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
 .email{font-family:var(--type); user-select:all}
 .copy{font-family:var(--type); font-size:.8rem; padding:.3rem .7rem; border-radius:999px; border:1.5px solid var(--ink); background:var(--mustard); color:var(--ink); cursor:pointer}
 
-.lb{position:fixed; inset:0; background:rgba(42,34,48,.9); display:flex; align-items:center; justify-content:center; padding:calc(1rem + env(safe-area-inset-top,0px)) max(1rem, env(safe-area-inset-right,0px)) calc(1rem + env(safe-area-inset-bottom,0px)) max(1rem, env(safe-area-inset-left,0px)); z-index:20; overflow:auto}
+.lb{position:fixed; inset:0; background:rgba(43,42,36,.9); display:flex; align-items:center; justify-content:center; padding:calc(1rem + env(safe-area-inset-top,0px)) max(1rem, env(safe-area-inset-right,0px)) calc(1rem + env(safe-area-inset-bottom,0px)) max(1rem, env(safe-area-inset-left,0px)); z-index:20; overflow:auto}
 .lb img{max-width:100%; max-height:100%; background:#fff}
 .lb button{position:fixed; top:calc(1rem + env(safe-area-inset-top,0px)); right:max(1rem, env(safe-area-inset-right,0px)); font-family:var(--type); padding:.5rem .8rem; border:2px solid var(--ink); background:var(--paper); color:var(--ink); cursor:pointer}
 
@@ -205,9 +216,10 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
   .grid{grid-template-columns:repeat(2, minmax(0,1fr))}
   .card.wide{grid-column:span 2}
   .tasks{grid-template-columns:1fr}
+  .mini-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
 }
 @media (max-width: 600px){
-  .grid, .stories, .notes, .feature-list, .sketches{grid-template-columns:1fr}
+  .grid, .stories, .notes, .feature-list, .sketches, .mini-grid, .shots{grid-template-columns:1fr}
   .card.wide{grid-column:auto}
   .card.wide .pic{aspect-ratio:16/10}
   .meta{grid-template-columns:repeat(2, minmax(0,1fr))}
@@ -305,16 +317,17 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
           <div class="links"><span>Read the case study →</span></div>
         </div>
       </a>
-      <div class="card c-gp" data-tags="data health">
-        <div class="pic"><span class="glyph">GP<br>attendance</span></div>
+      <a class="card c-gp" href="#data-vis" data-tags="data health ux">
+        <span class="tape moss">Case study</span>
+        <div class="pic"><img src="img/dv-sketch-scatterplot.jpg" alt="Hand-drawn sketch of a scatterplot design for GP appointment data"></div>
         <div class="body">
-          <span class="stamp">Data Visualisation · 2025</span>
-          <h3>GP Attendance Dashboard</h3>
-          <p>An interactive Elm and Vega-Lite dashboard exploring a mock GP practice's data: over 110,000 appointments for about 36,000 patients, including who didn't attend. Module mark: 79.</p>
-          <div class="tags"><span class="tag">Elm</span><span class="tag">Vega-Lite</span><span class="tag">CSV</span></div>
-          <div class="links"><a href="https://github.com/raisa-rahman/data" target="_blank" rel="noopener">Dataset on GitHub ↗</a></div>
+          <span class="stamp">Data Visualisation · Oct–Dec 2025</span>
+          <h3>Patterns Behind GP Appointments</h3>
+          <p>An interactive visual story exploring no-shows, cancellations and slot use across over 110,000 appointments, built in Elm and Vega-Lite. Module mark: 79.</p>
+          <div class="tags"><span class="tag">Elm</span><span class="tag">Vega-Lite</span><span class="tag">Interactive dashboards</span></div>
+          <div class="links"><span>Read the case study →</span></div>
         </div>
-      </div>
+      </a>
       <div class="card c-desk" data-tags="product data public">
         <div class="pic"><img src="img/desk-floorplan.jpg" alt="Office floor plan with desks, used in the desk booking app"></div>
         <div class="body">
@@ -356,6 +369,39 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
           <div class="links"><span>Watch on YouTube ↗</span></div>
         </div>
       </a>
+    </div>
+  </section>
+
+  <section class="section" id="code" aria-labelledby="code-h">
+    <span class="tape denim" id="code-h">Under the hood</span>
+    <h2>Computer Science coursework</h2>
+    <p class="read muted">The technical foundations behind my design work: programming in C++ and Haskell, and building a compiler.</p>
+    <div class="mini-grid">
+      <div class="mini c-cpp" data-tags="data product">
+        <span class="stamp">Programming in C++ · Oct–Dec 2024</span>
+        <h3>Payment Statements Processor</h3>
+        <p>A C++ program that reads two text files, validates every line (missing fields, non-numeric prices, empty files) with clear error messages, and prints a statement and total for each person. Built with classes and standard containers. Module mark: 76.8.</p>
+        <div class="tags"><span class="tag">C++</span><span class="tag">OOP</span><span class="tag">STL maps</span><span class="tag">Input validation</span></div>
+<pre>Bob
+eggs 2.5
+pen 3.5
+Total: 6</pre>
+      </div>
+      <div class="mini c-lp" data-tags="product data">
+        <span class="stamp">Language Processors · Jan–Apr 2025</span>
+        <h3>A Compiler for a Small Language</h3>
+        <p>In Java, I built abstract syntax trees, a recursive-descent parser and a code generator for LPL, a teaching language, then extended it with arrays, procedures and static type checking using a symbol table. I also analysed grammars to make them LL(1), and tested everything with JUnit.</p>
+        <div class="tags"><span class="tag">Java</span><span class="tag">Parsing</span><span class="tag">ASTs</span><span class="tag">Static analysis</span><span class="tag">JUnit</span></div>
+      </div>
+      <div class="mini c-hs" data-tags="data">
+        <span class="stamp">Functional Programming · Oct–Dec 2025</span>
+        <h3>Relational Tables in Haskell</h3>
+        <p>Database-style operations written in pure Haskell, treating a table as a list of rows: listing column names, projecting columns, joining two tables on matching values, and renaming columns.</p>
+        <div class="tags"><span class="tag">Haskell</span><span class="tag">Data.Map</span><span class="tag">Relational algebra</span></div>
+<pre>projectTable columns =
+  filter (not . Map.null)
+  . map (`Map.restrictKeys` columns)</pre>
+      </div>
     </div>
   </section>
 
@@ -563,25 +609,25 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
     <div class="diagram" aria-label="Simplified matching flow">
       <svg viewBox="0 0 720 150" role="img" aria-labelledby="flow-t">
         <title id="flow-t">Simplified matching flow: patient preferences and counsellor profiles feed a matching model, which returns ranked matches; the patient books a taster session and their feedback improves future matches.</title>
-        <g font-family="Instrument Sans, sans-serif" font-size="14" fill="#2A2230">
-          <rect x="6" y="14" width="150" height="48" fill="#F6ECE3" stroke="#2A2230" stroke-width="1.5"/>
+        <g font-family="Instrument Sans, sans-serif" font-size="14" fill="#2B2A24">
+          <rect x="6" y="14" width="150" height="48" fill="#EFE8DC" stroke="#2B2A24" stroke-width="1.5"/>
           <text x="81" y="43" text-anchor="middle">Patient preferences</text>
-          <rect x="6" y="86" width="150" height="48" fill="#F6ECE3" stroke="#2A2230" stroke-width="1.5"/>
+          <rect x="6" y="86" width="150" height="48" fill="#EFE8DC" stroke="#2B2A24" stroke-width="1.5"/>
           <text x="81" y="115" text-anchor="middle">Verified counsellors</text>
-          <rect x="210" y="50" width="150" height="48" fill="#F8D3D6" stroke="#2A2230" stroke-width="1.5"/>
+          <rect x="210" y="50" width="150" height="48" fill="#F3D27C" stroke="#2B2A24" stroke-width="1.5"/>
           <text x="285" y="79" text-anchor="middle">Matching model</text>
-          <rect x="414" y="50" width="130" height="48" fill="#F6ECE3" stroke="#2A2230" stroke-width="1.5"/>
+          <rect x="414" y="50" width="130" height="48" fill="#EFE8DC" stroke="#2B2A24" stroke-width="1.5"/>
           <text x="479" y="79" text-anchor="middle">Ranked matches</text>
-          <rect x="590" y="50" width="124" height="48" fill="#F6ECE3" stroke="#2A2230" stroke-width="1.5"/>
+          <rect x="590" y="50" width="124" height="48" fill="#EFE8DC" stroke="#2B2A24" stroke-width="1.5"/>
           <text x="652" y="79" text-anchor="middle">Taster session</text>
-          <text x="440" y="140" text-anchor="middle" font-size="13" fill="#6B5F72">feedback improves future matches</text>
+          <text x="440" y="140" text-anchor="middle" font-size="13" fill="#615D51">feedback improves future matches</text>
         </g>
-        <g stroke="#2A2230" stroke-width="1.5" fill="none">
+        <g stroke="#2B2A24" stroke-width="1.5" fill="none">
           <path d="M156 38 L190 38 L190 66 L204 66"/><path d="M156 110 L190 110 L190 82 L204 82"/>
           <path d="M360 74 L408 74"/><path d="M544 74 L584 74"/>
           <path d="M652 98 L652 124 L285 124 L285 104" stroke-dasharray="5 4"/>
         </g>
-        <g fill="#2A2230"><path d="M204 62 L211 66 L204 70Z"/><path d="M204 78 L211 82 L204 86Z"/><path d="M408 70 L415 74 L408 78Z"/><path d="M584 70 L591 74 L584 78Z"/><path d="M281 104 L285 97 L289 104Z"/></g>
+        <g fill="#2B2A24"><path d="M204 62 L211 66 L204 70Z"/><path d="M204 78 L211 82 L204 86Z"/><path d="M408 70 L415 74 L408 78Z"/><path d="M584 70 L591 74 L584 78Z"/><path d="M281 104 L285 97 L289 104Z"/></g>
       </svg>
     </div>
     <p>For the matching itself, I designed a machine learning flow: split the data into training and test sets, use classification for categories like ethnicity and regression for continuous values like session length, use natural language processing to pick out keywords from free text (such as "trauma"), and evaluate the model with a confusion matrix or RMSE. Patient feedback would then reinforce good matches over time.</p>
@@ -599,6 +645,59 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
     <span class="stamp">Looking back</span>
     <h2>Where this led</h2>
     <p>I wrote this at 17, and it's where my interest in safe, trustworthy AI in healthcare started. Today I'd begin with research rather than a solution: interviewing patients and counsellors before writing requirements. That's exactly the approach I now use, and it's why I'm studying Human-AI Interaction and HCI for Health at UCL.</p>
+    <p><a class="back" href="#">← Back to all work</a></p>
+  </section>
+</div>
+
+<!-- ============ DATA VIS ============ -->
+<div id="view-data-vis" class="wrap read" hidden>
+  <a class="back" href="#">← All work</a>
+  <section class="section" style="padding-top:2rem">
+    <span class="tape moss">Case study · Data Visualisation · Oct–Dec 2025</span>
+    <h1>Patterns Behind GP Appointments</h1>
+    <p class="lede" style="font-size:1.15rem">An interactive visual story about <span class="scribble">no-shows, cancellations and clinic efficiency</span> at a GP practice.</p>
+    <div class="meta">
+      <div><span class="stamp">My role</span><span>Sole analyst and designer</span></div>
+      <div><span class="stamp">Data</span><span>110,000+ appointments, 36,000+ patients (mock data)</span></div>
+      <div><span class="stamp">Tools</span><span>Elm, Vega-Lite, litvis</span></div>
+      <div><span class="stamp">Module mark</span><span>79</span></div>
+    </div>
+  </section>
+  <section class="section">
+    <span class="stamp">The questions</span>
+    <h2>Three research questions</h2>
+    <ol class="steps">
+      <li><span><strong>Who misses appointments?</strong> Do cancellations and no-shows differ by age group, sex or insurance provider?</span></li>
+      <li><span><strong>Does booking further ahead matter?</strong> How does the gap between booking and appointment affect attendance and waiting time?</span></li>
+      <li><span><strong>When are slots wasted?</strong> How well are slots used across days of the week and times of day?</span></li>
+    </ol>
+    <p>For each question I wrote specific user tasks, such as "compare no-show proportions between age groups", so every design choice had a job to do.</p>
+  </section>
+  <section class="section">
+    <span class="stamp">Exploring designs</span>
+    <h2>Sketching before committing</h2>
+    <p>I sketched and weighed alternatives for each question before choosing. I rejected mosaic charts because they're hard for non-experts to read, grouped bars because raw counts made bigger groups look worse than they were, scatterplots of every appointment because they hid the trend, and a radial "clock" view because comparing arcs is harder than comparing positions.</p>
+    <div class="sketches">
+      <figure><img class="zoom" src="img/dv-sketch-grouped_bar_chart.jpg" alt="Sketch of a grouped bar chart design" loading="lazy"><figcaption>Grouped bars (rejected)</figcaption></figure>
+      <figure><img class="zoom" src="img/dv-sketch-scatterplot.jpg" alt="Sketch of a scatterplot design" loading="lazy"><figcaption>Scatterplot (rejected)</figcaption></figure>
+      <figure><img class="zoom" src="img/dv-sketch-radial_plot.jpg" alt="Sketch of a radial weekly plot design" loading="lazy"><figcaption>Radial week view (rejected)</figcaption></figure>
+    </div>
+  </section>
+  <section class="section">
+    <span class="stamp">The final designs</span>
+    <h2>What I built and what it showed</h2>
+    <div class="feature-list">
+      <div class="feature"><h3>Cross-filtering dashboard</h3><p>100% stacked bars for age, sex and insurance, linked so selecting one filters the others. Attendance was strikingly consistent across every group, so demographics weren't the driver.</p></div>
+      <div class="feature"><h3>Booking interval view</h3><p>Linked charts of outcomes, waiting time and cancellation rate over a 30-day window, with a shared hover line. Waiting time held at about 45 minutes, rising near 50 at the 30-day mark.</p></div>
+      <div class="feature"><h3>Paired heatmaps</h3><p>Day of the week against time of day for missed appointments and slot occupancy. They exposed small hotspots, like Friday 10–11am, and peak use of about 91% on Friday late morning.</p></div>
+      <div class="feature"><h3>Honest about scale</h3><p>I called out that the ranges were narrow (21–23% missed, 88–91% occupied), so stakeholders wouldn't over-read colour differences.</p></div>
+    </div>
+  </section>
+  <section class="section">
+    <span class="stamp">Why it matters</span>
+    <h2>From reporting to action</h2>
+    <p>The story moves stakeholders from "what happened" to "where should we act": the practice runs consistently overall, but specific hours are worth targeting. It's the kind of evidence-led, healthcare-focused analysis I want to keep doing.</p>
+    <div class="btns"><a class="btn alt" href="https://github.com/raisa-rahman/data" target="_blank" rel="noopener">See the dataset on GitHub ↗</a></div>
     <p><a class="back" href="#">← Back to all work</a></p>
   </section>
 </div>
@@ -645,7 +744,35 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
       <div class="feature"><h3>Verified mentors</h3><p>Mentors upload ID during onboarding, and an admin approves or rejects them before they appear to students.</p></div>
       <div class="feature"><h3>Feedback and ratings</h3><p>After a session, students leave a review, and the mentor's average rating updates straight away.</p></div>
     </div>
-    <p>Behind it is a Laravel 11 REST API with a relational SQLite database (users, universities, mentor and student profiles, availability, meetings, reviews and favourites) and a Vue.js 3 front end, with separate dashboards for students, mentors and admins.</p>
+    <p>Behind it is a Laravel 11 REST API with Sanctum authentication and a relational SQLite database (users, universities, mentor and student profiles, availability, meetings, reviews and favourites), and a Vue.js 3 front end with separate dashboards for students, mentors and admins. Approved sessions get a Jitsi video link automatically.</p>
+    <div class="shots">
+      <figure><img class="zoom" src="img/sc-dashboard.jpg" alt="Student dashboard showing upcoming meetings and a grid of verified mentors with filters" loading="lazy"><figcaption>Student dashboard with the verified mentor directory and filters.</figcaption></figure>
+      <figure><img class="zoom" src="img/sc-profile.jpg" alt="Mentor public profile with rating, journey, roadmap and student feedback" loading="lazy"><figcaption>Mentor profile, with the average rating as a trust signal.</figcaption></figure>
+      <figure><img class="zoom" src="img/sc-admin.jpg" alt="Admin portal listing mentors with approve and reject buttons and status pills" loading="lazy"><figcaption>Admin portal for approving or rejecting mentors' ID.</figcaption></figure>
+      <figure><img class="zoom" src="img/sc-mentor-portal.jpg" alt="Mentor portal showing a verified status banner, profile and average rating" loading="lazy"><figcaption>Mentor portal with clear verification status.</figcaption></figure>
+    </div>
+  </section>
+  <section class="section">
+    <span class="stamp">How a session works</span>
+    <h2>Designing the booking lifecycle</h2>
+    <p>I modelled every state a session can be in before building it: pending, approved, declined, completed and reviewed. Each state controls what students and mentors see, such as when the video link appears or when a review can be left.</p>
+    <figure><img class="zoom" src="img/sc-lifecycle.jpg" alt="UML state diagram: pending, approved, declined, completed and reviewed states with transitions" loading="lazy"><figcaption>UML state model for a mentoring session. Tap to enlarge.</figcaption></figure>
+  </section>
+  <section class="section">
+    <span class="stamp">Watch it</span>
+    <h2>Product walkthrough</h2>
+    <video controls preload="metadata" playsinline src="img/sc-demo.mp4"></video>
+    <p class="muted">A screen recording walking through the platform as a student, a mentor and an admin.</p>
+  </section>
+  <section class="section">
+    <span class="stamp">Testing and feedback</span>
+    <h2>Did it work?</h2>
+    <div class="stats">
+      <div class="stat"><b>24</b><span>test cases, all passed</span></div>
+      <div class="stat"><b>3</b><span>user roles</span></div>
+      <div class="stat"><b>5</b><span>session states</span></div>
+    </div>
+    <p>I ran 24 test cases across the stack, including edge cases such as impossible time ranges and duplicate requests, and confirmed unverified mentors never appear in the directory. In walkthroughs, my supervisor praised the secure API design, and the client confirmed it matched their brand and liked the automatic video links. The client also spotted that the calendar needed clearer signposting for less technical users, which is what I'd improve next, along with testing with real international students.</p>
   </section>
   <section class="section">
     <span class="stamp">What it shows</span>
@@ -669,7 +796,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
       <div><h3>Contact</h3><ul><li class="email">raisa2003raisa@hotmail.com</li><li><a href="https://www.linkedin.com/in/raisa-r-274692229" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://github.com/raisa-rahman" target="_blank" rel="noopener">GitHub</a></li><li>London</li></ul></div>
       <div><h3>Research</h3><ul><li>Interviews and focus groups</li><li>Think-aloud usability testing</li><li>Reflexive thematic analysis</li><li>Surveys and experiments</li><li>Inferential statistics</li><li>Ethics, consent and GDPR</li></ul></div>
       <div><h3>Design</h3><ul><li>Personas and journey maps</li><li>User flows and wireframes</li><li>Figma prototyping</li><li>Heuristic evaluation</li><li>Accessibility (WCAG)</li></ul></div>
-      <div><h3>Technical</h3><ul><li>SQL, Python, Java, C++</li><li>HTML, CSS, PHP, Vue.js, Laravel</li><li>Elm and Vega-Lite</li><li>Vue.js 3, Laravel 11, SQLite</li><li>Git, Linux, cloud basics</li><li>HL7 (HealthConnect, Rhapsody)</li><li>Microsoft 365, Entra ID</li><li>Jira, Confluence, Salesforce, HubSpot</li></ul></div>
+      <div><h3>Technical</h3><ul><li>SQL, Python, Java, C++</li><li>HTML, CSS, PHP, Vue.js, Laravel</li><li>Elm, Vega-Lite and Haskell</li><li>Vue.js 3, Laravel 11, SQLite</li><li>Git, Linux, cloud basics</li><li>HL7 (HealthConnect, Rhapsody)</li><li>Microsoft 365, Entra ID</li><li>Jira, Confluence, Salesforce, HubSpot</li></ul></div>
       <div><h3>Other</h3><ul><li>English (native), Bengali (fluent)</li><li>Full UK driving licence</li><li>Eligible for SC clearance</li><li>Level 2 Food Safety</li></ul></div>
     </aside>
     <main>
@@ -777,7 +904,7 @@ const lenses = {
     pts:["Built a full-stack mentoring platform for a real client","Requirements traced back to research evidence","Set out options and trade-offs on a stalled Entra ID migration","Two CRM migrations and a company-wide security rollout","Shadowed a project manager on an NHS integration"]},
   data: {t:"Data and analysis",
     p:"I write SQL against live healthcare data, build dashboards, and I'm trained in experimental design and inferential statistics.",
-    pts:["SQL scripts to investigate and fix NHS data issues","GP attendance dashboard in Elm and Vega-Lite (Data Visualisation: 79%)","Managed and reported on 1,000+ records at Camden Council","Statistics and quantitative analysis in my MSc"]},
+    pts:["SQL scripts to investigate and fix NHS data issues","Interactive GP appointment dashboards in Elm and Vega-Lite (Data Visualisation: 79)","Managed and reported on 1,000+ records at Camden Council","Statistics and quantitative analysis in my MSc"]},
   health: {t:"Healthcare and the NHS",
     p:"For three years I've supported live clinical systems for NHS trusts. I understand how patient data moves between systems, why reliability matters, and how clinical staff work.",
     pts:["NHS clients including UCLH, Frimley, South Tees and EEAST","HL7 integration on InterSystems HealthConnect and Rhapsody","98% SLAs, including out-of-hours on-call","HCI for Health and Wellbeing at UCL; counsellor-matching concept"]},
@@ -834,7 +961,7 @@ wireframes.forEach((w,i)=>{
 showWf(0);
 
 /* ---- routing ---- */
-const views = {home:"view-home", studybuddy:"view-studybuddy", "counsellor-app":"view-counsellor-app", "student-circus":"view-student-circus", cv:"view-cv"};
+const views = {home:"view-home", studybuddy:"view-studybuddy", "counsellor-app":"view-counsellor-app", "student-circus":"view-student-circus", "data-vis":"view-data-vis", cv:"view-cv"};
 function route(){
   const h = location.hash.replace("#","");
   const view = views[h] ? h : "home";
