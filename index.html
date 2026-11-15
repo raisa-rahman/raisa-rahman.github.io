@@ -4,13 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raisa Rahman Portfolio</title>
-<meta name="description" content="Raisa Rahman: UX researcher and designer with a Computer Science degree and three years supporting NHS trusts. Case studies in user research, product, data and healthcare.">
+<meta name="description" content="Raisa Rahman: user researcher with a product mindset, a Computer Science degree and three years supporting NHS trusts. Case studies in user research and product.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap">
 <style>
-body{margin:0}
-img{max-width:100%}
 /* Layout: a warm, modern scrapbook: soft pastel washes, light grain, sticker tags and
    handwritten notes over a clean reading column; one pastel accent per project. */
 :root{
@@ -41,6 +39,8 @@ img{max-width:100%}
   --stain:radial-gradient(ellipse 40rem 24rem at 95% 4%, rgba(243,210,124,.35), transparent 70%), radial-gradient(ellipse 32rem 26rem at 2% 42%, rgba(201,218,180,.45), transparent 70%), radial-gradient(ellipse 36rem 22rem at 85% 90%, rgba(229,160,111,.22), transparent 70%);
 }
 *{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
 [hidden]{display:none !important}
 body{
   background-color:var(--paper); background-image:var(--grain), var(--stain);
@@ -101,6 +101,10 @@ h3{font-size:1.2rem; font-weight:700}
 .chips button[aria-pressed="true"]{background:var(--ink); color:var(--paper)}
 .pitch{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:1.25rem}
 .pitch ul{margin:0; padding-left:1.1rem; display:flex; flex-direction:column; gap:.35rem}
+.focus{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.5rem}
+.focus ul{margin:0; padding-left:1.1rem; display:flex; flex-direction:column; gap:.35rem}
+.card.full{grid-column:1/-1}
+.card.full .pic{aspect-ratio:21/7}
 
 /* work grid */
 .grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1.8rem 1.5rem}
@@ -212,7 +216,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
 .lb button{position:fixed; top:calc(1rem + env(safe-area-inset-top,0px)); right:max(1rem, env(safe-area-inset-right,0px)); font-family:var(--type); padding:.5rem .8rem; border:2px solid var(--ink); background:var(--paper); color:var(--ink); cursor:pointer}
 
 @media (max-width: 860px){
-  .hero, .pitch, .pair, .cv{grid-template-columns:1fr}
+  .hero, .pitch, .focus, .pair, .cv{grid-template-columns:1fr}
   .grid{grid-template-columns:repeat(2, minmax(0,1fr))}
   .card.wide{grid-column:span 2}
   .tasks{grid-template-columns:1fr}
@@ -220,7 +224,8 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
 }
 @media (max-width: 600px){
   .grid, .stories, .notes, .feature-list, .sketches, .mini-grid, .shots{grid-template-columns:1fr}
-  .card.wide{grid-column:auto}
+  .card.wide, .card.full{grid-column:auto}
+  .card.full .pic{aspect-ratio:16/10}
   .card.wide .pic{aspect-ratio:16/10}
   .meta{grid-template-columns:repeat(2, minmax(0,1fr))}
   .mark{grid-template-columns:minmax(0,1fr) 5rem 3rem}
@@ -245,9 +250,9 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
 <div id="view-home" class="wrap">
   <section class="hero">
     <div class="stack">
-      <div class="btns" style="gap:.5rem; align-items:center"><span class="tape">UX research · Product · Data · Healthcare</span><span class="status"><span class="dot" aria-hidden="true"></span>Open to UX, product and health tech roles</span></div>
+      <div class="btns" style="gap:.5rem; align-items:center"><span class="tape">User research · Product</span><span class="status"><span class="dot" aria-hidden="true"></span>Open to user research and product roles</span></div>
       <h1>I make tech fit the <span class="scribble">people</span> who <span class="marker">actually</span> use it</h1>
-      <p class="lede">I'm a researcher and designer with a First Class Computer Science degree, now studying for an MSc in Human-Computer Interaction at UCL. For three years I've supported NHS trusts at a healthcare technology consultancy, so I know what happens when systems don't fit the people relying on them.</p>
+      <p class="lede">I'm a user researcher with a product mindset. I find out what people actually need, then turn it into clear, prioritised decisions a team can build. I have a First Class Computer Science degree, I'm studying for an MSc in Human-Computer Interaction at UCL, and for three years I've supported NHS trusts, so I know what happens when products don't fit the people relying on them.</p>
       <div class="btns">
         <a class="btn" href="#studybuddy">See a case study</a>
         <a class="btn alt" href="#cv">Read my CV</a>
@@ -269,25 +274,30 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
     </div>
   </section>
 
-  <section class="section" aria-labelledby="lens-h">
+  <section class="section" aria-labelledby="focus-h">
     <div class="lens">
-      <div class="stack" style="gap:.4rem">
-        <span class="stamp" id="lens-h">Hiring for…</span>
-        <div class="chips" id="lens" role="group" aria-label="Choose the role you're hiring for">
-          <button type="button" data-lens="all" aria-pressed="true">Everything</button>
-          <button type="button" data-lens="ux" aria-pressed="false">UX research &amp; design</button>
-          <button type="button" data-lens="product" aria-pressed="false">Product</button>
-          <button type="button" data-lens="data" aria-pressed="false">Data &amp; analysis</button>
-          <button type="button" data-lens="health" aria-pressed="false">Healthcare &amp; NHS</button>
-          <button type="button" data-lens="public" aria-pressed="false">Councils &amp; public sector</button>
-        </div>
-      </div>
-      <div class="pitch">
+      <span class="stamp" id="focus-h">What I do</span>
+      <div class="focus">
         <div class="stack" style="gap:.5rem">
-          <h3 id="pitch-title">Research, design and technical delivery</h3>
-          <p id="pitch-text"></p>
+          <h3>User research</h3>
+          <p>I plan and run studies, analyse them rigorously and turn what people tell and show me into evidence a team can act on.</p>
+          <ul>
+            <li>Interviews, think-aloud walkthroughs and usability testing</li>
+            <li>Reflexive thematic analysis and affinity mapping</li>
+            <li>Personas, journey maps and requirements traced back to participants</li>
+            <li>Ethics, consent and GDPR-compliant data handling</li>
+          </ul>
         </div>
-        <ul id="pitch-points"></ul>
+        <div class="stack" style="gap:.5rem">
+          <h3>Product</h3>
+          <p>I turn user problems into clear, prioritised requirements, weigh trade-offs, and can talk to engineers in their own language.</p>
+          <ul>
+            <li>Took a mentoring platform from client requirements to a working product</li>
+            <li>Set out options and trade-offs to unblock a stalled migration at work</li>
+            <li>Turned 110,000+ GP appointments into a dashboard for decision-makers</li>
+            <li>Three years working with NHS clinical and technical teams</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -295,7 +305,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
   <section class="section" id="work" aria-labelledby="work-h">
     <span class="tape" id="work-h">Selected work</span>
     <div class="grid">
-      <a class="card c-sb wide" href="#studybuddy" data-tags="ux product">
+      <a class="card c-sb wide" href="#studybuddy">
         <span class="tape moss">Case study</span>
         <div class="pic"><img src="img/journey-map.jpg" alt="StudyBuddy journey map across five stages of a study session"></div>
         <div class="body">
@@ -306,103 +316,50 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
           <div class="links"><span>Read the case study and open the Figma file →</span></div>
         </div>
       </a>
-      <a class="card c-cm" href="#counsellor-app" data-tags="health ux product data">
+      <a class="card c-cm" href="#counsellor-app">
         <span class="tape rose">Gold CREST</span>
         <div class="pic"><span class="glyph">patient ↔<br>counsellor</span></div>
         <div class="body">
           <span class="stamp">Research report · 2021</span>
           <h3>Counsellor Matching App</h3>
           <p>A concept from my Nuffield placement with Synoptix for matching patients to counsellors who understand their background.</p>
-          <div class="tags"><span class="tag">Requirements</span><span class="tag">Use cases</span><span class="tag">ML</span></div>
+          <div class="tags"><span class="tag">Requirements</span><span class="tag">Use cases</span><span class="tag">Risk analysis</span></div>
           <div class="links"><span>Read the case study →</span></div>
         </div>
       </a>
-      <a class="card c-gp" href="#data-vis" data-tags="data health ux">
+      <a class="card c-gp" href="#data-vis">
         <span class="tape moss">Case study</span>
         <div class="pic"><img src="img/dv-sketch-scatterplot.jpg" alt="Hand-drawn sketch of a scatterplot design for GP appointment data"></div>
         <div class="body">
           <span class="stamp">Data Visualisation · Oct–Dec 2025</span>
           <h3>Patterns Behind GP Appointments</h3>
-          <p>An interactive visual story exploring no-shows, cancellations and slot use across over 110,000 appointments, built in Elm and Vega-Lite. Module mark: 79.</p>
-          <div class="tags"><span class="tag">Elm</span><span class="tag">Vega-Lite</span><span class="tag">Interactive dashboards</span></div>
-          <div class="links"><span>Read the case study →</span></div>
+          <p>Who misses GP appointments, and when are slots wasted? An interactive dashboard across 110,000+ appointments that you can explore yourself. Module mark: 79.</p>
+          <div class="tags"><span class="tag">Research questions</span><span class="tag">Healthcare data</span><span class="tag">Live dashboard</span></div>
+          <div class="links"><span>Read the case study and explore the dashboard →</span></div>
         </div>
       </a>
-      <div class="card c-desk" data-tags="product data public">
-        <div class="pic"><img src="img/desk-floorplan.jpg" alt="Office floor plan with desks, used in the desk booking app"></div>
-        <div class="body">
-          <span class="stamp">Work Based Project · 2024</span>
-          <h3>Desk Booking Web App</h3>
-          <p>A desk reservation app with a clickable floor plan, booking and cancelling, weekly and calendar views, an "in the office" list, admin tools and downloadable reports. Module mark: 79.9.</p>
-          <div class="tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">HTML/CSS</span></div>
-          <div class="links"><a href="https://github.com/raisa-rahman/workBasedProject" target="_blank" rel="noopener">Code on GitHub ↗</a></div>
-        </div>
-      </div>
-      <div class="card c-db" data-tags="data">
-        <div class="pic"><span class="glyph">SELECT *<br>FROM shops</span></div>
-        <div class="body">
-          <span class="stamp">Databases · 2023</span>
-          <h3>Shopping Centre Database</h3>
-          <p>A relational SQL database modelling a shopping centre's customers, stores, transactions, items and feedback forms, with queries over it. Module mark: 74.4.</p>
-          <div class="tags"><span class="tag">SQL</span><span class="tag">Data modelling</span></div>
-          <div class="links"><a href="https://github.com/raisa-rahman/shoppingcentredatabase" target="_blank" rel="noopener">Code on GitHub ↗</a></div>
-        </div>
-      </div>
-      <a class="card c-sc wide" href="#student-circus" data-tags="product ux">
+            <a class="card c-sc wide" href="#student-circus">
         <span class="tape denim">Final year project</span>
         <div class="pic"><img src="img/sc-wireframes.jpg" alt="Digital wireframes for the Student Circus mentoring platform" style="object-position:center 12%"></div>
         <div class="body">
           <span class="stamp">Individual Project · 2025–26</span>
           <h3>Student Circus Mentoring Platform</h3>
-          <p>A full-stack platform connecting international students with verified alumni mentors, built for a real client. I took it from notebook sketches to a working Vue.js and Laravel product with Google Calendar booking.</p>
-          <div class="tags"><span class="tag">Vue.js 3</span><span class="tag">Laravel 11</span><span class="tag">SQLite</span><span class="tag">Google Calendar API</span></div>
+          <p>A mentoring platform connecting international students with verified alumni, built for a real client. I took it from client requirements and notebook sketches to a working product with verified mentors, reviews and Google Calendar booking.</p>
+          <div class="tags"><span class="tag">Client requirements</span><span class="tag">Wireframes</span><span class="tag">Booking lifecycle</span><span class="tag">Vue.js and Laravel</span></div>
           <div class="links"><span>Read the case study →</span></div>
         </div>
       </a>
-      <a class="card c-game" href="https://www.youtube.com/watch?v=aoaTDzyGemo" target="_blank" rel="noopener" data-tags="product">
-        <div class="pic"><span class="glyph">▶ press<br>start</span></div>
+      <div class="card c-desk full">
+        <div class="pic"><img src="img/desk-floorplan.jpg" alt="Office floor plan with desks, used in the desk booking app"></div>
         <div class="body">
-          <span class="stamp">First year · 2023</span>
-          <h3>Java 2D Platform Game</h3>
-          <p>A simple 2D platformer I built in Java in my first year of Computer Science. Programming in Java: 88.2.</p>
-          <div class="tags"><span class="tag">Java</span><span class="tag">Game loop</span></div>
-          <div class="links"><span>Watch on YouTube ↗</span></div>
+          <span class="stamp">Work Based Project · 2024</span>
+          <h3>Desk Booking Web App</h3>
+          <p>A desk reservation app with a clickable floor plan, booking and cancelling, weekly and calendar views, an "in the office" list, admin tools and downloadable reports. Module mark: 79.9.</p>
+          <div class="tags"><span class="tag">Requirements</span><span class="tag">Admin tools</span><span class="tag">Reporting</span></div>
+          <div class="links"><a href="https://github.com/raisa-rahman/workBasedProject" target="_blank" rel="noopener">Code on GitHub ↗</a></div>
         </div>
-      </a>
-    </div>
-  </section>
-
-  <section class="section" id="code" aria-labelledby="code-h">
-    <span class="tape denim" id="code-h">Under the hood</span>
-    <h2>Computer Science coursework</h2>
-    <p class="read muted">The technical foundations behind my design work: programming in C++ and Haskell, and building a compiler.</p>
-    <div class="mini-grid">
-      <div class="mini c-cpp" data-tags="data product">
-        <span class="stamp">Programming in C++ · Oct–Dec 2024</span>
-        <h3>Payment Statements Processor</h3>
-        <p>A C++ program that reads two text files, validates every line (missing fields, non-numeric prices, empty files) with clear error messages, and prints a statement and total for each person. Built with classes and standard containers. Module mark: 76.8.</p>
-        <div class="tags"><span class="tag">C++</span><span class="tag">OOP</span><span class="tag">STL maps</span><span class="tag">Input validation</span></div>
-<pre>Bob
-eggs 2.5
-pen 3.5
-Total: 6</pre>
       </div>
-      <div class="mini c-lp" data-tags="product data">
-        <span class="stamp">Language Processors · Jan–Apr 2025</span>
-        <h3>A Compiler for a Small Language</h3>
-        <p>In Java, I built abstract syntax trees, a recursive-descent parser and a code generator for LPL, a teaching language, then extended it with arrays, procedures and static type checking using a symbol table. I also analysed grammars to make them LL(1), and tested everything with JUnit.</p>
-        <div class="tags"><span class="tag">Java</span><span class="tag">Parsing</span><span class="tag">ASTs</span><span class="tag">Static analysis</span><span class="tag">JUnit</span></div>
-      </div>
-      <div class="mini c-hs" data-tags="data">
-        <span class="stamp">Functional Programming · Oct–Dec 2025</span>
-        <h3>Relational Tables in Haskell</h3>
-        <p>Database-style operations written in pure Haskell, treating a table as a list of rows: listing column names, projecting columns, joining two tables on matching values, and renaming columns.</p>
-        <div class="tags"><span class="tag">Haskell</span><span class="tag">Data.Map</span><span class="tag">Relational algebra</span></div>
-<pre>projectTable columns =
-  filter (not . Map.null)
-  . map (`Map.restrictKeys` columns)</pre>
-      </div>
-    </div>
+          </div>
   </section>
 
   <section class="section" id="experience" aria-labelledby="exp-h">
@@ -410,25 +367,20 @@ Total: 6</pre>
     <h2>Problems I've solved at work</h2>
     <p class="read muted">I'm a Support Engineer at Integrella, a healthcare integration consultancy serving NHS trusts including UCLH, South Tees, Frimley, Northumbria, HSCNI and East of England Ambulance Service.</p>
     <div class="stories">
-      <div class="story" data-tags="product ux health public">
+      <div class="story">
         <span class="stamp">Discovery to decision</span>
         <h3>Unblocking a failed Entra ID migration</h3>
         <p>Converting staff laptops to Microsoft Entra ID accounts kept failing. I worked with the vendor's support team and found the cause: local account names didn't match the format the system expected. I proved a fix by renaming my own account, then set out the options and trade-offs. Leadership chose a route and we moved on to migrating each device.</p>
       </div>
-      <div class="story" data-tags="health data public">
-        <span class="stamp">Live NHS systems</span>
+      <div class="story">
+        <span class="stamp">Working with clinical teams</span>
         <h3>Keeping clinical data flowing</h3>
         <p>I support HL7 integration engines (InterSystems HealthConnect and Rhapsody) that move patient data between hospital systems. I write SQL to investigate and fix data issues, adapted a purge script to a specific environment, and keep average response and resolution SLAs at 98%, including on an out-of-hours rota.</p>
       </div>
-      <div class="story" data-tags="product public data">
+      <div class="story">
         <span class="stamp">Designing for colleagues</span>
         <h3>A company-wide starters and leavers tracker</h3>
         <p>Onboarding and offboarding relied on memory. Working with HR, I built a checklist tracker organised by system, so every account is opened and closed properly. I'm also automating our monthly support rota, which is currently filled in by hand.</p>
-      </div>
-      <div class="story" data-tags="health public data">
-        <span class="stamp">Security and compliance</span>
-        <h3>Rolling out Qualys and supporting Cyber Essentials</h3>
-        <p>I led the company-wide Qualys rollout and helped us through Cyber Essentials, checking devices for vulnerabilities across Sophos, Holm Security and JumpCloud and coordinating fixes with colleagues.</p>
       </div>
     </div>
   </section>
@@ -656,6 +608,7 @@ Total: 6</pre>
     <span class="tape moss">Case study · Data Visualisation · Oct–Dec 2025</span>
     <h1>Patterns Behind GP Appointments</h1>
     <p class="lede" style="font-size:1.15rem">An interactive visual story about <span class="scribble">no-shows, cancellations and clinic efficiency</span> at a GP practice.</p>
+    <div class="btns"><a class="btn" href="dashboard/">Explore the live dashboard</a></div>
     <div class="meta">
       <div><span class="stamp">My role</span><span>Sole analyst and designer</span></div>
       <div><span class="stamp">Data</span><span>110,000+ appointments, 36,000+ patients (mock data)</span></div>
@@ -697,7 +650,7 @@ Total: 6</pre>
     <span class="stamp">Why it matters</span>
     <h2>From reporting to action</h2>
     <p>The story moves stakeholders from "what happened" to "where should we act": the practice runs consistently overall, but specific hours are worth targeting. It's the kind of evidence-led, healthcare-focused analysis I want to keep doing.</p>
-    <div class="btns"><a class="btn alt" href="https://github.com/raisa-rahman/data" target="_blank" rel="noopener">See the dataset on GitHub ↗</a></div>
+    <div class="btns"><a class="btn" href="dashboard/">Explore the live dashboard</a><a class="btn alt" href="https://github.com/raisa-rahman/data" target="_blank" rel="noopener">See the dataset on GitHub ↗</a></div>
     <p><a class="back" href="#">← Back to all work</a></p>
   </section>
 </div>
@@ -710,7 +663,7 @@ Total: 6</pre>
     <h1>Student Circus</h1>
     <p class="lede" style="font-size:1.15rem">A peer-to-peer mentoring platform that connects international students with <span class="scribble">verified alumni</span> for honest career and university advice.</p>
     <div class="meta">
-      <div><span class="stamp">My role</span><span>Sole designer and full-stack developer</span></div>
+      <div><span class="stamp">My role</span><span>Led it end to end: client requirements, design and build</span></div>
       <div><span class="stamp">Client</span><span>Student Circus</span></div>
       <div><span class="stamp">Stack</span><span>Vue.js 3, Laravel 11, SQLite</span></div>
       <div><span class="stamp">Module</span><span>Individual Project (71.5)</span></div>
@@ -891,46 +844,8 @@ Total: 6</pre>
 </div>
 
 <script>
-/* ---- hiring lens ---- */
-const lenses = {
-  all: {t:"Research, design and technical delivery",
-    p:"I combine user research and design training with a Computer Science degree and three years of hands-on work with NHS trusts. Pick a role above to see the most relevant work.",
-    pts:["MSc Human-Computer Interaction at UCL","First Class BSc Computer Science","Three years supporting NHS trusts","Two years at Camden Council"]},
-  ux: {t:"UX research and design",
-    p:"I plan and run research, analyse it rigorously, and turn it into designs people can test. My MSc covers qualitative and quantitative methods, cognition and Human-AI Interaction.",
-    pts:["Interview study with 7 students, coded and themed","Persona, journey map, user flow and 6 annotated wireframes","Think-aloud, heuristic evaluation and usability test planning","Ethics, consent and GDPR-compliant data handling"]},
-  product: {t:"Product",
-    p:"I turn user problems into clear, prioritised requirements, and I can talk to engineers in their own language. At work I take problems from investigation through to a decision.",
-    pts:["Built a full-stack mentoring platform for a real client","Requirements traced back to research evidence","Set out options and trade-offs on a stalled Entra ID migration","Two CRM migrations and a company-wide security rollout","Shadowed a project manager on an NHS integration"]},
-  data: {t:"Data and analysis",
-    p:"I write SQL against live healthcare data, build dashboards, and I'm trained in experimental design and inferential statistics.",
-    pts:["SQL scripts to investigate and fix NHS data issues","Interactive GP appointment dashboards in Elm and Vega-Lite (Data Visualisation: 79)","Managed and reported on 1,000+ records at Camden Council","Statistics and quantitative analysis in my MSc"]},
-  health: {t:"Healthcare and the NHS",
-    p:"For three years I've supported live clinical systems for NHS trusts. I understand how patient data moves between systems, why reliability matters, and how clinical staff work.",
-    pts:["NHS clients including UCLH, Frimley, South Tees and EEAST","HL7 integration on InterSystems HealthConnect and Rhapsody","98% SLAs, including out-of-hours on-call","HCI for Health and Wellbeing at UCL; counsellor-matching concept"]},
-  public: {t:"Councils and the public sector",
-    p:"I've worked for Camden Council and with NHS trusts, so I know what serving the public well involves: careful data handling, clear communication and services that work for everyone.",
-    pts:["Two years at Camden Council's Summer University","Supported young people with autism and dyslexia","GDPR, confidentiality and information governance","British citizen, eligible for SC clearance"]}
-};
-const lensBtns = document.querySelectorAll("#lens button");
-function setLens(k){
-  const L = lenses[k];
-  document.getElementById("pitch-title").textContent = L.t;
-  document.getElementById("pitch-text").textContent = L.p;
-  const ul = document.getElementById("pitch-points"); ul.innerHTML = "";
-  L.pts.forEach(s=>{ const li=document.createElement("li"); li.textContent=s; ul.appendChild(li); });
-  lensBtns.forEach(b=>b.setAttribute("aria-pressed", b.dataset.lens===k ? "true":"false"));
-  document.querySelectorAll("[data-tags]").forEach(el=>{
-    el.classList.toggle("dim", k!=="all" && !el.dataset.tags.split(" ").includes(k));
-  });
-  try{ localStorage.setItem("lens", k); }catch(_){}
-}
-lensBtns.forEach(b=>b.addEventListener("click", ()=>setLens(b.dataset.lens)));
-let startLens = "all"; try{ const s = localStorage.getItem("lens"); if(s && lenses[s]) startLens = s; }catch(_){}
-setLens(startLens);
-
 /* ---- module marks ---- */
-[["Computer Science, Ethics and Society",95],["Theory of Computation",90.8],["Programming in Java",88.2],["Work Based Project",79.9],["Data Visualisation",79],["Databases",74.4],["Individual Project",71.5],["User-Centred System Design",69]].forEach(([n,m])=>{
+[["Computer Science, Ethics and Society",95],["Continuing Professional Development in IT",83],["Work Based Project",79.9],["Data Visualisation",79],["Professional Placement and Career Development",75.9],["Individual Project",71.5],["User-Centred System Design",69]].forEach(([n,m])=>{
   const row=document.createElement("div"); row.className="mark";
   row.innerHTML='<span></span><div class="bar" aria-hidden="true"><span></span></div><b></b>';
   row.children[0].textContent=n; row.querySelector(".bar span").style.width=m+"%"; row.children[2].textContent=m;
@@ -991,5 +906,6 @@ document.getElementById("copy-email").addEventListener("click", ev=>{
   try{ navigator.clipboard.writeText(el.textContent).then(done, fallback); }catch(_){ fallback(); }
 });
 </script>
+
 </body>
 </html>

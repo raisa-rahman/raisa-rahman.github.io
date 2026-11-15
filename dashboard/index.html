@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GP Appointments Dashboard</title>
+<meta name="description" content="Raisa Rahman: an interactive dashboard exploring no-shows, cancellations and slot use across 110,000+ GP appointments, built with Vega-Lite.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<script src="https://cdn.jsdelivr.net/npm/vega@5.30.0/build/vega.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0/build/vega-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0/build/vega-embed.min.js"></script>
+<style>
+:root{
+  color-scheme:light;
+  --paper:#F7F4EE; --bleach:#FFFEFA; --khaki:#EFE8DC; --canvas:#EAE2D3;
+  --moss:#C9DAB4; --olive:#E4E6C0; --denim:#86A9AC; --rust:#E5A06F; --mustard:#F3D27C;
+  --ink:#2B2A24; --ink-soft:#615D51;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+  --body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --type:"DM Mono", ui-monospace, Menlo, monospace;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--paper); color:var(--ink); font:400 1rem/1.6 var(--body)}
+a{color:inherit}
+.wrap{max-width:1100px; margin:0 auto; padding:0 16px}
+header.top{display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem 0; border-bottom:2px solid var(--ink)}
+header.top a{font-family:var(--type); font-size:.9rem; text-decoration:none}
+header.top .name{font-family:var(--display); font-weight:800; font-size:1.15rem}
+h1{font:800 clamp(1.8rem, 4.5vw, 2.8rem)/1.1 var(--display); margin:2rem 0 .6rem; text-wrap:balance}
+h2{font:700 clamp(1.25rem, 2.6vw, 1.6rem)/1.2 var(--display); margin:0 0 .4rem; text-wrap:balance}
+.lede{font-size:1.1rem; color:var(--ink-soft); max-width:60ch; margin:0 0 1rem}
+.stamp{font-family:var(--type); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft)}
+.note{background:var(--khaki); border:1.5px solid var(--ink); border-radius:12px; padding:.8rem 1rem; font-size:.95rem; max-width:70ch}
+.panel{background:var(--bleach); border:1.5px solid var(--ink); border-radius:16px; box-shadow:5px 5px 0 var(--acc, var(--moss)); padding:1.2rem 1.2rem 1.4rem; margin:2rem 0}
+.panel p{max-width:70ch; margin:.2rem 0 .8rem}
+.how{font-family:var(--type); font-size:.85rem; color:var(--ink-soft)}
+.chart{overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:.4rem; min-height:120px}
+.chart .loading{font-family:var(--type); font-size:.9rem; color:var(--ink-soft); padding:2rem 0}
+.findings{margin:.8rem 0 0; padding-left:1.1rem}
+.findings li{margin:.25rem 0; max-width:70ch}
+.vega-bindings{display:flex; flex-wrap:wrap; gap:.3rem .9rem; font-family:var(--type); font-size:.85rem; margin:.4rem 0 .6rem}
+.vega-bind label{display:inline-flex; align-items:center; gap:.3rem}
+.pair{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem}
+footer{border-top:2px solid var(--ink); padding:1.2rem 0 2.5rem; font-size:.9rem; color:var(--ink-soft)}
+@media (max-width:760px){ .pair{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="name" href="../">Raisa Rahman</a>
+    <a href="../#data-vis">← Back to the case study</a>
+  </header>
+
+  <span class="stamp" style="display:block; margin-top:2rem">Interactive dashboard · Vega-Lite</span>
+  <h1>Patterns behind GP appointments</h1>
+  <p class="lede">Who misses appointments, does booking further ahead matter, and when are slots wasted? Explore 110,000+ appointments from a GP practice yourself.</p>
+  <p class="note">The data is a mock dataset, so no real patients are shown. The charts load the full dataset in your browser, so they can take a few seconds to appear.</p>
+
+  <section class="panel" style="--acc:var(--moss)">
+    <span class="stamp">Question 1</span>
+    <h2>Who misses appointments?</h2>
+    <p>Each bar shows the mix of appointment outcomes for one group, scaled to 100% so groups of different sizes can be compared fairly.</p>
+    <p class="how">Click a bar to filter the other two charts to that group. Shift-click to pick more than one. Use the boxes to hide outcomes. Hover for exact figures.</p>
+    <div class="chart" id="q1"><div class="loading">Loading 110,000 appointments…</div></div>
+    <ul class="findings">
+      <li>Attendance is strikingly consistent: about 75–80% of appointments are attended in every age group, for both sexes and across insurers.</li>
+      <li>Differences appear only in small subgroups. Among patients aged 90+, 15% on HelloSpring Vital cancelled, compared with 23% on CuraQuark Alliance.</li>
+    </ul>
+  </section>
+
+  <section class="panel" style="--acc:var(--olive)">
+    <span class="stamp">Question 2</span>
+    <h2>Does booking further ahead matter?</h2>
+    <p>Outcomes, waiting time and cancellation rate by the number of days between booking and the appointment, over a 30-day window.</p>
+    <p class="how">Hover over the top-left chart to draw a matching line across all three charts.</p>
+    <div class="chart" id="q2"><div class="loading">Loading…</div></div>
+    <ul class="findings">
+      <li>The share of attended appointments stays stable whatever the booking interval.</li>
+      <li>Mean waiting time holds at about 44–45 minutes, rising to nearly 50 minutes at 29–30 days.</li>
+      <li>Cancellation rates move between about 12% and 18% with no clear trend.</li>
+    </ul>
+  </section>
+
+  <section class="panel" style="--acc:var(--rust)">
+    <span class="stamp">Question 3</span>
+    <h2>When are slots wasted?</h2>
+    <p>Day of the week against time of day. The left heatmap shows the share of missed appointments; the right shows the share of slots occupied.</p>
+    <p class="how">Hover over a cell for the exact rate and the number of appointments or slots behind it.</p>
+    <div class="pair">
+      <div class="chart" id="q3a"><div class="loading">Loading…</div></div>
+      <div class="chart" id="q3b"><div class="loading">Loading…</div></div>
+    </div>
+    <ul class="findings">
+      <li>Friday 10–11am and Tuesday 4–5pm have the most missed appointments; Wednesday 11am–12pm the fewest.</li>
+      <li>Friday 11am–12pm has the highest occupancy, at about 91%.</li>
+      <li>The ranges are narrow (21–23% missed, 88–91% occupied), so colour differences are small in absolute terms.</li>
+    </ul>
+  </section>
+
+  <footer>
+    Designed and built by Raisa Rahman for a Data Visualisation module (mark: 79), originally in Elm and Vega-Lite. Data: <a href="https://github.com/raisa-rahman/data" target="_blank" rel="noopener">github.com/raisa-rahman/data</a>.
+  </footer>
+</div>
+
+<script>
+const BASE = "https://raw.githubusercontent.com/raisa-rahman/data/main/";
+const APPTS = BASE + "appointments.csv", PATIENTS = BASE + "patients.csv", SLOTS = BASE + "slots.csv";
+
+const config = {
+  font: "Instrument Sans",
+  background: null,
+  view: {stroke: null},
+  axis: {labelColor: "#2B2A24", titleColor: "#2B2A24", gridColor: "#E3DED3", domainColor: "#615D51", tickColor: "#615D51", labelFont: "Instrument Sans", titleFont: "Instrument Sans", titleFontWeight: 600},
+  legend: {labelColor: "#2B2A24", titleColor: "#2B2A24", labelFont: "Instrument Sans", titleFont: "Instrument Sans"},
+  title: {font: "Bricolage Grotesque", fontSize: 15, color: "#2B2A24", anchor: "start"}
+};
+
+const statusDomain = ["Attended", "No-Show", "cancelled", "scheduled", "unknown"];
+const statusRange = ["#1B9E77", "#D95F02", "#7570B3", "#E7298A", "#66A61E"];
+const statusColor = {field: "statusClean", type: "nominal", legend: {title: "Status"}, scale: {domain: statusDomain, range: statusRange}};
+
+const checkboxParams = [
+  ["showAttended", "Attended"], ["showNoShow", "No-show"], ["showCancelled", "Cancelled"],
+  ["showScheduled", "Scheduled"], ["showUnknown", "Unknown"]
+].map(([name, label]) => ({name, value: true, bind: {input: "checkbox", name: label + " "}}));
+
+const statusFilter = [
+  "(showAttended && datum.statusClean == 'Attended')",
+  "(showNoShow && datum.statusClean == 'No-Show')",
+  "(showCancelled && datum.statusClean == 'cancelled')",
+  "(showScheduled && datum.statusClean == 'scheduled')",
+  "(showUnknown && datum.statusClean == 'unknown')"
+].join(" || ");
+
+const cleanStatus = {calculate: "if(datum.status == 'did not attend', 'No-Show', if(datum.status == 'attended', 'Attended', datum.status))", as: "statusClean"};
+
+/* ---- Question 1: cross-filtering stacked bars ---- */
+function demographicChart(field, title, sel, others) {
+  return {
+    width: 200, height: 300,
+    title,
+    params: [
+      {name: sel, select: {type: "point", encodings: ["x"]}},
+      {name: "highlight", select: {type: "point", on: "mouseover"}}
+    ],
+    transform: [
+      ...others.map(p => ({filter: {param: p}})),
+      {aggregate: [{op: "count", field: "statusClean", as: "count"}], groupby: [field, "statusClean"]},
+      {joinaggregate: [{op: "sum", field: "count", as: "total"}], groupby: [field]},
+      {calculate: "datum.count / datum.total", as: "percent"},
+      {calculate: "format(datum.percent, '.0%')", as: "pctLabel"}
+    ],
+    mark: {type: "bar", tooltip: {content: "encoding"}},
+    encoding: {
+      x: {field, type: "ordinal", title: ""},
+      y: {field: "percent", type: "quantitative", stack: "normalize", axis: {format: "%", title: "Percentage"}},
+      color: statusColor,
+      opacity: {condition: [{param: "highlight", value: 1}, {param: sel, value: 1}], value: 0.3},
+      order: {field: "count", type: "quantitative", sort: "descending"},
+      tooltip: [
+        {field, title: title},
+        {field: "statusClean", title: "Appointment status"},
+        {field: "pctLabel", title: "Percentage"},
+        {field: "count", title: "Count"}
+      ]
+    }
+  };
+}
+const q1 = {
+  $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+  config,
+  data: {url: APPTS},
+  params: checkboxParams,
+  transform: [
+    {lookup: "patient_id", from: {data: {url: PATIENTS}, key: "patient_id", fields: ["sex", "insurance"]}},
+    cleanStatus,
+    {filter: statusFilter}
+  ],
+  hconcat: [
+    demographicChart("age_group", "Age group", "selAge", ["selSex", "selIns"]),
+    demographicChart("sex", "Sex", "selSex", ["selAge", "selIns"]),
+    demographicChart("insurance", "Insurance", "selIns", ["selAge", "selSex"])
+  ]
+};
+
+/* ---- Question 2: booking interval with a shared hover line ---- */
+const baseTransform = [
+  {calculate: "toNumber(datum.scheduling_interval)", as: "schedInt"},
+  {filter: "isValid(datum.schedInt) && isValid(datum.waiting_time) && isValid(datum.status) && datum.schedInt <= 30"},
+  cleanStatus,
+  {filter: statusFilter},
+  {calculate: "if(datum.status == 'cancelled', 1, 0)", as: "isCancelled"}
+];
+const xInterval = {field: "schedInt", type: "quantitative", title: "Scheduling interval (days)", axis: {tickMinStep: 1}};
+const rule = {
+  transform: [{filter: {param: "hoverLine", empty: false}}],
+  mark: {type: "rule", color: "firebrick", opacity: 0.5, size: 1},
+  encoding: {x: {field: "schedInt", type: "quantitative"}}
+};
+const q2 = {
+  $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+  config,
+  data: {url: APPTS},
+  params: checkboxParams,
+  vconcat: [
+    {hconcat: [
+      {
+        width: 340, height: 240, title: "Outcomes by booking interval",
+        transform: baseTransform,
+        layer: [
+          {
+            params: [{name: "hoverLine", select: {type: "point", encodings: ["x"], on: "mouseover", nearest: true}}],
+            mark: {type: "bar", tooltip: {content: "encoding"}},
+            encoding: {
+              x: xInterval,
+              y: {aggregate: "count", type: "quantitative", stack: "normalize", title: "Percentage of appointments"},
+              color: statusColor,
+              tooltip: [
+                {field: "schedInt", type: "quantitative", title: "Days in advance"},
+                {aggregate: "count", title: "Count"},
+                {field: "statusClean", type: "nominal", title: "Status"}
+              ]
+            }
+          },
+          rule
+        ]
+      },
+      {
+        width: 340, height: 240, title: "Mean waiting time",
+        transform: baseTransform,
+        layer: [
+          {
+            mark: {type: "line", point: true, tooltip: {content: "encoding"}},
+            encoding: {
+              x: xInterval,
+              y: {aggregate: "mean", field: "waiting_time", type: "quantitative", title: "Mean waiting time (minutes)"},
+              color: statusColor
+            }
+          },
+          rule
+        ]
+      }
+    ]},
+    {
+      width: 760, height: 220, title: "Cancellation rate",
+      transform: baseTransform,
+      layer: [
+        {
+          mark: {type: "line", point: true, color: "#7570B3"},
+          encoding: {
+            x: xInterval,
+            y: {field: "isCancelled", aggregate: "mean", type: "quantitative", axis: {format: "%"}, title: "Cancellation rate"},
+            tooltip: [
+              {field: "schedInt", type: "quantitative", title: "Days in advance"},
+              {field: "isCancelled", aggregate: "mean", format: ".1%", title: "Cancellation rate"}
+            ]
+          }
+        },
+        rule
+      ]
+    }
+  ]
+};
+
+/* ---- Question 3: paired heatmaps ---- */
+function heatmap(url, flagExpr, flag, title, scheme, rateTitle, countTitle, legendTitle) {
+  return {
+    $schema: "https://vega.github.io/schema/vega-lite/v5.json",
+    config,
+    width: 360, height: 300,
+    title,
+    data: {url},
+    transform: [
+      {calculate: "split(datum.appointment_date, ',')[0]", as: "dayOfWeek"},
+      {calculate: "timeParse(datum.appointment_time, '%H:%M:%S')", as: "timeParsed"},
+      {calculate: flagExpr, as: flag}
+    ],
+    mark: {type: "rect", tooltip: {content: "encoding"}},
+    encoding: {
+      x: {field: "dayOfWeek", type: "ordinal", title: "Day of the week", scale: {domain: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]}, axis: {labelAngle: 0, labelExpr: "slice(datum.label, 0, 3)"}},
+      y: {field: "timeParsed", timeUnit: "hours", type: "ordinal", title: "Time of day"},
+      color: {field: flag, aggregate: "mean", type: "quantitative", title: rateTitle, scale: {scheme}, legend: {format: ".0%", title: legendTitle}},
+      tooltip: [
+        {field: "dayOfWeek", title: "Day"},
+        {field: "timeParsed", timeUnit: "hours", type: "ordinal", title: "Time"},
+        {field: flag, aggregate: "mean", format: ".1%", title: rateTitle},
+        {field: flag, aggregate: "count", title: countTitle}
+      ]
+    }
+  };
+}
+const q3a = heatmap(APPTS, "datum.status == 'did not attend' || datum.status == 'cancelled' ? 1 : 0", "isMissed",
+  "No-shows and cancellations", "reds", "Missed rate", "Total appointments", "Missed");
+const q3b = heatmap(SLOTS, "datum.is_available == 'FALSE' || datum.is_available == false ? 1 : 0", "isOccupied",
+  "Slots occupied", "tealblues", "Occupancy rate", "Total slots", "Occupied");
+
+const opts = {actions: false, renderer: "svg"};
+[["#q1", q1], ["#q2", q2], ["#q3a", q3a], ["#q3b", q3b]].forEach(([el, spec]) => {
+  vegaEmbed(el, spec, opts).catch(err => {
+    document.querySelector(el).innerHTML = '<div class="loading">This chart could not load. Please refresh the page.</div>';
+    console.error(err);
+  });
+});
+</script>
+</body>
+</html>
