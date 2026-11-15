@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desk Booking Demo</title>
+<meta name="description" content="Raisa Rahman: a browser demo of the desk reservation web app from her Work Based Project, running on sample data.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+  body{background:#f8f9fa;font-family:Arial, sans-serif;color:#343a40;padding-bottom:var(--bar-h, 90px)}
+  .navbar{background:#343a40}
+  .navbar a{color:#fff !important;text-decoration:none}
+  .navbar .brand{font-size:1.25rem}
+  .page{margin-top:40px;margin-bottom:40px}
+  h1{font-size:clamp(1.6rem, 4vw, 2.4rem)}
+  /* login (from login.php) */
+  .login-box{border:2px solid #4a148c;border-radius:10px;padding:20px;background:#fff;box-shadow:0 0 10px rgba(0,0,0,.1);max-width:520px;margin:0 auto}
+  .login-box h2{color:#4a148c;margin-bottom:20px;font-size:1.6rem}
+  .login-box label{color:#4a148c}
+  .btn-indigo{background:#4a148c;border-color:#4a148c;color:#fff}
+  .btn-indigo:hover{background:#38106b;color:#fff}
+  /* main menu (from main.php) */
+  .vertical-buttons{display:flex;flex-direction:column;align-items:center}
+  .vertical-buttons .btn{width:300px;max-width:100%;margin-bottom:15px;font-size:1.2em;color:#fff;border:none}
+  .btn-blue{background:#007bff}.btn-blue:hover{background:#0056b3;color:#fff}
+  .btn-yellow{background:#ffc107;color:#212529 !important}.btn-yellow:hover{background:#e0a800}
+  .btn-green{background:#28a745}.btn-green:hover{background:#218838;color:#fff}
+  .btn-purple{background:#6f42c1}.btn-purple:hover{background:#5a33a4;color:#fff}
+  /* calendar (from create_booking.php) */
+  .calendar-wrap{overflow-x:auto}
+  .calendar{min-width:640px;background:#fff}
+  .calendar th{background:#4a148c;color:#fff;text-align:center}
+  .calendar td{height:96px;width:14.28%;vertical-align:top}
+  .calendar td h4{font-size:1.1rem;margin-bottom:.4rem}
+  .calendar td.today{background:#fff3cd}
+  .cal-nav{display:flex;gap:.4rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+  /* floor plan (from book.php) */
+  .desk-layout{position:relative;margin:20px auto 0;width:100%;max-width:1000px}
+  .desk-layout img{width:100%;height:auto;display:block}
+  .desk{position:absolute;width:30px;height:30px;border-radius:50%;border:2px solid #fff;padding:0;transform:translate(0,0);box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:pointer}
+  .desk.free{background:#28a745}.desk.booked{background:#dc3545;cursor:not-allowed}
+  .desk:focus-visible{outline:3px solid #6f42c1;outline-offset:2px}
+  @media (max-width:640px){ .desk{width:20px;height:20px} }
+  .legend{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:.8rem;font-size:.95rem}
+  .legend span::before{content:"";display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:6px;vertical-align:-2px;background:var(--c)}
+  /* modal */
+  .modal-backdrop-lite{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:1050;padding:16px}
+  .modal-card{background:#fff;border-radius:6px;width:100%;max-width:500px;overflow:hidden}
+  .modal-card header{background:#ffc107;padding:1rem;display:flex;justify-content:space-between;align-items:center}
+  .modal-card header h4{margin:0;font-size:1.25rem}
+  .modal-card .body{padding:1rem}
+  .btn-violet{background:#6f42c1;color:#fff}.btn-violet:hover{background:#5a33a4;color:#fff}
+  .table-wrap{overflow-x:auto}
+  /* demo bar */
+  .demo-bar{position:fixed;left:0;right:0;bottom:0;z-index:2000;background:#2B2A24;color:#FFFEFA;font:500 14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;padding:8px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;justify-content:center;box-shadow:0 -4px 16px rgba(0,0,0,.18)}
+  .demo-bar strong{color:#F3D27C}
+  .demo-bar .txt{max-width:62ch}
+  .demo-bar button,.demo-bar a{font:600 13px/1 system-ui,-apple-system,"Segoe UI",sans-serif;border-radius:999px;padding:7px 12px;border:1.5px solid #FFFEFA;background:transparent;color:#FFFEFA;cursor:pointer;text-decoration:none}
+  .demo-bar a:hover{color:#F3D27C;text-decoration:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="modal-root"></div>
+
+<div class="demo-bar" id="demo-bar" role="region" aria-label="Demo information">
+  <span class="txt"><strong>Portfolio demo</strong> of the desk booking app from my Work Based Project. It runs on sample data in your browser, and nothing you type is sent anywhere.</span>
+  <span style="display:flex;gap:6px;flex-wrap:wrap">
+    <button type="button" id="reset">Reset demo</button>
+    <a href="../#">Back to portfolio</a>
+  </span>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  const KEY = "desk-demo-v1";
+  const pad = n => String(n).padStart(2, "0");
+  const iso = d => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+  const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+  const todayIso = () => iso(new Date());
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const longDate = s => new Date(s + "T12:00:00").toLocaleDateString("en-GB", {day:"2-digit", month:"long", year:"numeric"});
+
+  const DESKS = ["Desk 1","Desk 2","Desk 3","Desk 4","Desk 5","Desk 6","Desk 7","Desk 8","Desk 9","Desk 10","Desk 11"];
+  // Positions from book.php (px on a 1000px-wide floor plan), converted to percentages.
+  const POS = {"Desk 1":[183,232],"Desk 2":[280,232],"Desk 3":[395,232],"Desk 4":[170,360],"Desk 5":[290,360],"Desk 6":[425,360],
+               "Desk 7":[160,625],"Desk 8":[290,625],"Desk 9":[425,625],"Desk 10":[265,740],"Desk 11":[405,740]};
+  const PLAN_H = 1000 * 449 / 640;
+
+  /* ---------- sample data ---------- */
+  function seedDb(){
+    const users = [
+      {id:1, username:"demo.user", name:"Demo User", is_admin:1},
+      {id:2, username:"amira.k", name:"Amira Khan", is_admin:0},
+      {id:3, username:"tom.b", name:"Tom Baker", is_admin:0},
+      {id:4, username:"leah.o", name:"Leah Okafor", is_admin:0},
+      {id:5, username:"sam.p", name:"Sam Patel", is_admin:0},
+      {id:6, username:"jo.r", name:"Jo Richards", is_admin:0},
+      {id:7, username:"wei.l", name:"Wei Liu", is_admin:0}
+    ];
+    let s = 11; const rnd = () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
+    const bookings = []; let id = 1;
+    const start = addDays(new Date(), -10);
+    for (let i = 0; i < 35; i++){
+      const d = addDays(start, i); const dow = d.getDay();
+      if (dow === 0 || dow === 6) continue;
+      const taken = new Set();
+      const count = 3 + Math.floor(rnd() * 4);
+      for (let k = 0; k < count; k++){
+        const u = users[1 + Math.floor(rnd() * (users.length - 1))];
+        let desk; do { desk = DESKS[Math.floor(rnd() * DESKS.length)]; } while (taken.has(desk)); taken.add(desk);
+        bookings.push({id:id++, date:iso(d), desk, user_id:u.id});
+      }
+      if (i % 4 === 1){ let desk; do { desk = DESKS[Math.floor(rnd() * DESKS.length)]; } while (taken.has(desk)); bookings.push({id:id++, date:iso(d), desk, user_id:1}); }
+    }
+    return {users, bookings, nextId:id};
+  }
+  let db;
+  try { db = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (_) { db = null; }
+  if (!db) db = seedDb();
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (_) {} };
+  let session = null;
+  try { session = JSON.parse(sessionStorage.getItem(KEY + "-session") || "null"); } catch (_) {}
+  const setSession = v => { session = v; try { v ? sessionStorage.setItem(KEY + "-session", JSON.stringify(v)) : sessionStorage.removeItem(KEY + "-session"); } catch (_) {} };
+  const userById = id => db.users.find(u => u.id === id);
+  const flash = []; // messages shown once on the next page
+
+  /* ---------- routing ---------- */
+  const app = document.getElementById("app");
+  function parse(){
+    const h = location.hash.replace(/^#/, "") || "/";
+    const [path, qs] = h.split("?");
+    return {path, q: Object.fromEntries(new URLSearchParams(qs || ""))};
+  }
+  const go = h => { location.hash = h; };
+  window.addEventListener("hashchange", render);
+
+  const nav = () => `
+    <header class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="brand" href="#/">Home</a>
+        <a href="#/logout">Logout</a>
+      </div>
+    </header>`;
+  const alerts = () => flash.splice(0).map(m => `<div class="alert alert-${m.type}" role="status">${esc(m.text)}</div>`).join("");
+
+  function render(){
+    const {path, q} = parse();
+    if (path === "/logout"){ setSession(null); return go("/login"); }
+    if (!session && path !== "/login") return go("/login");
+    const pages = {"/login":login, "/":home, "/create":createBooking, "/book":book, "/manage":manage, "/in-office":inOffice, "/admin":admin};
+    (pages[path] || home)(q);
+    window.scrollTo(0, 0);
+    const h1 = app.querySelector("h1, h2"); if (h1){ h1.setAttribute("tabindex", "-1"); h1.focus({preventScroll:true}); }
+  }
+
+  /* ---------- pages ---------- */
+  function login(){
+    app.innerHTML = `<div class="container page"><div class="login-box">
+      <h2>Login to the Desk Reservation System</h2>
+      <div id="err"></div>
+      <form id="f">
+        <div class="form-group"><label for="u">Username</label><input id="u" class="form-control" required value="demo.user" autocomplete="off"></div>
+        <div class="form-group"><label for="p">Password</label><input id="p" type="password" class="form-control" required value="demo" autocomplete="off"></div>
+        <p class="text-muted small">Demo login: <strong>demo.user</strong> / <strong>demo</strong> (an admin account). You can also log in as amira.k, tom.b, leah.o, sam.p, jo.r or wei.l with any password.</p>
+        <button type="submit" class="btn btn-indigo">Login</button>
+      </form></div></div>`;
+    document.getElementById("f").addEventListener("submit", e => {
+      e.preventDefault();
+      const u = db.users.find(x => x.username === document.getElementById("u").value.trim());
+      if (!u || !document.getElementById("p").value){ document.getElementById("err").innerHTML = '<div class="alert alert-danger">Invalid username or password.</div>'; return; }
+      setSession({user_id:u.id, username:u.username}); go("/");
+    });
+  }
+
+  function home(){
+    app.innerHTML = nav() + `<div class="container page">
+      ${alerts()}
+      <h1 class="text-center">Welcome to the Desk Booking System</h1>
+      <div class="d-flex justify-content-center mt-5"><div class="vertical-buttons">
+        <a href="#/create" class="btn btn-blue">Create a Desk Booking</a>
+        <a href="#/manage" class="btn btn-yellow">Manage My Bookings</a>
+        <a href="#/in-office" class="btn btn-green">Who is in Office Now?</a>
+        <a href="#/admin" class="btn btn-purple">Admin Page</a>
+      </div></div></div>`;
+  }
+
+  function createBooking(q){
+    const now = new Date();
+    const month = Number(q.month) || now.getMonth() + 1, year = Number(q.year) || now.getFullYear();
+    const first = new Date(year, month - 1, 1), days = new Date(year, month, 0).getDate();
+    const prev = new Date(year, month - 2, 1), next = new Date(year, month, 1);
+    const name = first.toLocaleDateString("en-GB", {month:"long"});
+    let html = `<div class="cal-nav">
+      <a class="btn btn-primary btn-sm" href="#/create?month=${prev.getMonth() + 1}&year=${prev.getFullYear()}">Previous Month</a>
+      <a class="btn btn-primary btn-sm" href="#/create">Current Month</a>
+      <a class="btn btn-primary btn-sm" href="#/create?month=${next.getMonth() + 1}&year=${next.getFullYear()}">Next Month</a></div>
+      <div class="calendar-wrap"><table class="table table-bordered calendar"><tr>`;
+    ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"].forEach(d => html += `<th scope="col">${d}</th>`);
+    html += "</tr><tr>";
+    let dow = first.getDay();
+    for (let k = 0; k < dow; k++) html += "<td></td>";
+    const t = todayIso();
+    for (let day = 1; day <= days; day++){
+      if (dow === 7){ dow = 0; html += "</tr><tr>"; }
+      const date = `${year}-${pad(month)}-${pad(day)}`;
+      const cls = date === t ? "today" : "";
+      const free = DESKS.length - db.bookings.filter(b => b.date === date).length;
+      if (date < t || dow === 0 || dow === 6){
+        html += `<td class="${cls}"><h4>${day}</h4><button class="btn btn-danger btn-sm" disabled>N/A</button></td>`;
+      } else {
+        html += `<td class="${cls}"><h4>${day}</h4><a href="#/book?date=${date}" class="btn btn-success btn-sm" aria-label="Book ${longDate(date)}">Book</a><div class="small text-muted mt-1">${free} free</div></td>`;
+      }
+      dow++;
+    }
+    if (dow !== 7) for (let i = dow; i < 7; i++) html += "<td></td>";
+    html += "</tr></table></div>";
+    app.innerHTML = nav() + `<div class="container page"><h2 class="text-center">${name} ${year}</h2>${html}</div>`;
+  }
+
+  function book(q){
+    const date = /^\d{4}-\d{2}-\d{2}$/.test(q.date || "") ? q.date : todayIso();
+    const me = userById(session.user_id);
+    const dots = DESKS.map(d => {
+      const b = db.bookings.find(x => x.desk === d && x.date === date);
+      const who = b ? userById(b.user_id).username : "";
+      const [top, left] = POS[d];
+      return `<button type="button" class="desk ${b ? "booked" : "free"}" data-desk="${d}" style="top:${(top / PLAN_H * 100).toFixed(2)}%;left:${(left / 10).toFixed(2)}%"
+        title="${b ? "Booked by: " + esc(who) : "Available"}" aria-label="${d}: ${b ? "booked by " + esc(who) : "available"}" ${b ? 'aria-disabled="true"' : ""}></button>`;
+    }).join("");
+    app.innerHTML = nav() + `<div class="container page">
+      <h1 class="text-center">Book for Date: ${longDate(date)}</h1><hr>
+      ${alerts()}
+      <p class="text-center">Choose a green desk on the floor plan. Hover over a red desk to see who has booked it.</p>
+      <div class="desk-layout"><img src="floorplan.jpeg" alt="Office floor plan with four banks of desks" width="640" height="449">${dots}</div>
+      <div class="legend"><span style="--c:#28a745">Available</span><span style="--c:#dc3545">Booked</span></div>
+      <p class="text-center mt-3"><a href="#/create">← Back to the calendar</a></p></div>`;
+    app.querySelectorAll(".desk.free").forEach(btn => btn.addEventListener("click", () => openModal(btn.dataset.desk, date, me)));
+  }
+
+  function openModal(desk, date, me){
+    const root = document.getElementById("modal-root");
+    root.innerHTML = `<div class="modal-backdrop-lite" role="dialog" aria-modal="true" aria-labelledby="mt">
+      <div class="modal-card"><header><h4 id="mt">Booking: ${esc(desk)}</h4><button type="button" class="close" aria-label="Close" id="x">&times;</button></header>
+      <div class="body"><form id="bf">
+        <div class="form-group"><label for="d">Desk</label><input id="d" class="form-control" value="${esc(desk)}" readonly></div>
+        <div class="form-group"><label for="n">Name</label><input id="n" class="form-control" value="${esc(me.username)}" readonly></div>
+        <div class="form-group text-right"><button class="btn btn-violet" type="submit">Submit</button></div>
+      </form></div></div></div>`;
+    const close = () => { root.innerHTML = ""; };
+    root.querySelector("#x").addEventListener("click", close);
+    root.querySelector(".modal-backdrop-lite").addEventListener("click", e => { if (e.target === e.currentTarget) close(); });
+    document.addEventListener("keydown", function k(e){ if (e.key === "Escape"){ close(); document.removeEventListener("keydown", k); } });
+    root.querySelector("#bf").addEventListener("submit", e => {
+      e.preventDefault();
+      if (db.bookings.some(b => b.desk === desk && b.date === date)) flash.push({type:"danger", text:"Booking Failed: that desk has just been taken."});
+      else { db.bookings.push({id:db.nextId++, date, desk, user_id:me.id}); save(); flash.push({type:"success", text:"Booking Successful"}); }
+      close(); render();
+    });
+    root.querySelector("#bf button").focus();
+  }
+
+  function manage(){
+    const t = todayIso();
+    const rows = db.bookings.filter(b => b.user_id === session.user_id && b.date >= t).sort((a, b) => a.date.localeCompare(b.date));
+    app.innerHTML = nav() + `<div class="container page">${alerts()}
+      <h1 class="text-center">Your Upcoming Desk Bookings</h1>
+      <div class="table-wrap"><table class="table table-striped bg-white"><thead><tr><th>Booking ID</th><th>Date</th><th>Desk</th><th>Action</th></tr></thead><tbody>
+      ${rows.map(b => `<tr><td>${b.id}</td><td>${b.date}</td><td>${esc(b.desk)}</td><td><button class="btn btn-danger btn-sm" data-del="${b.id}">Delete</button></td></tr>`).join("") || `<tr><td colspan="4" class="text-center text-muted">No upcoming bookings. <a href="#/create">Book a desk</a>.</td></tr>`}
+      </tbody></table></div></div>`;
+    app.querySelectorAll("[data-del]").forEach(btn => btn.addEventListener("click", () => {
+      if (!confirm("Are you sure you want to cancel this booking?")) return;
+      db.bookings = db.bookings.filter(b => b.id !== Number(btn.dataset.del)); save();
+      flash.push({type:"success", text:"Deletion successful."}); render();
+    }));
+  }
+
+  function inOffice(){
+    const t = todayIso();
+    const rows = db.bookings.filter(b => b.date === t).sort((a, b) => DESKS.indexOf(a.desk) - DESKS.indexOf(b.desk));
+    app.innerHTML = nav() + `<div class="container page">
+      <h1 class="text-center">Who Is In Office Now?</h1>
+      <p class="text-center text-muted">${longDate(t)}</p>
+      <div class="table-wrap"><table class="table table-hover bg-white"><thead><tr><th>Desk</th><th>Name</th></tr></thead><tbody>
+      ${rows.map(b => `<tr><td>${esc(b.desk)}</td><td>${esc(userById(b.user_id).username)}</td></tr>`).join("") || `<tr><td colspan="2" class="text-center text-muted">Nobody has booked a desk today${[0,6].includes(new Date().getDay()) ? " (it's the weekend)" : ""}.</td></tr>`}
+      </tbody></table></div></div>`;
+  }
+
+  function admin(q){
+    const me = userById(session.user_id);
+    if (!me.is_admin){ app.innerHTML = nav() + `<div class="container page"><h1 class="text-center">Access denied</h1><p class="text-center">You do not have permission to view this page. Log in as <strong>demo.user</strong> to see the admin tools.</p></div>`; return; }
+    const from = q.from || "", to = q.to || "";
+    const all = db.bookings.slice().sort((a, b) => a.date.localeCompare(b.date));
+    const report = from && to ? all.filter(b => b.date >= from && b.date <= to) : all;
+    const t = todayIso();
+    const future = all.filter(b => b.date >= t);
+    app.innerHTML = nav() + `<div class="container page">${alerts()}
+      <h1 class="text-center">All Bookings</h1>
+      <form id="rf" class="bg-white p-3 border rounded mb-3"><div class="form-row">
+        <div class="form-group col-md-5"><label for="from">From</label><input type="date" class="form-control" id="from" required value="${esc(from)}"></div>
+        <div class="form-group col-md-5"><label for="to">To</label><input type="date" class="form-control" id="to" required value="${esc(to)}"></div>
+        <div class="form-group col-md-2 align-self-end"><button type="submit" class="btn btn-primary btn-block">Generate Report</button></div>
+      </div></form>
+      ${from && to ? `<div class="text-center mb-3"><button class="btn btn-success" id="dl">Download Report</button> <span class="text-muted ml-2">${report.length} bookings from ${from} to ${to}</span></div>` : ""}
+      <div class="table-wrap"><table class="table bg-white"><thead><tr><th>Desk</th><th>Date</th><th>User</th><th>Booking ID</th></tr></thead><tbody>
+      ${report.map(b => `<tr><td>${esc(b.desk)}</td><td>${b.date}</td><td>${esc(userById(b.user_id).username)}</td><td>${b.id}</td></tr>`).join("")}
+      </tbody></table></div>
+      <h2 class="h4 mt-4">Upcoming bookings</h2>
+      <div class="table-wrap"><table class="table bg-white"><thead><tr><th>Booking ID</th><th>Desk</th><th>User ID</th><th>Date</th><th>Actions</th></tr></thead><tbody>
+      ${future.map(b => `<tr><td>${b.id}</td><td>${esc(b.desk)}</td><td>${b.user_id}</td><td>${b.date}</td><td><button class="btn btn-danger btn-sm" data-cancel="${b.id}">Cancel</button></td></tr>`).join("")}
+      </tbody></table></div></div>`;
+    app.querySelector("#rf").addEventListener("submit", e => { e.preventDefault(); go(`/admin?from=${app.querySelector("#from").value}&to=${app.querySelector("#to").value}`); });
+    const dl = app.querySelector("#dl");
+    if (dl) dl.addEventListener("click", () => {
+      const csv = ["Desk,Date,User"].concat(report.map(b => `"${b.desk}",${b.date},${b.user_id}`)).join("\n");
+      const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], {type:"text/csv"}));
+      a.download = "Desk_Booking_Report.csv"; document.body.appendChild(a); a.click(); a.remove();
+    });
+    app.querySelectorAll("[data-cancel]").forEach(btn => btn.addEventListener("click", () => {
+      if (!confirm("Are you sure you want to cancel this booking?")) return;
+      db.bookings = db.bookings.filter(b => b.id !== Number(btn.dataset.cancel)); save();
+      flash.push({type:"success", text:"Cancellation successful."}); render();
+    }));
+  }
+
+  /* ---------- demo bar ---------- */
+  const bar = document.getElementById("demo-bar");
+  const fit = () => document.body.style.setProperty("--bar-h", (bar.offsetHeight + 16) + "px");
+  fit(); window.addEventListener("resize", fit);
+  document.getElementById("reset").addEventListener("click", () => {
+    try { localStorage.removeItem(KEY); } catch (_) {}
+    db = seedDb(); save(); setSession(null); flash.length = 0; go("/login"); render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
