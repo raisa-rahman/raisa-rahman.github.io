@@ -7,7 +7,7 @@
 <meta name="description" content="Raisa Rahman: user researcher with a product mindset, a Computer Science degree and three years supporting NHS trusts. Case studies in user research and product.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spline+Sans+Mono:wght@400;500&family=Reenie+Beanie&display=swap">
 <style>
 /* Layout: a warm, modern scrapbook: soft pastel washes, light grain, sticker tags and
    handwritten notes over a clean reading column; one pastel accent per project. */
@@ -31,10 +31,10 @@
   --ink:#2B2A24;          /* warm charcoal text */
   --ink-soft:#615D51;
   --tape:rgba(243,210,124,.78);
-  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
-  --body:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
-  --type:"DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --marker:"Caveat", "Segoe Print", "Comic Sans MS", cursive;
+  --display:"Gloock", "Iowan Old Style", Georgia, serif;
+  --body:"Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
+  --type:"Spline Sans Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --marker:"Reenie Beanie", "Segoe Print", "Comic Sans MS", cursive;
   --grain:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .25  0 0 0 0 .22  0 0 0 0 .15  0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   --stain:radial-gradient(ellipse 40rem 24rem at 95% 4%, rgba(243,210,124,.35), transparent 70%), radial-gradient(ellipse 32rem 26rem at 2% 42%, rgba(201,218,180,.45), transparent 70%), radial-gradient(ellipse 36rem 22rem at 85% 90%, rgba(229,160,111,.22), transparent 70%);
 }
@@ -53,9 +53,9 @@ a:hover{text-decoration-color:var(--ink)}
 a:focus-visible, button:focus-visible{outline:2px dashed var(--ink); outline-offset:3px}
 p{margin:0}
 h1,h2,h3{font-family:var(--display); text-wrap:balance; line-height:1.02; margin:0; letter-spacing:-.01em}
-h1{font-size:clamp(2.6rem, 7.5vw, 4.8rem); font-weight:800; letter-spacing:-.03em; text-shadow:3px 3px 0 rgba(229,160,111,.38)}
-h2{font-size:clamp(1.7rem, 4vw, 2.4rem); font-weight:800; letter-spacing:-.025em}
-h3{font-size:1.2rem; font-weight:700}
+h1{font-size:clamp(2.6rem, 7.5vw, 4.6rem); font-weight:400; letter-spacing:-.015em; text-shadow:3px 3px 0 rgba(229,160,111,.38)}
+h2{font-size:clamp(1.7rem, 4vw, 2.35rem); font-weight:400; letter-spacing:-.01em}
+h3{font-family:var(--body); font-size:1.15rem; font-weight:700; letter-spacing:-.005em; line-height:1.25}
 .wrap{max-width:68rem; margin:0 auto; padding-block:2rem 4rem}
 .read{max-width:44rem}
 .stack{display:flex; flex-direction:column; gap:1rem}
@@ -64,7 +64,7 @@ h3{font-size:1.2rem; font-weight:700}
 .tape{display:inline-block; align-self:flex-start; font-family:var(--type); font-size:.76rem; letter-spacing:.06em; text-transform:uppercase; padding:.28rem .85rem; background:var(--tape); color:var(--ink); transform:rotate(-2deg); box-shadow:0 1px 2px rgba(47,53,59,.2); clip-path:polygon(2% 0,98% 5%,100% 50%,97% 100%,3% 95%,0 50%)}
 .tape.denim{background:rgba(205,224,226,.95)} .tape.rose{background:rgba(242,220,196,.95)} .tape.moss{background:rgba(201,218,180,.95)}
 .scribble{background:linear-gradient(-2deg, transparent 48%, var(--mustard) 48%, var(--mustard) 90%, transparent 90%); padding:0 .12em; text-shadow:none}
-.marker{font-family:var(--marker); font-weight:700; font-size:1.15em; color:var(--plum); text-transform:none; letter-spacing:0; text-shadow:none; display:inline-block; transform:rotate(-3deg)}
+.marker{font-family:var(--marker); font-weight:400; font-size:1.15em; color:var(--plum); text-transform:none; letter-spacing:0; text-shadow:none; display:inline-block; transform:rotate(-3deg)}
 .muted{color:var(--ink-soft)}
 .status{display:inline-flex; align-items:center; gap:.45rem; font-family:var(--type); font-size:.76rem; padding:.3rem .75rem; border-radius:999px; background:var(--bleach); border:1.5px solid var(--ink)}
 .status .dot{width:.55rem; height:.55rem; border-radius:50%; background:var(--teal); box-shadow:0 0 0 3px var(--moss)}
@@ -72,7 +72,7 @@ h3{font-size:1.2rem; font-weight:700}
 
 /* top */
 .top{display:flex; justify-content:space-between; align-items:center; gap:.75rem 1.25rem; flex-wrap:wrap; max-width:68rem; margin:0 auto; padding-top:1.1rem}
-.top .name{font-family:var(--display); font-weight:800; font-size:1.3rem; text-decoration:none; letter-spacing:.02em}
+.top .name{font-family:var(--display); font-weight:400; font-size:1.3rem; text-decoration:none; letter-spacing:.02em}
 .top nav{display:flex; gap:1rem; flex-wrap:wrap; font-family:var(--type); font-size:.9rem}
 .top nav a{text-decoration:none; color:var(--ink-soft)}
 .top nav a:hover, .top nav a[aria-current="page"]{color:var(--ink); text-decoration:underline; text-decoration-color:var(--rust)}
@@ -84,7 +84,7 @@ h3{font-size:1.2rem; font-weight:700}
 .hero-card::before{content:""; position:absolute; top:-2px; left:38%; width:6.5rem; height:1.5rem; background:var(--tape); transform:rotate(-4deg)}
 .polaroid{margin:0 0 .4rem; background:#fff; padding:.6rem .6rem .3rem; border:1px solid var(--canvas); box-shadow:0 10px 22px -14px rgba(43,42,36,.55); transform:rotate(-2.5deg); align-self:center; width:min(100%, 17rem); display:flex; flex-direction:column; gap:.2rem}
 .polaroid img{display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border:0; background:var(--khaki)}
-.polaroid figcaption{font-family:var(--marker); font-weight:700; font-size:1.25rem; font-style:normal; color:var(--plum); text-align:center}
+.polaroid figcaption{font-family:var(--marker); font-weight:400; font-size:1.55rem; font-style:normal; color:var(--plum); text-align:center}
 .hero-card dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:.45rem 1rem; font-size:.95rem}
 .hero-card dt{font-family:var(--type); font-size:.8rem; text-transform:uppercase; color:var(--ink-soft); padding-top:.15rem}
 .hero-card dd{margin:0}
@@ -115,7 +115,7 @@ h3{font-size:1.2rem; font-weight:700}
 .card .pic{aspect-ratio:16/10; max-width:100%; background:var(--acc); overflow:hidden; border-radius:14px 14px 0 0; display:grid; place-items:center; border-bottom:1.5px solid var(--ink); position:relative}
 .card.wide .pic{aspect-ratio:21/9}
 .card .pic img{width:100%; height:100%; object-fit:cover; object-position:center top; display:block; filter:saturate(.9)}
-.card .pic .glyph{font-family:var(--marker); font-weight:700; font-size:clamp(2rem, 3.4vw, 2.8rem); color:var(--ink); text-align:center; line-height:1.05; padding:1rem; transform:rotate(-4deg); overflow-wrap:anywhere}
+.card .pic .glyph{font-family:var(--marker); font-weight:400; font-size:clamp(2rem, 3.4vw, 2.8rem); color:var(--ink); text-align:center; line-height:1.05; padding:1rem; transform:rotate(-4deg); overflow-wrap:anywhere}
 .card .body{padding:1rem 1.1rem 1.2rem; display:flex; flex-direction:column; gap:.55rem; flex:1}
 .card .body p{font-size:.95rem}
 .card .links{margin-top:auto; display:flex; flex-wrap:wrap; gap:.4rem 1rem; font-family:var(--type); font-size:.86rem}
@@ -152,7 +152,7 @@ figcaption{font-size:.9rem; color:var(--ink-soft); font-style:italic}
 .sketches figure:nth-child(1){transform:rotate(-1.5deg)} .sketches figure:nth-child(2){transform:rotate(1deg)} .sketches figure:nth-child(3){transform:rotate(-.6deg)}
 .steps{list-style:none; margin:0; padding:0; display:grid; gap:.7rem; counter-reset:s}
 .steps li{display:grid; grid-template-columns:2.1rem 1fr; gap:.5rem; counter-increment:s}
-.steps li::before{content:counter(s); font-family:var(--marker); font-size:1.4rem; border-radius:50%; width:1.8rem; height:1.8rem; display:grid; place-items:center; background:var(--mustard); border:1.5px solid var(--ink); transform:rotate(-4deg)}
+.steps li::before{content:counter(s); font-family:var(--marker); font-size:1.6rem; border-radius:50%; width:1.8rem; height:1.8rem; display:grid; place-items:center; background:var(--mustard); border:1.5px solid var(--ink); transform:rotate(-4deg)}
 .notes{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.1rem}
 .note{border-radius:4px 4px 14px 4px; padding:1.1rem 1.15rem 1.2rem; display:flex; flex-direction:column; gap:.45rem; box-shadow:0 1px 0 rgba(47,53,59,.08), 0 10px 16px -12px rgba(47,53,59,.6); min-width:0}
 .note:nth-child(1){background:var(--mustard); transform:rotate(-.8deg)}
@@ -189,7 +189,7 @@ figcaption{font-size:.9rem; color:var(--ink-soft); font-style:italic}
 video{display:block; width:100%; max-width:100%; border:1.5px solid var(--ink); border-radius:12px; background:#000}
 .stats{display:flex; flex-wrap:wrap; gap:.8rem}
 .stat{background:var(--bleach); border:1.5px solid var(--ink); border-radius:14px; padding:.7rem 1rem; display:flex; flex-direction:column; min-width:8.5rem}
-.stat b{font-family:var(--display); font-size:1.8rem; line-height:1; font-variant-numeric:tabular-nums}
+.stat b{font-family:var(--display); font-weight:400; font-size:1.8rem; line-height:1; font-variant-numeric:tabular-nums}
 .stat span{font-size:.85rem; color:var(--ink-soft)}
 /* cv page */
 .cv{display:grid; grid-template-columns:minmax(0,15rem) minmax(0,1fr); gap:2.5rem; padding-top:2rem}
@@ -214,6 +214,48 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
 .lb{position:fixed; inset:0; background:rgba(43,42,36,.9); display:flex; align-items:center; justify-content:center; padding:calc(1rem + env(safe-area-inset-top,0px)) max(1rem, env(safe-area-inset-right,0px)) calc(1rem + env(safe-area-inset-bottom,0px)) max(1rem, env(safe-area-inset-left,0px)); z-index:20; overflow:auto}
 .lb img{max-width:100%; max-height:100%; background:#fff}
 .lb button{position:fixed; top:calc(1rem + env(safe-area-inset-top,0px)); right:max(1rem, env(safe-area-inset-right,0px)); font-family:var(--type); padding:.5rem .8rem; border:2px solid var(--ink); background:var(--paper); color:var(--ink); cursor:pointer}
+
+
+/* career timeline */
+.tl-tools{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.8rem 1.2rem; margin:1rem 0 1.4rem}
+.tl-years{display:flex; flex-wrap:wrap; gap:.4rem}
+.tl-years button, .tl-all{font-family:var(--type); font-size:.82rem; padding:.4rem .8rem; border-radius:999px; border:1.5px solid var(--ink); background:var(--bleach); color:var(--ink); cursor:pointer}
+.tl-years button:hover, .tl-all:hover{background:var(--mustard)}
+.tl-years button.on{background:var(--ink); color:var(--paper)}
+.tl-legend{display:flex; flex-wrap:wrap; gap:.4rem 1rem; font-family:var(--type); font-size:.78rem; color:var(--ink-soft); margin:0; padding:0; list-style:none}
+.tl-legend li{display:flex; align-items:center; gap:.4rem}
+.tl-legend i{width:.8rem; height:.8rem; border-radius:50%; border:1.5px solid var(--ink); background:var(--c)}
+.tl{list-style:none; margin:0; padding:0; position:relative}
+.tl::before{content:""; position:absolute; left:7.4rem; top:.6rem; bottom:.6rem; width:2px; background:repeating-linear-gradient(var(--ink) 0 6px, transparent 6px 11px)}
+.tl-year{display:grid; grid-template-columns:6rem 1fr; gap:0 2.4rem; scroll-margin-top:1.5rem; padding-bottom:1.4rem}
+.tl-yr{font-family:var(--display); font-weight:400; font-size:clamp(1.8rem, 4vw, 2.4rem); line-height:1; position:sticky; top:1rem; align-self:start; text-align:right}
+.tl-items{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.8rem}
+.tl-item{--c:var(--rust); position:relative}
+.t-study{--c:var(--denim)} .t-project{--c:var(--moss)} .t-award{--c:var(--mustard)}
+.tl-head{all:unset; box-sizing:border-box; cursor:pointer; display:grid; grid-template-columns:1fr auto; gap:.15rem 1rem; width:100%; padding:.85rem 1rem .9rem; background:var(--bleach); border:1.5px solid var(--ink); border-radius:14px; box-shadow:4px 4px 0 var(--c); transition:transform .12s ease, box-shadow .12s ease}
+.tl-head:hover{transform:translate(-1px,-1px); box-shadow:6px 6px 0 var(--c)}
+.tl-head:focus-visible{outline:3px solid var(--denim); outline-offset:3px}
+.tl-dot{position:absolute; left:-1.55rem; top:1.15rem; width:1rem; height:1rem; border-radius:50%; background:var(--c); border:2px solid var(--ink)}
+.tl-when{grid-column:1; font-family:var(--type); font-size:.76rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.04em}
+.tl-title{grid-column:1; font-weight:700; font-size:1.08rem; line-height:1.25}
+.tl-org{grid-column:1; font-size:.94rem; color:var(--ink-soft)}
+.tl-kind{grid-column:2; grid-row:1 / span 3; align-self:center; font-family:var(--type); font-size:.72rem; padding:.18rem .6rem; border-radius:999px; background:var(--c); border:1px solid var(--ink); white-space:nowrap}
+.tl-head::after{content:"+"; grid-column:2; grid-row:3; justify-self:end; font-family:var(--type); font-size:1.1rem; line-height:1}
+.tl-head[aria-expanded="true"]::after{content:"\2212"}
+.tl-detail{margin:.5rem 0 .2rem 1rem; padding:.2rem 0 .2rem 1rem; border-left:3px solid var(--c); font-size:.96rem; max-width:44rem}
+.tl-detail p{margin:0 0 .4rem}
+.tl-detail ul{margin:0 0 .5rem; padding-left:1.1rem; display:flex; flex-direction:column; gap:.25rem}
+.tl-link{font-family:var(--type); font-size:.86rem}
+@media (max-width: 600px){
+  .tl::before{left:.45rem}
+  .tl-year{grid-template-columns:1fr; gap:.6rem; padding-left:1.8rem}
+  .tl-yr{position:static; text-align:left}
+  .tl-dot{left:-1.75rem}
+  .tl-head{grid-template-columns:1fr}
+  .tl-kind{grid-column:1; grid-row:auto; justify-self:start; margin-top:.3rem}
+  .tl-head::after{position:absolute; right:.9rem; top:.85rem}
+}
+@media (prefers-reduced-motion: reduce){ .tl-head{transition:none} }
 
 @media (max-width: 860px){
   .hero, .pitch, .focus, .pair, .cv{grid-template-columns:1fr}
@@ -240,6 +282,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
   <a class="name" href="#">Raisa Rahman</a>
   <nav aria-label="Main">
     <a href="#" data-nav="home">Work</a>
+    <a href="#timeline" data-nav="timeline">Timeline</a>
     <a href="#experience" data-nav="experience">Experience</a>
     <a href="#cv" data-nav="cv">CV</a>
     <a href="#contact" data-nav="contact">Contact</a>
@@ -360,6 +403,20 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
         </div>
       </div>
           </div>
+  </section>
+
+  <section class="section" id="timeline" aria-labelledby="tl-h">
+    <span class="tape" id="tl-h">Career timeline</span>
+    <h2>How I got here, year by year</h2>
+    <p class="read muted">From Camden Council to NHS integrations to research at UCL. Select any entry to see what I did, or jump to a year.</p>
+    <div class="tl-tools">
+      <div class="tl-years" id="tl-years" role="group" aria-label="Jump to year"></div>
+      <button type="button" class="tl-all" id="tl-all" aria-pressed="false">Expand all</button>
+    </div>
+    <ul class="tl-legend" aria-label="Key">
+      <li style="--c:var(--rust)"><i></i>Work</li><li style="--c:var(--denim)"><i></i>Study</li><li style="--c:var(--moss)"><i></i>Project</li><li style="--c:var(--mustard)"><i></i>Achievement</li>
+    </ul>
+    <ol class="tl" id="tl-list"></ol>
   </section>
 
   <section class="section" id="experience" aria-labelledby="exp-h">
@@ -751,11 +808,28 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
       <div><h3>Research</h3><ul><li>Interviews and focus groups</li><li>Think-aloud usability testing</li><li>Reflexive thematic analysis</li><li>Surveys and experiments</li><li>Inferential statistics</li><li>Ethics, consent and GDPR</li></ul></div>
       <div><h3>Design</h3><ul><li>Personas and journey maps</li><li>User flows and wireframes</li><li>Figma prototyping</li><li>Heuristic evaluation</li><li>Accessibility (WCAG)</li></ul></div>
       <div><h3>Technical</h3><ul><li>SQL, Python, Java, C++</li><li>HTML, CSS, PHP, Vue.js, Laravel</li><li>Elm, Vega-Lite and Haskell</li><li>Vue.js 3, Laravel 11, SQLite</li><li>Git, Linux, cloud basics</li><li>HL7 (HealthConnect, Rhapsody)</li><li>Microsoft 365, Entra ID</li><li>Jira, Confluence, Salesforce, HubSpot</li></ul></div>
-      <div><h3>Other</h3><ul><li>English (native), Bengali (fluent)</li><li>Full UK driving licence</li><li>Eligible for SC clearance</li><li>Level 2 Food Safety</li></ul></div>
+      <div><h3>Other</h3><ul><li>English (native), Bengali (fluent)</li><li>Full UK driving licence</li><li>Eligible for SC clearance</li><li>Level 2 Food Safety</li><li>Self-taught guitar and ukulele</li></ul></div>
     </aside>
     <main>
       <section>
         <h2>Experience</h2>
+        <div class="job">
+          <header><h3>Student Project Researcher, Faculty of Medical Sciences, UCL</h3><span class="stamp">Jan 2027 – Jun 2027</span></header>
+          <ul>
+            <li>Support a Student Success Grant project, led by the Vice Dean for Equality, Diversity and Inclusion, to make group assessment fairer for disabled and neurodivergent students.</li>
+            <li>Help develop an Accessible Groupwork Toolkit and Flexible Contribution Framework, bringing a student perspective to every stage of the research.</li>
+            <li>Prepare ethics materials, recruit participants, help run focus groups and interviews, and analyse survey and qualitative data using thematic analysis.</li>
+            <li>Create accessible reports, infographics and presentations to share the findings.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <header><h3>Tutor, UCL Accelerate (Access and Widening Participation Office)</h3><span class="stamp">Dec 2026 – Jul 2027</span></header>
+          <ul>
+            <li>Deliver a 12-week in-school maths tutoring programme to small groups of Year 10 students from underrepresented backgrounds.</li>
+            <li>Teach GCSE topics including trigonometry, surds, quadratic equations and sequences, adapting explanations to each student's starting point.</li>
+            <li>Enhanced DBS; trained in tutoring and Child Protection in Education.</li>
+          </ul>
+        </div>
         <div class="job">
           <header><h3>Support Engineer, Integrella</h3><span class="stamp">Sep 2023 – present</span></header>
           <p class="muted">Healthcare integration consultancy serving NHS trusts including UCLH, South Tees, Frimley, Northumbria, HSCNI, King's College London, LPCH and East of England Ambulance Service.</p>
@@ -765,13 +839,14 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
             <li>Found why a Microsoft Entra ID account migration was failing, proved a fix, and set out options for leadership.</li>
             <li>Led the company-wide Qualys rollout and supported Cyber Essentials certification (Sophos, Holm Security, JumpCloud).</li>
             <li>Took part in two CRM migrations (Redmine to Salesforce, then HubSpot) and shadowed a project manager on the Hywel Dda integration.</li>
+            <li>Administer Microsoft 365, Entra ID, Intune, JumpCloud and HubSpot.</li>
             <li>Built a company-wide onboarding and offboarding tracker with HR; automating the monthly support rota.</li>
             <li>Trained new staff through written guides, videos and knowledge transfer sessions.</li>
           </ul>
         </div>
         <div class="job">
           <header><h3>Operations Assistant, Institute for Arts in Therapy and Education</h3><span class="stamp">Nov 2026 – present</span></header>
-          <ul><li>Prepare training rooms and audio-visual equipment for art-based therapy training sessions, and give technical support to staff and students.</li></ul>
+          <ul><li>Prepare training rooms, art materials and audio-visual equipment for arts-based therapy training sessions, and give technical support to staff and students.</li><li>Run the technology for online taster sessions: share the slideshow, check the audio and advance slides on the presenter's cue.</li></ul>
         </div>
         <div class="job">
           <header><h3>Senior Administrative Assistant, Camden Summer University (Camden Council)</h3><span class="stamp">Jun 2021 – Aug 2023</span></header>
@@ -796,7 +871,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
         </div>
         <div class="job">
           <header><h3>Food Connector, The Food Connection</h3><span class="stamp">Sep 2022 – present · freelance</span></header>
-          <ul><li>Run brand sampling stands and gather customer opinions on products.</li></ul>
+          <ul><li>Work with brands to understand their products, run sampling stands, and invite customers to share their views.</li></ul>
         </div>
       </section>
       <section>
@@ -804,6 +879,7 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
         <div class="job">
           <header><h3>MSc Human-Computer Interaction, UCL</h3><span class="stamp">Sep 2026 – Aug 2027</span></header>
           <p>Interaction Design; Interaction Science; Human-AI Interaction; HCI for Health and Wellbeing; User-Centred Data Visualisation; The Digital Workplace; MSc project.</p>
+          <ul><li><strong>Understanding Existing HCI Research:</strong> 3,000-word critical review of a CHI 2025 paper on generative AI and critical thinking, tracing its foundations and how later work used its findings.</li><li><strong>Individual design portfolio:</strong> eco mode in shared housing, and helping adult children support their parents with phone tasks.</li><li><strong>Group project:</strong> helping Tube passengers request and offer a seat discreetly.</li><li><strong>Qualitative study:</strong> how new students choose optional modules, analysed with reflexive thematic analysis.</li></ul>
         </div>
         <div class="job">
           <header><h3>BSc (Hons) Computer Science with Professional Pathway, City St George's, University of London</h3><span class="stamp">2022 – 2026 · First Class</span></header>
@@ -813,12 +889,16 @@ footer{max-width:68rem; margin:0 auto; padding-block:2rem 3rem; border-top:2px s
           <header><h3>A-levels, St Marylebone CE School</h3><span class="stamp">2020 – 2022</span></header>
           <p>Mathematics (B), Economics (B), Psychology (C).</p>
         </div>
+        <div class="job">
+          <header><h3>GCSEs, Camden School for Girls</h3><span class="stamp">2015 – 2020</span></header>
+          <p>GCSEs including Mathematics (8), Combined Science (8, 7), Further Maths (7), Computer Science (7) and English Language and Literature (7).</p>
+        </div>
       </section>
       <section>
         <h2>Achievements</h2>
         <div class="timeline">
           <div><b>2025</b><span>Student fundraiser: charity BBQ for 300+ students (£800+); Glory to Guidance appeal for orphans in Gaza (£16,000+).</span></div>
-          <div><b>2024</b><span>Activision Blizzard Coding Kickstarter (Python); student panel encouraging placements.</span></div>
+          <div><b>2024</b><span>Activision Blizzard Coding Kickstarter (Python); student panel encouraging placements; featured in a university promotional video.</span></div>
           <div><b>2023</b><span>Computer Science Society committee.</span></div>
           <div><b>2022</b><span>Marylebone Rotary Prize; Chair of the Sixth Form Committee; editor of the Marylebone Messenger.</span></div>
           <div><b>2021</b><span>Nuffield Research Placement with Synoptix and Gold CREST Award; In2Science cohort; team leader for a Gaza Winter Walk team that raised over £1,000.</span></div>
@@ -876,6 +956,95 @@ wireframes.forEach((w,i)=>{
 });
 showWf(0);
 
+/* ---- career timeline ---- */
+const TL = [
+ {y:2027, when:"Jan – Jun 2027", type:"work", title:"Student Project Researcher", org:"Faculty of Medical Sciences, UCL", soon:"Starting January 2027",
+  sum:"Research to make group assessment fairer for disabled and neurodivergent students, led by the Vice Dean for Equality, Diversity and Inclusion.",
+  pts:["Help develop an Accessible Groupwork Toolkit and Flexible Contribution Framework, bringing a student perspective to every stage.","Prepare ethics materials, recruit participants, and help run focus groups and interviews.","Develop and pilot surveys, and analyse survey and qualitative data using thematic analysis.","Create accessible reports, infographics and presentations to share the findings."]},
+ {y:2027, when:"Oct 2026 – Jan 2027", type:"study", title:"Understanding Existing HCI Research", org:"MSc coursework, Interaction Science",
+  sum:"A 3,000-word critical review, in APA 7 with every claim page-referenced against the original source.",
+  pts:["Critically analysed a CHI 2025 paper on generative AI and critical thinking (Lee et al., 2025): its survey of 319 knowledge workers, what self-reported evidence can and can't establish, and its contribution to HCI.","Traced the work it builds on, including Bloom's taxonomy and Sarkar (2023), and evaluated how a later study used, and in places misattributed, its findings.","Wrote a 1,500-word essay applying Interaction Science research to interface design."]},
+ {y:2027, when:"Oct 2026 – Jan 2027", type:"study", title:"Individual design portfolio", org:"MSc coursework, Interaction Design",
+  sum:"Two user-centred design projects, from research to evaluated prototype.",
+  pts:["Eco mode in shared housing: how housemates could cut their energy use together.","Helping parents with phone tasks: research with the adult children who help their parents with smartphones, and designs to make that help easier.","Interviews, ideation, sketching, prototyping and usability testing, with every decision backed by evidence."]},
+ {y:2026, when:"Dec 2026 – Jul 2027", type:"work", title:"Tutor", org:"UCL Accelerate, Access and Widening Participation",
+  sum:"A 12-week in-school maths tutoring programme for Year 10 students from underrepresented backgrounds.",
+  pts:["Teach GCSE topics such as trigonometry, surds, quadratics and sequences to small groups, adapting to each student's starting point.","Build problem-solving skills and confidence, tracking progress towards measurable gains.","Enhanced DBS; trained in tutoring and Child Protection in Education."]},
+ {y:2026, when:"Nov 2026 – present", type:"work", title:"Operations Assistant", org:"Institute for Arts in Therapy and Education",
+  sum:"Weekend role keeping arts-based therapy training running smoothly, in person and online.",
+  pts:["Set up training rooms, art materials and audio-visual equipment, and give technical support to staff and students.","Run the tech for online taster sessions: share the slideshow, check the audio and move through slides on the presenter's cue."]},
+ {y:2026, when:"Oct – Dec 2026", type:"study", title:"Group project: seats on the Tube", org:"MSc coursework, Interaction Design",
+  sum:"“How might we help passengers request and offer a seat in a way that feels discreet, accessible and easy to act on?”",
+  pts:["Five-person team researching commuters' unspoken needs on the London Underground.","Developed and tested design concepts with weekly guidance, delivered as a video, report and presentation."]},
+ {y:2026, when:"Oct – Dec 2026", type:"study", title:"Qualitative research study", org:"MSc coursework, Interaction Science",
+  sum:"Team study on how new students gather information and choose optional modules.",
+  pts:["Semi-structured interviews with informed consent and anonymised data.","Reflexive thematic analysis (Braun and Clarke), developing themes through team discussion."]},
+ {y:2026, when:"Sep 2026 – Aug 2027", type:"study", title:"MSc Human-Computer Interaction", org:"University College London",
+  sum:"Interaction Design, Interaction Science, Human-AI Interaction, HCI for Health and Wellbeing, User-Centred Data Visualisation and The Digital Workplace."},
+ {y:2026, when:"Jan – May 2026", type:"project", title:"StudyBuddy", org:"User research and app design", link:["#studybuddy","Read the case study"],
+  sum:"Seven interviews with walkthroughs showed students plan well but struggle to start, which reshaped the app.",
+  pts:["Persona, journey map, user flow and six annotated mobile wireframes in Figma."]},
+ {y:2026, when:"Jun 2026", type:"study", title:"BSc (Hons) Computer Science, First Class", org:"City St George's, University of London",
+  sum:"Professional Pathway, 2022–2026. Highlights: Computer Science, Ethics and Society (95), Work Based Project (79.9), Data Visualisation (79)."},
+ {y:2025, when:"Oct 2025 – Jun 2026", type:"project", title:"Student Circus mentoring platform", org:"Final-year project for a real client", link:["#student-circus","Read the case study and try the demo"],
+  sum:"Took a platform connecting international students with alumni mentors from client requirements to a working product.",
+  pts:["Role-based journeys for students, mentors and admins, mentor verification and Google Calendar booking.","Vue.js, Laravel and SQLite; verified against 24 test cases."]},
+ {y:2025, when:"Oct – Dec 2025", type:"project", title:"GP appointments dashboard", org:"Data Visualisation module", link:["#data-vis","Explore the dashboard"],
+  sum:"Interactive analysis of 110,000+ appointments exploring no-shows, cancellations and slot use, built in Elm and Vega-Lite."},
+ {y:2025, when:"2025", type:"award", title:"Student fundraising", org:"Mercy to Humanity and Glory to Guidance",
+  sum:"Helped run a charity BBQ that served over 300 students and raised more than £800, and was part of an event that raised over £16,000 for orphans in Gaza."},
+ {y:2024, when:"Jun – Jul 2024", type:"work", title:"Teaching Assistant", org:"Bengali Education Centre",
+  sum:"Helped children aged 4–16 with maths and English homework, keeping sessions engaging and focused."},
+ {y:2024, when:"2024", type:"project", title:"Desk reservation web app", org:"Work Based Project", link:["desk-booking-demo/","Try the live demo"],
+  sum:"A booking system with a clickable floor plan, calendar, “who's in” list, admin tools and downloadable reports, built with PHP. Module mark: 79.9."},
+ {y:2024, when:"2024", type:"award", title:"Coding Kickstarter, student panel and promo video", org:"Activision Blizzard and City",
+  sum:"Completed Activision Blizzard's Introduction to Python and Apps course, spoke on a student panel encouraging placements, and appeared in a university promotional video."},
+ {y:2023, when:"Sep 2023 – present", type:"work", title:"Support Engineer", org:"Integrella, healthcare integration consultancy",
+  sum:"First line of support for NHS trusts including UCLH, South Tees, Frimley, Northumbria and East of England Ambulance Service.",
+  pts:["Average response and resolution SLAs of 98%, including an out-of-hours rota.","HL7 integrations on InterSystems HealthConnect and Rhapsody; SQL scripts to fix data issues.","Unblocked a failed Entra ID migration and set out options for leadership.","Led the Qualys rollout, supported Cyber Essentials, and took part in two CRM migrations.","Built a company-wide onboarding and offboarding tracker, and trained new staff with guides, videos and knowledge transfer sessions."]},
+ {y:2023, when:"Feb – May 2023", type:"work", title:"Student roles", org:"City, University of London (via Unitemps)",
+  sum:"Election Assistant, Student Digital Community scoping researcher and Co-Pilot.",
+  pts:["Held informal research conversations with students across campus about Student Digital Assistants, recording feedback and new ideas.","Checked AV and ran Zoom for hybrid classes, escalating complex issues to IT.","Promoted Students' Union elections across campuses."]},
+ {y:2023, when:"2023", type:"project", title:"2D platform game and shopping centre database", org:"BSc coursework",
+  sum:"A Java platform game and an SQL database of a shopping centre's customers and purchases. Also served on the Computer Science Society committee."},
+ {y:2022, when:"Sep 2022 – present", type:"work", title:"Food Connector", org:"The Food Connection (freelance)",
+  sum:"Run brand sampling stands and invite customers to share their views on products."},
+ {y:2022, when:"2020 – 2022", type:"award", title:"Sixth form leadership", org:"St Marylebone CE School",
+  sum:"Chair of the Sixth Form Committee (organised a Christmas Fair and Culture Day), editor of the school newsletter, and winner of the Marylebone Rotary Prize. A-levels in Mathematics, Economics and Psychology."},
+ {y:2021, when:"Jun 2021 – Aug 2023", type:"work", title:"Senior Administrative Assistant", org:"Camden Summer University, Camden Council",
+  sum:"Managed records for over 1,000 young people and supported young people with autism and dyslexia.",
+  pts:["Turned enrolment data into reports for senior management.","Delivered presentations in schools and ran social media to reach young people from disadvantaged backgrounds.","Helped coordinate a borough-wide project."]},
+ {y:2021, when:"2021", type:"award", title:"Nuffield Research Placement and Gold CREST Award", org:"Synoptix", link:["#counsellor-app","Read about the project"],
+  sum:"Independent report on how AI could improve safety in society, designing a patient–counsellor matching app. Also joined the In2Science cohort and led a Gaza Winter Walk team that raised over £1,000."}
+];
+const TYPES = {work:"Work", study:"Study", project:"Project", award:"Achievement"};
+(function(){
+  const root = document.getElementById("tl-list"), years = [...new Set(TL.map(e=>e.y))];
+  const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  root.innerHTML = years.map(y => `<li class="tl-year" id="y${y}" data-year="${y}"><h3 class="tl-yr">${y}</h3><ol class="tl-items">` +
+    TL.map((e,i)=>({e,i})).filter(o=>o.e.y===y).map(({e,i}) => `<li class="tl-item t-${e.type}">
+      <button type="button" class="tl-head" aria-expanded="false" aria-controls="tl-d${i}">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <span class="tl-when">${esc(e.when)}</span>
+        <span class="tl-title">${esc(e.title)}</span>
+        <span class="tl-org">${esc(e.org)}</span>
+        <span class="tl-kind">${TYPES[e.type]}${e.soon?` · ${esc(e.soon)}`:""}</span>
+      </button>
+      <div class="tl-detail" id="tl-d${i}" hidden><p>${esc(e.sum)}</p>${e.pts?`<ul>${e.pts.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`:""}${e.link?`<a class="tl-link" href="${e.link[0]}">${esc(e.link[1])} →</a>`:""}</div>
+    </li>`).join("") + `</ol></li>`).join("");
+  const set = (btn, open) => { btn.setAttribute("aria-expanded", open); document.getElementById(btn.getAttribute("aria-controls")).hidden = !open; };
+  root.addEventListener("click", ev => { const b = ev.target.closest(".tl-head"); if(b) set(b, b.getAttribute("aria-expanded")!=="true"); });
+  const all = document.getElementById("tl-all");
+  all.addEventListener("click", () => { const open = all.getAttribute("aria-pressed")!=="true"; all.setAttribute("aria-pressed", open); all.textContent = open ? "Collapse all" : "Expand all"; root.querySelectorAll(".tl-head").forEach(b=>set(b, open)); });
+  const bar = document.getElementById("tl-years");
+  bar.innerHTML = years.map(y=>`<button type="button" data-y="${y}">${y}</button>`).join("");
+  bar.addEventListener("click", ev => { const b = ev.target.closest("button"); if(!b) return; document.getElementById("y"+b.dataset.y).scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"}); });
+  if ("IntersectionObserver" in window){
+    const io = new IntersectionObserver(ents => ents.forEach(en => { if(en.isIntersecting){ bar.querySelectorAll("button").forEach(b=>b.classList.toggle("on", b.dataset.y===en.target.dataset.year)); } }), {rootMargin:"-30% 0px -60% 0px"});
+    root.querySelectorAll(".tl-year").forEach(el=>io.observe(el));
+  }
+})();
+
 /* ---- routing ---- */
 const views = {home:"view-home", studybuddy:"view-studybuddy", "counsellor-app":"view-counsellor-app", "student-circus":"view-student-circus", "data-vis":"view-data-vis", cv:"view-cv"};
 function route(){
@@ -883,9 +1052,9 @@ function route(){
   const view = views[h] ? h : "home";
   Object.entries(views).forEach(([k,id])=>{ document.getElementById(id).hidden = k!==view; });
   document.querySelectorAll(".top nav a").forEach(a=>a.removeAttribute("aria-current"));
-  const cur = document.querySelector('.top nav a[data-nav="'+(view==="home" && (h==="experience"||h==="contact") ? h : view)+'"]');
+  const cur = document.querySelector('.top nav a[data-nav="'+(view==="home" && (h==="experience"||h==="contact"||h==="timeline") ? h : view)+'"]');
   if(cur) cur.setAttribute("aria-current","page");
-  if(view==="home" && (h==="experience" || h==="contact" || h==="work")){ document.getElementById(h).scrollIntoView(); }
+  if(view==="home" && (h==="experience" || h==="contact" || h==="work" || h==="timeline")){ document.getElementById(h).scrollIntoView(); }
   else if(h==="contact"){ document.getElementById("contact").scrollIntoView(); }
   else window.scrollTo(0,0);
 }
